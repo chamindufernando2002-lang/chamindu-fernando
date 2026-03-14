@@ -71,7 +71,7 @@ const Contact = () => {
                </div>
                <div className="detail-text-col">
                  <span className="detail-label">Email us</span>
-                 <a href="mailto:hello@ludolabs.co" className="detail-value cursor-hover font-bold">hello@ludolabs.co</a>
+                 <a href="mailto:ashrachamindufernando@gmail.com" className="detail-value cursor-hover font-bold">ashrachamindufernando@gmail.com</a>
                </div>
             </div>
             
@@ -81,7 +81,7 @@ const Contact = () => {
                </div>
                <div className="detail-text-col">
                  <span className="detail-label">Call us</span>
-                 <a href="tel:+1234567890" className="detail-value cursor-hover font-bold">+1 (234) 567-890</a>
+                 <a href="tel:+94769912948" className="detail-value cursor-hover font-bold">(+94) 76 991 2948</a>
                </div>
             </div>
             
@@ -91,7 +91,7 @@ const Contact = () => {
                </div>
                <div className="detail-text-col">
                  <span className="detail-label">Location</span>
-                 <span className="detail-value font-bold">San Francisco, CA</span>
+                 <span className="detail-value font-bold">Colombo, Sri Lanka</span>
                </div>
             </div>
           </div>
