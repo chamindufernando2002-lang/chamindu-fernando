@@ -1,66 +1,151 @@
-body {
-  cursor: none;
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM CUSTOM CURSOR 
+═══════════════════════════════════════════════════════════ */
+:root {
+  --cc-dot-size    : 8px;
+  --cc-orb-size    : 40px;
+  --cc-orb-hover   : 70px;
+  --cc-accent      : var(--accent-color, #ff5e00);
 }
 
-a, button {
-  cursor: none;
+/* ── Hide native cursor everywhere on fine pointer devices ── */
+@media (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
 }
 
-.cursor-outline {
-  position: fixed;
-  top: -16px; /* Offset by half size to center */
-  left: -16px;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--accent-color);
+/* ════════════════════════════════════
+   1.  PRECISION DOT
+   Zero-lag snap to actual mouse pos
+════════════════════════════════════ */
+.cc-dot {
+  position   : fixed;
+  top        : 0;
+  left       : 0;
+  width      : var(--cc-dot-size);
+  height     : var(--cc-dot-size);
+  margin-top : calc(var(--cc-dot-size) / -2);
+  margin-left: calc(var(--cc-dot-size) / -2);
+
+  background   : #fff;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index      : 10002;
+  will-change  : transform, opacity;
+  mix-blend-mode: difference;
+
+  transition:
+    width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    margin-top 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    margin-left 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.3s ease;
+}
+
+/* Dot shrinks out on hover so Orb can take focus */
+.cc-dot--hover {
+  width: 0px;
+  height: 0px;
+  margin-top: 0;
+  margin-left: 0;
+  opacity: 0 !important;
+}
+
+.cc-dot--click {
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  margin-left: -2px;
+}
+
+.cc-dot--hidden {
+  opacity: 0 !important;
+}
+
+/* ════════════════════════════════════
+   2.  MAGNETIC ORB
+   Smooth lerp trailing, expands on hover
+════════════════════════════════════ */
+.cc-orb {
+  position      : fixed;
+  top           : 0;
+  left          : 0;
+  width         : var(--cc-orb-size);
+  height        : var(--cc-orb-size);
+  margin-top    : calc(var(--cc-orb-size) / -2);
+  margin-left   : calc(var(--cc-orb-size) / -2);
+
+  border-radius : 50%;
+  pointer-events: none;
+  z-index       : 10001;
+  will-change   : transform, width, height, background-color, border-color;
+  
+  display      : flex;
+  align-items  : center;
+  justify-content: center;
+
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
   background-color: transparent;
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border 0.3s ease, top 0.3s ease, left 0.3s ease;
-  will-change: transform, width, height;
+  mix-blend-mode: difference;
+  
+  transition:
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    background-color 0.4s ease,
+    opacity 0.3s ease;
 }
 
-.cursor-outline.hovering {
-  width: 80px;
-  height: 80px;
-  top: -40px;
-  left: -40px;
-  border: 1px solid transparent;
-  background-color: rgba(255, 94, 0, 0.15); /* Soft neon glow */
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+/* ── Hover: orb inflates and fills ── */
+.cc-orb--hover {
+  width      : var(--cc-orb-hover);
+  height     : var(--cc-orb-hover);
+  margin-top : calc(var(--cc-orb-hover) / -2);
+  margin-left: calc(var(--cc-orb-hover) / -2);
+  
+  background-color: #fff;
+  border-color: transparent;
 }
 
-.cursor-dot {
-  position: fixed;
-  top: -4px;
-  left: -4px;
-  width: 8px;
-  height: 8px;
-  background-color: var(--accent-color);
-  border-radius: 50%;
+/* ── Click: orb contracts slightly ── */
+.cc-orb--click {
+  width      : 30px;
+  height     : 30px;
+  margin-top : -15px;
+  margin-left: -15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: transparent;
+}
+
+.cc-orb--hidden {
+  opacity: 0 !important;
+}
+
+/* Optional text inside the orb for custom hover messages */
+.cc-text {
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #000; /* Acts as a cutout in difference mode against the solid white orb */
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s ease 0.1s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
-  z-index: 10000;
-  transition: opacity 0.3s ease, transform 0.1s;
-  will-change: transform, opacity;
+  white-space: nowrap;
 }
 
-.cursor-dot.hovering {
-  opacity: 0; /* Hide inner dot when hovering over clickable items for cleaner look */
+.cc-orb--hover .cc-text {
+  opacity: 1;
+  transform: scale(1);
 }
 
-@media (max-width: 768px) {
-  body {
-    cursor: auto;
-  }
-  
-  a, button {
-    cursor: auto;
-  }
-  
-  .cursor-outline,
-  .cursor-dot {
-    display: none !important;
-  }
+/* ════════════════════════════════════
+   MOBILE / TOUCH — hide it all
+════════════════════════════════════ */
+@media (hover: none), (pointer: coarse) {
+  *, *::before, *::after { cursor: auto !important; }
+  .cc-dot, .cc-orb { display: none !important; }
 }

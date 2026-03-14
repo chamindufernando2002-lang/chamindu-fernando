@@ -110,7 +110,8 @@ a.detail-value:hover {
 }
 
 .form-input::placeholder {
-  color: transparent; /* Hide placeholder, use label */
+  color: transparent;
+  /* Hide placeholder, use label */
 }
 
 .form-label {
@@ -123,8 +124,8 @@ a.detail-value:hover {
   transition: all var(--transition-medium);
 }
 
-.form-input:focus ~ .form-label,
-.form-input:not(:placeholder-shown) ~ .form-label {
+.form-input:focus~.form-label,
+.form-input:not(:placeholder-shown)~.form-label {
   top: -1rem;
   font-size: 0.85rem;
   color: var(--accent-color);

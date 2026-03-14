@@ -1,89 +1,134 @@
+'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import './CustomCursor.css';
 
 const CustomCursor = () => {
-  const cursorDot = useRef(null);
-  const cursorOutline = useRef(null);
-  const requestRef = useRef();
-  const [isHovering, setIsHovering] = useState(false);
+  const orbRef    = useRef(null);
+  const dotRef    = useRef(null);
+  const reqRef    = useRef();
 
-  // Target positions
-  const mouse = useRef({ 
+  // Raw mouse position
+  const mouse  = useRef({ 
     x: typeof window !== 'undefined' ? window.innerWidth / 2 : 0, 
     y: typeof window !== 'undefined' ? window.innerHeight / 2 : 0 
   });
-  // Current positions for lerping
-  const dot = useRef({ 
-    x: typeof window !== 'undefined' ? window.innerWidth / 2 : 0, 
-    y: typeof window !== 'undefined' ? window.innerHeight / 2 : 0 
-  });
-  const outline = useRef({ 
-    x: typeof window !== 'undefined' ? window.innerWidth / 2 : 0, 
-    y: typeof window !== 'undefined' ? window.innerHeight / 2 : 0 
-  });
+  // Smoothed orb position
+  const orbPos = useRef({ x: mouse.current.x, y: mouse.current.y });
+
+  const [state, setState] = useState('idle'); // 'idle' | 'hover' | 'click' | 'hidden'
+  const [text, setText] = useState('');
 
   useEffect(() => {
-    const onMouseMove = (e) => {
+    // hide cursor default, avoid showing initially at 0,0 by keeping it transparent until first move
+    let hasMoved = false;
+
+    const onMove = (e) => {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
+
+      if (!hasMoved) {
+        hasMoved = true;
+        orbPos.current.x = e.clientX;
+        orbPos.current.y = e.clientY;
+        if (dotRef.current) dotRef.current.style.opacity = 1;
+        if (orbRef.current) orbRef.current.style.opacity = 1;
+      }
+
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      }
     };
 
-    const handleMouseOver = (e) => {
-      if (
-        e.target.tagName.toLowerCase() === 'a' ||
-        e.target.tagName.toLowerCase() === 'button' ||
-        e.target.closest('a') ||
-        e.target.closest('button') ||
-        e.target.classList.contains('cursor-hover')
-      ) {
-        setIsHovering(true);
+    const onOver = (e) => {
+      const el = e.target;
+      const clickable =
+        el.tagName === 'A'      || el.tagName === 'BUTTON' ||
+        el.closest('a')         || el.closest('button')    ||
+        el.classList.contains('cursor-hover') ||
+        el.closest('.cursor-hover');
+      
+      const textEl = el.closest('[data-cursor-text]');
+      if (textEl) {
+        setText(textEl.getAttribute('data-cursor-text'));
       } else {
-        setIsHovering(false);
-      }
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
-
-    // Linear interpolation function
-    const lerp = (start, end, factor) => start + (end - start) * factor;
-
-    const render = () => {
-      // Fast lerp for the dot
-      dot.current.x = lerp(dot.current.x, mouse.current.x, 0.5);
-      dot.current.y = lerp(dot.current.y, mouse.current.y, 0.5);
-
-      // Slower lerp for the outline, giving that smooth dragging feel
-      outline.current.x = lerp(outline.current.x, mouse.current.x, 0.15);
-      outline.current.y = lerp(outline.current.y, mouse.current.y, 0.15);
-
-      if (cursorDot.current && cursorOutline.current) {
-        cursorDot.current.style.transform = `translate3d(${dot.current.x}px, ${dot.current.y}px, 0)`;
-        cursorOutline.current.style.transform = `translate3d(${outline.current.x}px, ${outline.current.y}px, 0)`;
+        setText(el.closest('.cursor-hover')?.getAttribute('data-cursor-text') || '');
       }
 
-      requestRef.current = requestAnimationFrame(render);
+      setState(prev => prev === 'click' ? prev : (clickable ? 'hover' : 'idle'));
     };
 
-    requestRef.current = requestAnimationFrame(render);
+    const onDown = () => setState('click');
+    const onUp   = () => {
+      // Re-evaluate on up
+      const el = document.elementFromPoint(mouse.current.x, mouse.current.y);
+      const clickable =
+        el && (el.tagName === 'A' || el.tagName === 'BUTTON' ||
+               el.closest?.('a') || el.closest?.('button') ||
+               el.classList?.contains('cursor-hover') ||
+               el.closest?.('.cursor-hover'));
+      setState(clickable ? 'hover' : 'idle');
+    };
+
+    const onLeave = () => {
+      setState('hidden');
+      hasMoved = false;
+      if (dotRef.current) dotRef.current.style.opacity = 0;
+      if (orbRef.current) orbRef.current.style.opacity = 0;
+    };
+    
+    const onEnter = () => {
+      setState('idle');
+    };
+
+    window.addEventListener('mousemove',  onMove,  { passive: true });
+    window.addEventListener('mouseover',  onOver,  { passive: true });
+    window.addEventListener('mousedown',  onDown);
+    window.addEventListener('mouseup',    onUp);
+    document.documentElement.addEventListener('mouseleave', onLeave);
+    document.documentElement.addEventListener('mouseenter', onEnter);
+
+    // Snappier lerp makes it easier to handle (0.15 vs 0.1)
+    const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
+    
+    const tick = () => {
+      orbPos.current.x = lerp(orbPos.current.x, mouse.current.x, 0.15);
+      orbPos.current.y = lerp(orbPos.current.y, mouse.current.y, 0.15);
+
+      if (orbRef.current) {
+        orbRef.current.style.transform = `translate(${orbPos.current.x}px, ${orbPos.current.y}px)`;
+      }
+      reqRef.current = requestAnimationFrame(tick);
+    };
+    reqRef.current = requestAnimationFrame(tick);
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
-      cancelAnimationFrame(requestRef.current);
+      window.removeEventListener('mousemove',  onMove);
+      window.removeEventListener('mouseover',  onOver);
+      window.removeEventListener('mousedown',  onDown);
+      window.removeEventListener('mouseup',    onUp);
+      document.documentElement.removeEventListener('mouseleave', onLeave);
+      document.documentElement.removeEventListener('mouseenter', onEnter);
+      cancelAnimationFrame(reqRef.current);
     };
   }, []);
 
   return (
     <>
+      {/* ── Precision dot — zero-lag snap ── */}
       <div 
-        ref={cursorOutline} 
-        className={`cursor-outline ${isHovering ? 'hovering' : ''}`} 
+        ref={dotRef} 
+        className={`cc-dot cc-dot--${state}`} 
+        style={{ opacity: 0 }} 
       />
+      
+      {/* ── Magnetic orb — lerps trailing the mouse ── */}
       <div 
-        ref={cursorDot} 
-        className={`cursor-dot ${isHovering ? 'hovering' : ''}`} 
-      />
+        ref={orbRef} 
+        className={`cc-orb cc-orb--${state}`}
+        style={{ opacity: 0 }} 
+      >
+        {text && <span className="cc-text">{text}</span>}
+      </div>
     </>
   );
 };
