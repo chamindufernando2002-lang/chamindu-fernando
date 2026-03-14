@@ -51,15 +51,17 @@
 }
 
 .detail-label {
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-secondary);
+  letter-spacing: 3px;
+  color: var(--text-primary);
 }
 
 .detail-value {
-  font-size: 2rem;
-  color: var(--text-primary);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
   transition: color var(--transition-fast);
 }
 

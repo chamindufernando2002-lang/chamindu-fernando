@@ -50,12 +50,12 @@ const Contact = () => {
 
           <div className="contact-details">
             <div className="contact-detail-item">
-              <span className="detail-label">Email</span>
-              <a href="mailto:ashrachamindufernando@gmail.com" className="heading-font detail-value cursor-hover">ashrachamindufernando@gmail.com</a>
+              <span className="heading-font detail-label">Email</span>
+              <a href="mailto:ashrachamindufernando@gmail.com" className="detail-value cursor-hover">ashrachamindufernando@gmail.com</a>
             </div>
             <div className="contact-detail-item">
-              <span className="detail-label">Location</span>
-              <span className="heading-font detail-value">Kalutara, Sri Lanka</span>
+              <span className="heading-font detail-label">Location</span>
+              <span className="detail-value">Kalutara, Sri Lanka</span>
             </div>
           </div>
         </motion.div>
