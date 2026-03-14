@@ -44,7 +44,6 @@
   line-height: 1.1;
   margin-bottom: 1.5rem;
   color: #fff;
-  text-transform: none; /* Reference image relies on Sentence Case for mostly Let's Build... */
 }
 
 .contact-desc {
