@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Twitter, Github } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Github } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -97,10 +97,25 @@ const Contact = () => {
           </div>
 
           <div className="contact-socials">
-            <a href="#" className="social-box cursor-hover" aria-label="LinkedIn"><Linkedin size={20} /></a>
-            <a href="#" className="social-box cursor-hover" aria-label="Instagram"><Instagram size={20} /></a>
-            <a href="#" className="social-box cursor-hover" aria-label="Twitter"><Twitter size={20} /></a>
-            <a href="#" className="social-box cursor-hover" aria-label="GitHub"><Github size={20} /></a>
+            <a href="https://www.linkedin.com/in/chamindu-fernandez/" target="_blank" rel="noopener noreferrer" className="social-box cursor-hover" aria-label="LinkedIn">
+              <Linkedin size={20} />
+            </a>
+            <a href="https://www.instagram.com/ludolabsco/" target="_blank" rel="noopener noreferrer" className="social-box cursor-hover" aria-label="Instagram">
+              <Instagram size={20} />
+            </a>
+            <a href="https://www.behance.net/chaminduashara" target="_blank" rel="noopener noreferrer" className="social-box cursor-hover" aria-label="Behance">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 4h4c1.1 0 2 .9 2 2s-.9 2-2 2H6z" />
+                <path d="M6 10h4.5c1.4 0 2.5 1.1 2.5 2.5S11.9 15 10.5 15H6z" />
+                <path d="M6 4v11" />
+                <path d="M15 13.5v-1c0-1.4 1.1-2.5 2.5-2.5S20 11.1 20 12.5v1h-5" />
+                <path d="M15 13.5c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5" />
+                <path d="M16 7h3" />
+              </svg>
+            </a>
+            <a href="https://github.com/ChaminduFernando" target="_blank" rel="noopener noreferrer" className="social-box cursor-hover" aria-label="GitHub">
+              <Github size={20} />
+            </a>
           </div>
         </motion.div>
 
