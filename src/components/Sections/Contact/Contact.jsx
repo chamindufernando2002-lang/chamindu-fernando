@@ -55,7 +55,7 @@ const Contact = () => {
             </div>
             <div className="contact-detail-item">
               <span className="detail-label">Location</span>
-              <span className="heading-font detail-value">Colombo, Sri Lanka</span>
+              <span className="heading-font detail-value">Kalutara, Sri Lanka</span>
             </div>
           </div>
         </motion.div>
