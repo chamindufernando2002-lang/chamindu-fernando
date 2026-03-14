@@ -1,0 +1,223 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+/* Base background image setup */
+.hero-background {
+  position: absolute;
+  top: -10%; /* Offset for parallax */
+  left: 0;
+  width: 100%;
+  height: 120%; /* Extra height for parallax */
+  background-size: cover;
+  background-position: center 30%; /* Align background more towards center-top */
+  background-repeat: no-repeat;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* Left fade for text readability (Dark to transparent) */
+.hero-overlay-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.6) 50%, rgba(5, 5, 5, 0) 100%);
+  z-index: 1;
+}
+
+/* Bottom fade for seamless transition to the next section */
+.hero-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Adjusted height */
+  /* Intense fade: solid bg-color at the very bottom, smoothly fading to transparent */
+  background: linear-gradient(to top, var(--bg-color) 0%, var(--bg-color) 15%, rgba(5, 5, 5, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Content wrapper */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the text vertically */
+  height: 100%;
+  padding-top: 10vh; /* Adjust for navbar */
+  /* Remove flex-direction space-between to allow absolute positioning of scroll indicator */
+}
+
+/* Wrapper for the text block so we can animate it cleanly on the left */
+.hero-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin-top: -5vh; /* Slight optical adjustment */
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Pulled elements much closer together */
+  max-width: 800px;
+  align-items: flex-start;
+}
+
+/* Typography styles */
+.hero-title {
+  font-size: clamp(4rem, 9vw, 9rem);
+  display: flex;
+  flex-direction: column;
+  line-height: 0.95;
+  margin: 0;
+  /* Removed heavy text-shadow */
+}
+
+.text-line {
+  display: block;
+}
+
+.hero-subtitle p {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-weight: 600; /* Semibold */
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  color: rgba(221, 221, 221, 0.7); /* ddd with 70% opacity */
+  letter-spacing: 0.5px;
+  text-shadow: none; /* Removed shadow */
+  max-width: 600px;
+  margin: 0;
+  margin-top: 0.5rem; /* Small optical tweak */
+}
+
+.hero-action {
+  margin-top: 1rem;
+}
+
+/* CTA Button styling */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  position: relative;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+  width: max-content;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-medium);
+}
+
+.cta-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all var(--transition-medium);
+  color: #fff;
+  background-color: rgba(5,5,5,0.4); 
+  backdrop-filter: blur(5px);
+}
+
+.cta-button:hover .cta-icon {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  transform: rotate(-45deg);
+  border-color: var(--accent-color);
+}
+
+/* Scroll indicator positioning */
+.hero-bottom {
+  position: absolute;
+  bottom: 5vh;
+  right: 2rem; /* Stick to bottom right corner */
+  z-index: 3;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.6;
+}
+
+.mouse {
+  width: 26px;
+  height: 40px;
+  border: 2px solid var(--text-secondary);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, 15px); opacity: 0; }
+}
+
+.scroll-text {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Responsive constraints */
+@media (max-width: 768px) {
+  .hero-overlay-left {
+    width: 100%;
+    background: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.7) 100%);
+  }
+}

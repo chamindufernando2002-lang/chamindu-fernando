@@ -1,0 +1,195 @@
+.contact-section {
+  background-color: var(--bg-color);
+  position: relative;
+  border-top: 1px solid var(--border-color);
+  z-index: 10;
+  padding-bottom: var(--spacing-xl);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1;
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-desc {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: auto;
+}
+
+.contact-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+}
+
+.detail-value {
+  font-size: 2rem;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+a.detail-value:hover {
+  color: var(--accent-color);
+}
+
+.contact-form-wrapper {
+  background: rgba(20, 20, 20, 0.3);
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+@media (min-width: 768px) {
+  .contact-form-wrapper {
+    padding: 4rem;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #444;
+  padding: 1rem 0;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-bottom-color: var(--accent-color);
+}
+
+.form-input::placeholder {
+  color: transparent; /* Hide placeholder, use label */
+}
+
+.form-label {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: all var(--transition-medium);
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+  top: -1rem;
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-medium);
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateY(100%);
+  transition: transform var(--transition-medium);
+  z-index: 0;
+}
+
+.submit-btn:hover::before {
+  transform: translateY(0);
+}
+
+.submit-btn span,
+.submit-btn svg {
+  position: relative;
+  z-index: 1;
+  transition: color var(--transition-fast);
+}
+
+.submit-btn:hover span,
+.submit-btn:hover svg {
+  color: var(--bg-color);
+}
+
+.submit-btn.submitting {
+  background-color: #333;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.submit-btn.submitted {
+  background-color: #2e7d32;
+  color: white;
+  pointer-events: none;
+}

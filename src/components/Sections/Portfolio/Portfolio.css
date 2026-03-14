@@ -1,0 +1,150 @@
+.portfolio-section {
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 15vh;
+  margin-top: 5vh;
+}
+
+.portfolio-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* 
+  Continuous Right-Moving Marquee
+*/
+.portfolio-marquee-viewport {
+  width: 100%;
+  padding: 2rem 0;
+  overflow: hidden;
+  /* Add consistent side spacing to frame it nicely without hitting absolute screen edges */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  /* Add subtle borders top and bottom for consistency */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2); /* Slight background tint to differentiate the section */
+}
+
+.portfolio-marquee-track {
+  display: flex;
+  width: max-content;
+  /* Animating slowly towards the right. 50s duration. */
+  animation: scrollRight 50s linear infinite;
+  will-change: transform;
+}
+
+.portfolio-marquee-viewport:hover .portfolio-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollRight {
+  /* Start translated entirely by exactly half the track width, end at 0. */
+  /* This creates a perfectly seamless loop to the right if the track has matched halves. */
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+/* Individual Slides */
+.portfolio-slide {
+  width: 500px;
+  height: 600px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #111;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  margin-right: 3rem; /* Use margin instead of gap on parent for perfect symmetric halves */
+}
+
+@media (max-width: 1200px) {
+  .portfolio-slide {
+    width: 400px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-slide {
+    width: 80vw;
+    height: 90vw;
+    margin-right: 1.5rem;
+  }
+}
+
+.portfolio-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.portfolio-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.8s ease; /* Removed global transform transitions for "popping" */
+}
+
+/* Base dark premium overlay */
+.portfolio-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end; 
+  justify-content: center;
+  padding-bottom: 3rem;
+  background: rgba(5, 5, 5, 0.1); 
+  transition: background 0.6s ease;
+}
+
+/* Text hidden by default / pushed down slightly */
+.portfolio-slide-content {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-slide-content h3 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.portfolio-slide-content p {
+  font-family: var(--font-body);
+  color: #ddd;
+  font-size: 0.95rem;
+  max-width: 250px;
+  margin: 0 auto;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* Hover Interactive Effects - Flat aesthetic with NO pop scale */
+.portfolio-slide:hover img {
+  /* Purposely no scale or pop transforms */
+  filter: blur(4px) brightness(0.4);
+}
+
+.portfolio-slide:hover .portfolio-slide-overlay {
+  background: rgba(255, 94, 0, 0.2); 
+}
+
+.portfolio-slide:hover .portfolio-slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}

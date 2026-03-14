@@ -1,0 +1,66 @@
+body {
+  cursor: none;
+}
+
+a, button {
+  cursor: none;
+}
+
+.cursor-outline {
+  position: fixed;
+  top: -16px; /* Offset by half size to center */
+  left: -16px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  background-color: transparent;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border 0.3s ease, top 0.3s ease, left 0.3s ease;
+  will-change: transform, width, height;
+}
+
+.cursor-outline.hovering {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: -40px;
+  border: 1px solid transparent;
+  background-color: rgba(255, 94, 0, 0.15); /* Soft neon glow */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.cursor-dot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: opacity 0.3s ease, transform 0.1s;
+  will-change: transform, opacity;
+}
+
+.cursor-dot.hovering {
+  opacity: 0; /* Hide inner dot when hovering over clickable items for cleaner look */
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+  
+  a, button {
+    cursor: auto;
+  }
+  
+  .cursor-outline,
+  .cursor-dot {
+    display: none !important;
+  }
+}

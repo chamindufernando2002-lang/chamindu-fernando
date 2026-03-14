@@ -1,0 +1,59 @@
+.network-status-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.network-button {
+  background: rgba(15, 15, 15, 0.8);
+  border: 1px solid rgba(255, 68, 68, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.network-icon {
+  color: #ff4444; /* Error red */
+}
+
+.network-text {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.network-spinner {
+  color: var(--text-secondary);
+  animation: spin 1.5s linear infinite;
+}
+
+.pulse-red {
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .network-status-container {
+    bottom: 1rem;
+    right: 50%;
+    transform: translateX(50%) !important;
+  }
+}
