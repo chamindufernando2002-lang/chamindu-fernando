@@ -6,6 +6,7 @@
   --cc-orb-size    : 40px;
   --cc-orb-hover   : 70px;
   --cc-accent      : var(--accent-color, #ff5e00);
+  --cc-glow        : var(--accent-glow, rgba(255, 94, 0, 0.4));
 }
 
 /* ── Hide native cursor everywhere on fine pointer devices ── */
@@ -26,12 +27,12 @@
   margin-top : calc(var(--cc-dot-size) / -2);
   margin-left: calc(var(--cc-dot-size) / -2);
 
-  background   : #fff;
+  background   : var(--cc-accent);
+  box-shadow   : 0 0 8px var(--cc-accent);
   border-radius: 50%;
   pointer-events: none;
   z-index      : 10002;
   will-change  : transform, opacity;
-  mix-blend-mode: difference;
 
   transition:
     width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
@@ -83,9 +84,8 @@
   align-items  : center;
   justify-content: center;
 
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border: 1.5px solid var(--cc-glow);
   background-color: transparent;
-  mix-blend-mode: difference;
   
   transition:
     width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -104,8 +104,9 @@
   margin-top : calc(var(--cc-orb-hover) / -2);
   margin-left: calc(var(--cc-orb-hover) / -2);
   
-  background-color: #fff;
-  border-color: transparent;
+  background-color: var(--cc-glow);
+  border-color: var(--cc-accent);
+  box-shadow: 0 0 20px rgba(255, 94, 0, 0.2);
 }
 
 /* ── Click: orb contracts slightly ── */
@@ -114,8 +115,9 @@
   height     : 30px;
   margin-top : -15px;
   margin-left: -15px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--cc-accent);
   border-color: transparent;
+  box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);
 }
 
 .cc-orb--hidden {
@@ -128,7 +130,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #000; /* Acts as a cutout in difference mode against the solid white orb */
+  color: #fff; /* White text for visibility */
   text-transform: uppercase;
   opacity: 0;
   transform: scale(0.5);

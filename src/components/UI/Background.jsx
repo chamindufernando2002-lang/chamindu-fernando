@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import './Background.css';
+import CursorParticles from './CursorParticles';
 
 const Background = () => {
   const interactiveGlow = useRef(null);
@@ -58,6 +59,9 @@ const Background = () => {
       
       {/* Mouse interactive glow */}
       <div ref={interactiveGlow} className="interactive-glow" />
+
+      {/* Custom Particle Trail */}
+      <CursorParticles />
     </div>
   );
 };
