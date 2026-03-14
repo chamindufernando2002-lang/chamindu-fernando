@@ -7,14 +7,14 @@ export default function SmoothScrollProvider({ children }) {
   useEffect(() => {
     // Initialize Lenis with heavier, luxurious smoothing settings
     const lenis = new Lenis({
-      duration: 1.8,  // Slower, heavily smoothed scroll
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      duration: 2.2,  // Slower, heavily smoothed scroll for Awwwards feel
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Expo ease out
       direction: 'vertical',
       gestureDirection: 'vertical',
       smooth: true,
-      mouseMultiplier: 0.8, // Slightly resistant mouse wheel for premium feel
+      mouseMultiplier: 0.6, // More resistant mouse wheel for premium heaviness
       smoothTouch: false,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
       infinite: false,
     });
 

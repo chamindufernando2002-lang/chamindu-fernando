@@ -11,10 +11,10 @@ const About = () => {
       <div className="container about-container">
         <motion.div 
           className="about-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="heading-font section-title">About Me</h2>
         </motion.div>
@@ -22,10 +22,10 @@ const About = () => {
         <div className="about-content">
           <motion.div 
             className="about-text"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <p>
               I am a multidisciplinary visual storyteller focused on crafting compelling digital 
@@ -38,30 +38,48 @@ const About = () => {
           <div className="about-cards">
             <motion.div 
               className="info-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <h3 className="heading-font">Expertise</h3>
               <ul className="pill-list">
-                {skills.map(skill => (
-                  <li key={skill} className="pill cursor-hover">{skill}</li>
+                {skills.map((skill, i) => (
+                  <motion.li 
+                    key={skill} 
+                    className="pill cursor-hover"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.5 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {skill}
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
 
             <motion.div 
               className="info-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               <h3 className="heading-font">Toolkit</h3>
               <ul className="pill-list">
-                {tools.map(tool => (
-                  <li key={tool} className="pill cursor-hover">{tool}</li>
+                {tools.map((tool, i) => (
+                  <motion.li 
+                    key={tool} 
+                    className="pill cursor-hover"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.7 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {tool}
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>

@@ -34,9 +34,9 @@ const Hero = () => {
         >
           <motion.div 
             className="hero-text"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <h1 className="heading-font hero-title">
               <span className="text-line">Chamindu</span>
@@ -45,9 +45,9 @@ const Hero = () => {
             
             <motion.div 
               className="hero-subtitle"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <p>Your friendly neighbourhood Designer</p>
             </motion.div>
@@ -56,7 +56,7 @@ const Hero = () => {
               className="hero-action"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.2, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
             >
               <a href="/work" className="cta-button cursor-hover">
                 <span>View My Work</span>

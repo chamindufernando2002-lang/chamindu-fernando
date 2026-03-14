@@ -48,16 +48,22 @@ const Portfolio = () => {
       <div className="container">
         <motion.div 
           className="portfolio-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="heading-font section-title">Recent Work</h2>
         </motion.div>
       </div>
 
-      <div className="portfolio-marquee-viewport">
+      <motion.div 
+        className="portfolio-marquee-viewport"
+        initial={{ opacity: 0, filter: 'blur(10px)' }}
+        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      >
         <div className="portfolio-marquee-track">
           {marqueeProjects.map((item, index) => (
             <div key={`${item.id}-${index}`} className="portfolio-slide">
@@ -75,7 +81,7 @@ const Portfolio = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
