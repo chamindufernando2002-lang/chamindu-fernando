@@ -16,11 +16,16 @@
   left: 0;
   width: 100%;
   height: 120%; /* Extra height for parallax */
-  background-size: cover;
-  background-position: center 30%; /* Align background more towards center-top */
-  background-repeat: no-repeat;
-  z-index: 0;
+  z-index: 1; /* Behind the text */
+  pointer-events: none; /* Allows clicks to pass through to text layer */
   will-change: transform;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
 }
 
 /* Left fade for text readability (Dark to transparent) */
@@ -31,7 +36,8 @@
   width: 60%;
   height: 100%;
   background: linear-gradient(to right, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.6) 50%, rgba(5, 5, 5, 0) 100%);
-  z-index: 1;
+  z-index: 3;
+  pointer-events: none;
 }
 
 /* Bottom fade for seamless transition to the next section */
@@ -43,14 +49,14 @@
   height: 50%; /* Adjusted height */
   /* Intense fade: solid bg-color at the very bottom, smoothly fading to transparent */
   background: linear-gradient(to top, var(--bg-color) 0%, var(--bg-color) 15%, rgba(5, 5, 5, 0) 100%);
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
 }
 
 /* Content wrapper */
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 5; /* Strictly on top of the video and overlays */
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center the text vertically */
@@ -219,5 +225,18 @@
   .hero-overlay-left {
     width: 100%;
     background: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.7) 100%);
+  }
+
+  /* Make hero text more readable on mobile constraints */
+  .hero-title {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+  }
+  
+  .hero-subtitle p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .cta-button {
+    font-size: 1rem;
   }
 }

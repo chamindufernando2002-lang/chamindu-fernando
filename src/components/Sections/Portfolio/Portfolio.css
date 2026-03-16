@@ -117,7 +117,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: filter 0.8s ease;
+  transition: filter 0.8s ease, transform 0.8s ease;
   /* Prevent native image drag interfering with pointer drag */
   pointer-events: none;
 }
@@ -166,6 +166,7 @@
 /* Hover Interactive Effects */
 .portfolio-slide:hover img {
   filter: blur(4px) brightness(0.4);
+  transform: scale(1.05);
 }
 
 .portfolio-slide:hover .portfolio-slide-overlay {

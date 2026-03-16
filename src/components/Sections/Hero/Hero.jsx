@@ -1,12 +1,13 @@
+'use client';
+
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDownRight } from 'lucide-react';
-import bannerImg from '../../../assets/images/web-banner.jpg';
 import './Hero.css';
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  // Parallax for the background image
+  // Parallax for the background video
   const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
   // Parallax for the text sliding down slower than the page scroll
   const yText = useTransform(scrollY, [0, 800], [0, 200]);
@@ -14,19 +15,7 @@ const Hero = () => {
   return (
     <section className="hero-section" id="hero">
       
-      {/* Full-screen Background Image with Parallax */}
-      <motion.div 
-        className="hero-background"
-        style={{ 
-          y: yBg, 
-          backgroundImage: `url(${bannerImg.src})` 
-        }}
-      >
-        {/* Gradient overlays for contrast and seamless transition */}
-        <div className="hero-overlay-left"></div>
-        <div className="hero-overlay-bottom"></div>
-      </motion.div>
-      
+      {/* Content wrapper - Text placed behind the video */}
       <div className="container hero-content">
         <motion.div 
           className="hero-text-wrapper"
@@ -49,7 +38,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              <p>Your friendly neighbourhood Designer</p>
+              <p>&quot;Your friendly neighbourhood Designer&quot;</p>
             </motion.div>
 
             <motion.div 
@@ -68,6 +57,26 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Video layer with Screen Blend Mode in front of text */}
+      <motion.div 
+        className="hero-background"
+        style={{ y: yBg }}
+      >
+        <video 
+          src="/hero-banner.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="hero-video"
+        ></video>
+      </motion.div>
+      
+      {/* Gradient overlays */}
+      <div className="hero-overlay-left"></div>
+      <div className="hero-overlay-bottom"></div>
+
     </section>
   );
 };
