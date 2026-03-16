@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import './About.css';
 
 const About = () => {
-  const skills = ['Graphic Design', 'Branding', 'Social Media Design', 'Motion Graphics'];
-  const tools = ['Photoshop', 'Illustrator', 'After Effects', 'Figma'];
+
 
   return (
     <section className="about-section section" id="about">
@@ -21,69 +20,20 @@ const About = () => {
         
         <div className="about-content">
           <motion.div 
-            className="about-text"
+            className="about-text glass-card"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{ padding: '3rem', maxWidth: '900px', margin: '0 auto' }}
           >
-            <p>
+            <p style={{ fontSize: '1.2rem', lineHeight: '1.8', margin: 0 }}>
               I am a multidisciplinary visual storyteller focused on crafting compelling digital 
               experiences. With a foundation in traditional graphic design and an eye towards 
               the future of motion aesthetics, I help brands articulate their unique narrative 
               through striking visuals and precise typography.
             </p>
           </motion.div>
-
-          <div className="about-cards">
-            <motion.div 
-              className="info-card"
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h3 className="heading-font">Expertise</h3>
-              <ul className="pill-list">
-                {skills.map((skill, i) => (
-                  <motion.li 
-                    key={skill} 
-                    className="pill cursor-hover"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.5 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    {skill}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div 
-              className="info-card"
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h3 className="heading-font">Toolkit</h3>
-              <ul className="pill-list">
-                {tools.map((tool, i) => (
-                  <motion.li 
-                    key={tool} 
-                    className="pill cursor-hover"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.7 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    {tool}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
         </div>
       </div>
     </section>

@@ -99,14 +99,55 @@ button {
   background: var(--accent-color);
 }
 
-/* Glassmorphism Utilities */
+/* Premium Glassmorphism Utilities */
 .glass-card {
-  background: rgba(15, 15, 15, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(18, 18, 18, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Slight highlight on top edge */
+  border-left: 1px solid rgba(255, 255, 255, 0.08); /* Slight highlight on left edge */
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  transition: all var(--transition-medium);
+}
+
+.glass-card:hover {
+  background: rgba(22, 22, 22, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* Base Pill list styling for expertise/tools */
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+}
+
+.pill {
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: rgba(25, 25, 25, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+}
+
+.pill:hover {
+  background: rgba(255, 94, 0, 0.15);
+  border-color: rgba(255, 94, 0, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {

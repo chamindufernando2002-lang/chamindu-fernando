@@ -15,7 +15,26 @@ const Hero = () => {
   return (
     <section className="hero-section" id="hero">
       
-      {/* Content wrapper - Text placed behind the video */}
+      {/* Video layer placed functionally behind content */}
+      <motion.div 
+        className="hero-background"
+        style={{ y: yBg }}
+      >
+        <video 
+          src="/hero-banner.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="hero-video"
+        ></video>
+      </motion.div>
+      
+      {/* Gradient overlays */}
+      <div className="hero-overlay-left"></div>
+      <div className="hero-overlay-bottom"></div>
+
+      {/* Content wrapper - Text placed on top of everything */}
       <div className="container hero-content">
         <motion.div 
           className="hero-text-wrapper"
@@ -57,25 +76,6 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Video layer with Screen Blend Mode in front of text */}
-      <motion.div 
-        className="hero-background"
-        style={{ y: yBg }}
-      >
-        <video 
-          src="/hero-banner.mp4" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="hero-video"
-        ></video>
-      </motion.div>
-      
-      {/* Gradient overlays */}
-      <div className="hero-overlay-left"></div>
-      <div className="hero-overlay-bottom"></div>
 
     </section>
   );
