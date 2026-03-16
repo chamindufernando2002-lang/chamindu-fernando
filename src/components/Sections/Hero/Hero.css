@@ -93,7 +93,7 @@
 
 .hero-subtitle p {
   font-family: 'Helvetica', 'Arial', sans-serif;
-  font-weight: 600; /* Semibold */
+  font-weight: 300; /* Light / Helvetica Thin aesthetic */
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   color: rgba(221, 221, 221, 0.7); /* ddd with 70% opacity */
   letter-spacing: 0.5px;
