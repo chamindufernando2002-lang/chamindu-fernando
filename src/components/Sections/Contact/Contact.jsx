@@ -7,18 +7,6 @@ const Contact = () => {
   const [formState, setFormState] = useState({ name: '', email: '', projectType: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
-  // Neon glow tracking ref
-  const formRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    if (!formRef.current) return;
-    const rect = formRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    formRef.current.style.setProperty('--mouse-x', `${x}px`);
-    formRef.current.style.setProperty('--mouse-y', `${y}px`);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -127,12 +115,8 @@ const Contact = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* Neon Border Container */}
-          <div 
-            className="neon-form-container" 
-            ref={formRef} 
-            onMouseMove={handleMouseMove}
-          >
+          {/* Premium Glass Container */}
+          <div className="glass-card contact-form-container">
             <form className="contact-form" onSubmit={handleSubmit}>
               
               <div className="form-group">
