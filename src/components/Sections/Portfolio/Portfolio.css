@@ -10,66 +10,75 @@
   margin-bottom: var(--spacing-lg);
 }
 
-/* ── Border-frame rail continuity ──────────────────────────────────── */
-/*  A thin wrapper that mirrors the page's left/right border rails, so
-    the decorative frame doesn't disappear behind the full-bleed marquee. */
-.portfolio-border-frame {
-  position: relative;
+/* ── Grid Layout ─────────────────────────────────────────────────── */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   width: 100%;
-  /* Left rail */
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
-  /* Right rail */
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
-  box-sizing: border-box;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw;
 }
 
-/* ── Marquee viewport ──────────────────────────────────────────────── */
-.portfolio-marquee-viewport {
-  width: 100%;
-  padding: 2rem 0;
-  /* Allow horizontal scrolling for drag interaction */
-  overflow-x: auto;
-  overflow-y: hidden;
-  /* Subtle top/bottom rules */
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(0, 0, 0, 0.2);
-  /* Grab cursor for drag affordance */
-  cursor: grab;
-  /* Prevent text selection while dragging */
-  user-select: none;
-  -webkit-user-select: none;
-  /* Side padding */
-  padding-left: 5vw;
-  padding-right: 5vw;
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* Hide scrollbar while keeping the element scrollable ─────────────── */
-.portfolio-marquee-viewport::-webkit-scrollbar { display: none; }
-.portfolio-marquee-viewport { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Active drag state */
-.portfolio-marquee-viewport.is-dragging {
-  cursor: grabbing;
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    padding: 0 2rem;
+  }
 }
 
-/* Pause auto-play while hovering or dragging ─────────────────────── */
-.portfolio-marquee-viewport:hover .portfolio-marquee-track,
-.portfolio-marquee-viewport.is-dragging .portfolio-marquee-track {
-  animation-play-state: paused;
-}
-
-/* ── Marquee track ─────────────────────────────────────────────────── */
-.portfolio-marquee-track {
+/* ── View More Button ────────────────────────────────────────────── */
+.portfolio-footer {
+  margin-top: 4rem;
   display: flex;
-  width: max-content;
-  animation: scrollRight 50s linear infinite;
-  will-change: transform;
+  justify-content: center;
 }
 
-@keyframes scrollRight {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+.view-more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.view-more-button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: all 0.6s ease;
+}
+
+.view-more-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.view-more-button:hover::before {
+  left: 100%;
 }
 
 /* ── Individual Slides ─────────────────────────────────────────────── */

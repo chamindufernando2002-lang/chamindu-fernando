@@ -21,7 +21,7 @@ const Hero = () => {
         style={{ y: yBg }}
       >
         <video 
-          src="/hero-banner.mp4" 
+          src="/Web-banner.mp4" 
           autoPlay 
           loop 
           muted 

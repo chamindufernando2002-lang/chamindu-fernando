@@ -33,53 +33,7 @@ const projects = [
 ];
 
 const Portfolio = () => {
-  // Multiply the projects to guarantee a seamless infinitely scrolling track
-  const marqueeProjects = [
-    ...projects,
-    ...projects,
-    ...projects,
-    ...projects,
-    ...projects,
-    ...projects
-  ];
-
-  /* ── Drag-to-scroll logic ───────────────────────────────────────── */
-  const viewportRef = useRef(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeftStart = useRef(0);
-  const hasDragged = useRef(false); // Distinguish drag from click
-
-  const onPointerDown = useCallback((e) => {
-    if (!viewportRef.current) return;
-    isDragging.current = true;
-    hasDragged.current = false;
-    startX.current = e.clientX;
-    scrollLeftStart.current = viewportRef.current.scrollLeft;
-    viewportRef.current.classList.add('is-dragging');
-    viewportRef.current.setPointerCapture(e.pointerId);
-  }, []);
-
-  const onPointerMove = useCallback((e) => {
-    if (!isDragging.current || !viewportRef.current) return;
-    const delta = e.clientX - startX.current;
-    if (Math.abs(delta) > 4) hasDragged.current = true;
-    viewportRef.current.scrollLeft = scrollLeftStart.current - delta;
-  }, []);
-
-  const onPointerUp = useCallback(() => {
-    if (!viewportRef.current) return;
-    isDragging.current = false;
-    viewportRef.current.classList.remove('is-dragging');
-  }, []);
-
-  const onClickCapture = useCallback((e) => {
-    // Suppress link clicks that resulted from a drag
-    if (hasDragged.current) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }, []);
+  const recentProjects = projects.slice(0, 3);
 
   return (
     <section className="portfolio-section section" id="portfolio">
@@ -91,29 +45,24 @@ const Portfolio = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="heading-font section-title">Recent Work</h2>
+          <div className="portfolio-header-content">
+            <h2 className="heading-font section-title">Recent Work</h2>
+          </div>
         </motion.div>
-      </div>
 
-      <motion.div 
-        className="portfolio-marquee-viewport"
-        ref={viewportRef}
-        initial={{ opacity: 0, filter: 'blur(10px)' }}
-        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
-        viewport={{ once: true, margin: '-50px' }}
-        transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerLeave={onPointerUp}
-        onClickCapture={onClickCapture}
-      >
-        <div className="portfolio-marquee-track">
-          {marqueeProjects.map((item, index) => (
-            <div key={`${item.id}-${index}`} className="portfolio-slide">
+        <div className="portfolio-grid">
+          {recentProjects.map((item, index) => (
+            <motion.div 
+              key={item.id} 
+              className="portfolio-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
               <Link href={`/project/${item.id}`} className="portfolio-link cursor-hover">
                 <div className="portfolio-image-wrapper">
-                  <img src={item.imageUrl} alt={item.title} loading="lazy" draggable="false" />
+                  <img src={item.imageUrl} alt={item.title} loading="lazy" />
                   <div className="portfolio-slide-overlay">
                     <div className="portfolio-slide-content">
                       <h3 className="heading-font">{item.title}</h3>
@@ -122,10 +71,22 @@ const Portfolio = () => {
                   </div>
                 </div>
               </Link>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </motion.div>
+
+        <motion.div 
+          className="portfolio-footer"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Link href="/work" className="view-more-button cursor-hover">
+            <span>View More</span>
+          </Link>
+        </motion.div>
+      </div>
     </section>
   );
 };
