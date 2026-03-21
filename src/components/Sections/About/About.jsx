@@ -12,7 +12,7 @@ const About = () => {
           className="about-header"
           initial={{ opacity: 0, y: 50, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="heading-font section-title">About Me</h2>
@@ -23,15 +23,14 @@ const About = () => {
             className="about-text glass-card"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: false, margin: '-100px' }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             style={{ padding: '3rem', maxWidth: '900px', margin: '0 auto' }}
           >
             <p style={{ fontSize: '1.2rem', lineHeight: '1.8', margin: 0 }}>
-              I am a multidisciplinary visual storyteller focused on crafting compelling digital 
-              experiences. With a foundation in traditional graphic design and an eye towards 
-              the future of motion aesthetics, I help brands articulate their unique narrative 
-              through striking visuals and precise typography.
+              I am a Problem Solver & Research-Driven Designer focused on crafting compelling digital 
+              experiences. With a deep foundation in strategy, user research, and comprehensive problem-solving, 
+              I help brands bridge the gap between complex challenges and elegant, solution-based outcomes.
             </p>
           </motion.div>
         </div>

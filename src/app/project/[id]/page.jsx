@@ -9,6 +9,27 @@ import '../../../pages/CaseStudy.css';
 
 // Using mock data map for the portfolio deep dive
 const projectData = {
+  'travelco': {
+    title: 'Travelco Holdings',
+    category: 'Research & Strategy',
+    year: '2026',
+    role: 'Research-Driven Designer',
+    clientName: 'Travelco',
+    projectOverview: 'A comprehensive branding and digital solution aimed at repositioning Travelco in a highly competitive luxury market.',
+    problemStatement: 'Travelco lacked a cohesive brand system and a research-backed digital presence, leading to user drop-offs and lower engagement.',
+    researchMethodology: 'We conducted extensive user research, market analysis, and A/B testing to uncover friction points in the customer journey and establish a strong foundation.',
+    designProcess: 'Based on our findings, we wireframed and prototyped a completely new user flow, backed by a premium design system that communicates luxury and trust.',
+    finalOutcome: 'A 45% increase in user retention and a highly successful brand relaunch that solidified Travelco\'s luxury market position.',
+    heroImage: '/projects/Travelco/1.jpg',
+    gallery: [
+      '/projects/Travelco/3.jpg',
+      '/projects/Travelco/7.jpg',
+      '/projects/Travelco/11.jpg',
+      '/projects/Travelco/15.jpg',
+      '/projects/Travelco/23.jpg',
+      '/projects/Travelco/25.jpg'
+    ]
+  },
   'lumina': {
     title: 'Lumina Branding',
     category: 'Brand Identity',
@@ -103,30 +124,105 @@ export default function CaseStudy({ params }) {
             <span className="meta-label">Year</span>
             <span className="meta-value">{project.year}</span>
           </div>
+          {project.clientName && (
+            <div className="meta-item">
+              <span className="meta-label">Client</span>
+              <span className="meta-value">{project.clientName}</span>
+            </div>
+          )}
         </div>
 
         <div className="cs-content-grid">
-          <motion.div 
-            className="cs-text-block"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="heading-font">The Concept</h2>
-            <p>{project.concept}</p>
-          </motion.div>
+          {project.projectOverview && (
+            <motion.div 
+              className="cs-text-block cs-full-width"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="heading-font">Project Overview</h2>
+              <p>{project.projectOverview}</p>
+            </motion.div>
+          )}
 
-          <motion.div 
-            className="cs-text-block"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className="heading-font">The Process</h2>
-            <p>{project.process}</p>
-          </motion.div>
+          {project.problemStatement && (
+            <motion.div 
+              className="cs-text-block"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="heading-font">Problem Statement</h2>
+              <p>{project.problemStatement}</p>
+            </motion.div>
+          )}
+
+          {project.researchMethodology && (
+            <motion.div 
+              className="cs-text-block"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <h2 className="heading-font">Research & Methodology</h2>
+              <p>{project.researchMethodology}</p>
+            </motion.div>
+          )}
+
+          {project.designProcess && (
+            <motion.div 
+              className="cs-text-block"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <h2 className="heading-font">Design Process</h2>
+              <p>{project.designProcess}</p>
+            </motion.div>
+          )}
+
+          {project.finalOutcome && (
+            <motion.div 
+              className="cs-text-block"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <h2 className="heading-font">Final Outcome</h2>
+              <p>{project.finalOutcome}</p>
+            </motion.div>
+          )}
+
+          {project.concept && (
+            <motion.div 
+              className="cs-text-block"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="heading-font">The Concept</h2>
+              <p>{project.concept}</p>
+            </motion.div>
+          )}
+
+          {project.process && (
+            <motion.div 
+              className="cs-text-block"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="heading-font">The Process</h2>
+              <p>{project.process}</p>
+            </motion.div>
+          )}
         </div>
 
         {project.gallery.length > 0 && (
@@ -137,7 +233,7 @@ export default function CaseStudy({ params }) {
                 className="cs-gallery-item"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: false, margin: '-50px' }}
                 transition={{ duration: 0.8 }}
               >
                 <img src={img} alt={`${project.title} detailed shot ${index + 1}`} loading="lazy" />

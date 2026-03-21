@@ -57,7 +57,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              <p>&quot;Your friendly neighbourhood Designer&quot;</p>
+              <p>&quot;Problem Solver & Research-Driven Designer&quot;</p>
             </motion.div>
 
             <motion.div 

@@ -7,9 +7,11 @@ import NetworkStatus from '../components/UI/NetworkStatus';
 import ScrollProgress from '../components/UI/ScrollProgress';
 import SmoothScrollProvider from '../components/Providers/SmoothScrollProvider';
 
+import ScrollToTop from '../components/UI/ScrollToTop';
+
 export const metadata = {
-  title: 'Chamindu Fernando - Visual Storyteller',
-  description: 'Your friendly neighbourhood designer.',
+  title: 'Chamindu Fernando - Problem Solver & Research-Driven Designer',
+  description: 'Problem Solver & Research-Driven Designer.',
 };
 
 export default function RootLayout({ children }) {
@@ -21,6 +23,7 @@ export default function RootLayout({ children }) {
           <Background />
           <NetworkStatus />
           <Navigation />
+          <ScrollToTop />
           {children}
           <Footer />
         </SmoothScrollProvider>

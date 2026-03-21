@@ -122,6 +122,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
   }
+  .cs-full-width {
+    grid-column: 1 / -1;
+  }
 }
 
 .cs-text-block h2 {

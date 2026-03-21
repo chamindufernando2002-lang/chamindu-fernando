@@ -39,7 +39,7 @@ const Contact = () => {
           className="contact-info"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.8 }}
         >
           <div className="badge-pill">Get in Touch</div>
@@ -112,7 +112,7 @@ const Contact = () => {
           className="contact-form-wrapper"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {/* Premium Glass Container */}

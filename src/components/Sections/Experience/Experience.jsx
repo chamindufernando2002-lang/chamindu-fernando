@@ -7,7 +7,7 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      role: 'Graphic Designer',
+      role: 'Research-Driven Designer',
       company: 'Spa Ceylon Ayurveda Wellness',
       type: 'On-site',
       location: 'Sri Lanka',
@@ -15,7 +15,7 @@ const Experience = () => {
     },
     {
       id: 2,
-      role: 'Graphic Designer',
+      role: 'Research-Driven Designer',
       company: 'iTek Solutions',
       type: 'Part-time',
       location: 'Remote · Australia',
@@ -23,7 +23,7 @@ const Experience = () => {
     },
     {
       id: 3,
-      role: 'Junior Graphic Designer',
+      role: 'Junior Research-Driven Designer',
       company: 'Ultimate Digital Solutions',
       type: 'Part-time',
       location: 'Remote',
@@ -55,7 +55,7 @@ const Experience = () => {
           className="experience-header"
           initial={{ opacity: 0, y: 50, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="badge-pill" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>Career</div>
@@ -69,7 +69,7 @@ const Experience = () => {
               className="timeline-item glass-card"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: false, margin: '-50px' }}
               transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="timeline-icon">

@@ -7,21 +7,27 @@ import './Portfolio.css';
 
 const projects = [
   {
+    id: 'travelco',
+    title: 'Travelco Holdings',
+    description: 'A research-driven branding & digital solution.',
+    imageUrl: '/projects/Travelco/1.jpg'
+  },
+  {
     id: 'lumina',
     title: 'Lumina',
-    description: 'A complete brand identity system.',
+    description: 'Strategic brand identity problem-solving.',
     imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'
   },
   {
     id: 'nexus',
     title: 'Nexus',
-    description: 'Dynamic motion graphic sequence.',
+    description: 'Solution-based motion graphics sequence.',
     imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop'
   },
   {
     id: 'aurora',
     title: 'Aurora',
-    description: 'Immersive 3D environment design.',
+    description: 'Immersive user-centric 3D environment.',
     imageUrl: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=1000&auto=format&fit=crop'
   },
   {
@@ -42,7 +48,7 @@ const Portfolio = () => {
           className="portfolio-header"
           initial={{ opacity: 0, y: 50, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="portfolio-header-content">
@@ -57,7 +63,7 @@ const Portfolio = () => {
               className="portfolio-card"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: false, margin: '-50px' }}
               transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <Link href={`/project/${item.id}`} className="portfolio-link cursor-hover">
@@ -79,7 +85,7 @@ const Portfolio = () => {
           className="portfolio-footer"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: false, margin: '-50px' }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <Link href="/work" className="view-more-button cursor-hover">
