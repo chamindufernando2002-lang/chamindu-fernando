@@ -1,28 +1,29 @@
 .scroll-to-top-wrapper {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 2.5rem;
+  right: 2.5rem;
   z-index: 999;
 }
 
 .scroll-to-top {
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-primary);
+  background: var(--bg-color);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
+  position: relative;
 }
 
-.scroll-to-top::before {
+.scroll-to-top::after {
   content: '';
   position: absolute;
   top: 0;
@@ -30,20 +31,28 @@
   right: 0;
   bottom: 0;
   border-radius: 50%;
-  background: var(--accent-color);
-  transform: scale(0);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 20px var(--accent-glow);
+  opacity: 0;
+  transition: opacity 0.5s ease;
   z-index: -1;
 }
 
 .scroll-to-top:hover {
-  color: #fff;
+  color: var(--accent-color);
   border-color: var(--accent-color);
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
-.scroll-to-top:hover::before {
-  transform: scale(1);
+.scroll-to-top:hover::after {
+  opacity: 1;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 15px var(--accent-glow); }
+  50% { box-shadow: 0 0 30px var(--accent-glow); }
+  100% { box-shadow: 0 0 15px var(--accent-glow); }
 }
 
 @media (max-width: 768px) {

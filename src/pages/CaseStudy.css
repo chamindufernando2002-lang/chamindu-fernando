@@ -145,14 +145,26 @@
   gap: var(--spacing-md);
 }
 
+@media (min-width: 768px) {
+  .cs-gallery {
+    display: block;
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
 .cs-gallery-item {
   width: 100%;
+  break-inside: avoid;
+  margin-bottom: 2rem;
+  display: inline-block; /* Helps with column breaking */
 }
 
 .cs-gallery-item img {
   width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 2px;
+  display: block;
 }
 
 .next-link {

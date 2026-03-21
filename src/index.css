@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
 @font-face {
   font-family: 'Segment A';
   src: url('/fonts/SegmentA.woff2') format('woff2'); /* We will mock this or use standard sans-serif fallback if not provided */
@@ -7,16 +9,16 @@
 
 :root {
   /* Colors */
-  --bg-color: #050505;
-  --text-primary: #f5f5f5;
+  --bg-color: #121212; /* Deep Charcoal */
+  --text-primary: #f8f8f8; /* Crisp Alabaster */
   --text-secondary: #a0a0a0;
-  --accent-color: #ff5e00; /* Neon Orange */
-  --accent-glow: rgba(255, 94, 0, 0.4);
-  --border-color: #1a1a1a;
+  --accent-color: #e6a8d7; /* Subtle Blush / Rose-Gold */
+  --accent-glow: rgba(230, 168, 215, 0.4);
+  --border-color: #2a2a2a;
   
   /* Typography */
-  --font-heading: 'Segment A', Impact, sans-serif;
-  --font-body: 'Helvetica', Arial, sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;

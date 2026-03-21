@@ -84,18 +84,19 @@
 /* ── Individual Cards ─────────────────────────────────────────────── */
 .portfolio-card {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 12px;
+  aspect-ratio: 3 / 4; /* Magazine format */
+  border-radius: 2px; /* Sharp corners for editorial paper look */
   overflow: hidden;
   position: relative;
-  background-color: #111;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05), 0 0 40px rgba(255, 255, 255, 0.02);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .portfolio-link {
@@ -115,10 +116,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: filter 0.8s ease, transform 0.8s ease;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  filter: grayscale(30%) brightness(0.9);
 }
 
-/* Base dark premium overlay */
+/* Editorial overlay styling */
 .portfolio-slide-overlay {
   position: absolute;
   top: 0;
@@ -126,49 +128,51 @@
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: flex-end; 
-  justify-content: center;
-  padding-bottom: 3rem;
-  background: rgba(5, 5, 5, 0.1); 
+  flex-direction: column;
+  justify-content: flex-end; 
+  padding: 2.5rem 2rem;
+  background: linear-gradient(to bottom, transparent 40%, rgba(18, 18, 18, 0.95) 100%);
   transition: background 0.6s ease;
 }
 
-/* Text hidden by default */
+/* Magazine Cover Text Layout */
 .portfolio-slide-content {
-  text-align: center;
-  opacity: 0;
+  text-align: left;
   transform: translateY(20px);
+  opacity: 0.8;
   transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .portfolio-slide-content h3 {
-  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #fff;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 2.5vw, 2.8rem);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0px;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 
 .portfolio-slide-content p {
   font-family: var(--font-body);
-  color: #ddd;
-  font-size: 0.95rem;
-  max-width: 250px;
-  margin: 0 auto;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin: 0;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.6);
 }
 
 /* Hover Interactive Effects */
 .portfolio-card:hover img {
-  filter: blur(4px) brightness(0.4);
+  filter: grayscale(0%) brightness(1);
   transform: scale(1.05);
 }
 
 .portfolio-card:hover .portfolio-slide-overlay {
-  background: rgba(255, 255, 255, 0.05); 
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: linear-gradient(to bottom, transparent 30%, rgba(18, 18, 18, 0.85) 100%);
 }
 
 .portfolio-card:hover .portfolio-slide-content {
