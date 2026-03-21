@@ -14,10 +14,12 @@ const projectData = {
     category: 'Research & Strategy',
     year: '2026',
     role: 'Research-Driven Designer',
-    clientName: 'Travelco Holdings',
-    theChallenge: 'Travelco, a legacy travel brand, faced declining user engagement due to an outdated, convoluted digital experience. The challenge was to reimagine their entire platform to reflect a modern, premium luxury aesthetic while simplifying the booking and exploration journey.',
-    researchMethodology: 'We initiated a comprehensive brand audit and deep-dive user interviews, followed by extensive competitor analysis across the luxury travel sector. We developed detailed target audience profiles to understand exactly where users experienced friction in the outdated system.',
-    strategicSolution: 'Drawing from our research, we proposed a strategic overhaul rooted in minimalism and high-end editorial design. We introduced a refined, intuitive navigation structure paired with a sophisticated "charcoal and alabaster" color system, creating a digital narrative that guides rather than overwhelms.',
+    clientName: 'Travelco',
+    projectOverview: 'A comprehensive branding and digital solution aimed at repositioning Travelco in a highly competitive luxury market.',
+    problemStatement: 'Travelco lacked a cohesive brand system and a research-backed digital presence, leading to user drop-offs and lower engagement.',
+    researchMethodology: 'We conducted extensive user research, market analysis, and A/B testing to uncover friction points in the customer journey and establish a strong foundation.',
+    designProcess: 'Based on our findings, we wireframed and prototyped a completely new user flow, backed by a premium design system that communicates luxury and trust.',
+    finalOutcome: 'A 45% increase in user retention and a highly successful brand relaunch that solidified Travelco\'s luxury market position.',
     heroImage: '/projects/Travelco/1.jpg',
     gallery: [
       '/projects/Travelco/3.jpg',
@@ -131,7 +133,7 @@ export default function CaseStudy({ params }) {
         </div>
 
         <div className="cs-content-grid">
-          {project.theChallenge && (
+          {project.projectOverview && (
             <motion.div 
               className="cs-text-block cs-full-width"
               initial={{ y: 30, opacity: 0 }}
@@ -139,8 +141,21 @@ export default function CaseStudy({ params }) {
               viewport={{ once: false, margin: '-100px' }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="heading-font">The Challenge</h2>
-              <p>{project.theChallenge}</p>
+              <h2 className="heading-font">Project Overview</h2>
+              <p>{project.projectOverview}</p>
+            </motion.div>
+          )}
+
+          {project.problemStatement && (
+            <motion.div 
+              className="cs-text-block"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="heading-font">Problem Statement</h2>
+              <p>{project.problemStatement}</p>
             </motion.div>
           )}
 
@@ -150,29 +165,42 @@ export default function CaseStudy({ params }) {
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <h2 className="heading-font">Research Methodology</h2>
+              <h2 className="heading-font">Research & Methodology</h2>
               <p>{project.researchMethodology}</p>
             </motion.div>
           )}
 
-          {project.strategicSolution && (
+          {project.designProcess && (
             <motion.div 
               className="cs-text-block"
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h2 className="heading-font">Strategic Solution</h2>
-              <p>{project.strategicSolution}</p>
+              <h2 className="heading-font">Design Process</h2>
+              <p>{project.designProcess}</p>
+            </motion.div>
+          )}
+
+          {project.finalOutcome && (
+            <motion.div 
+              className="cs-text-block"
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <h2 className="heading-font">Final Outcome</h2>
+              <p>{project.finalOutcome}</p>
             </motion.div>
           )}
 
           {project.concept && (
             <motion.div 
-              className="cs-text-block cs-full-width"
+              className="cs-text-block"
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: false, margin: '-100px' }}
