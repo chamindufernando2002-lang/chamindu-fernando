@@ -2,11 +2,11 @@
    PREMIUM CUSTOM CURSOR 
 ═══════════════════════════════════════════════════════════ */
 :root {
-  --cc-dot-size    : 8px;
-  --cc-orb-size    : 40px;
-  --cc-orb-hover   : 70px;
-  --cc-accent      : var(--accent-color, #ff5e00);
-  --cc-glow        : var(--accent-glow, rgba(255, 94, 0, 0.4));
+  --cc-dot-size    : 6px;
+  --cc-orb-size    : 36px;
+  --cc-orb-hover   : 80px;
+  --cc-accent      : #ffffff;
+  --cc-glow        : rgba(255, 255, 255, 0.1);
 }
 
 /* ── Hide native cursor everywhere on fine pointer devices ── */
@@ -28,10 +28,10 @@
   margin-left: calc(var(--cc-dot-size) / -2);
 
   background   : var(--cc-accent);
-  box-shadow   : 0 0 8px var(--cc-accent);
   border-radius: 50%;
   pointer-events: none;
   z-index      : 10002;
+  mix-blend-mode: difference;
   will-change  : transform, opacity;
 
   transition:
@@ -78,13 +78,14 @@
   border-radius : 50%;
   pointer-events: none;
   z-index       : 10001;
+  mix-blend-mode: difference;
   will-change   : transform, width, height, background-color, border-color;
   
   display      : flex;
   align-items  : center;
   justify-content: center;
 
-  border: 1.5px solid var(--cc-glow);
+  border: 1px solid var(--cc-accent);
   background-color: transparent;
   
   transition:
@@ -93,7 +94,7 @@
     margin-top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     margin-left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.4s ease,
-    background-color 0.4s ease,
+    background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.3s ease;
 }
 
@@ -104,20 +105,18 @@
   margin-top : calc(var(--cc-orb-hover) / -2);
   margin-left: calc(var(--cc-orb-hover) / -2);
   
-  background-color: var(--cc-glow);
-  border-color: var(--cc-accent);
-  box-shadow: 0 0 20px rgba(255, 94, 0, 0.2);
+  background-color: var(--cc-accent);
+  border-color: transparent;
 }
 
 /* ── Click: orb contracts slightly ── */
 .cc-orb--click {
-  width      : 30px;
-  height     : 30px;
-  margin-top : -15px;
-  margin-left: -15px;
-  background-color: var(--cc-accent);
-  border-color: transparent;
-  box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);
+  width      : 24px;
+  height     : 24px;
+  margin-top : -12px;
+  margin-left: -12px;
+  background-color: transparent;
+  border-color: var(--cc-accent);
 }
 
 .cc-orb--hidden {
@@ -130,7 +129,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #fff; /* White text for visibility */
+  color: #000; /* Black text on white blended background */
   text-transform: uppercase;
   opacity: 0;
   transform: scale(0.5);
