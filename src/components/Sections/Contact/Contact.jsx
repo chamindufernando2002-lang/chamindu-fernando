@@ -12,7 +12,21 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Construct the message body
+    const textBody = `Name: ${formState.name}%0AEmail: ${formState.email}%0AProject Type: ${formState.projectType}%0A%0A${formState.message}`;
+    
+    // WhatsApp URL
+    const whatsappUrl = `https://wa.me/94769912948?text=${textBody}`;
+    
+    // Email mailto URL
+    const mailtoUrl = `mailto:ashrachamindufernando@gmail.com?subject=New Portfolio Inquiry from ${formState.name}&body=${textBody}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Open default email client in the current window
+    window.location.href = mailtoUrl;
+    
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
