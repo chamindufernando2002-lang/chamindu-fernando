@@ -63,6 +63,20 @@
   filter: grayscale(0%) contrast(1);
 }
 
+.empty-portrait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  filter: none !important;
+}
+
+.empty-portrait:hover {
+  filter: none !important;
+  background: rgba(255, 255, 255, 0.04);
+}
+
 .about-text-col {
   padding-right: 5vw;
 }

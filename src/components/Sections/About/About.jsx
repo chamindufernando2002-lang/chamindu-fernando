@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { User } from 'lucide-react';
 import './About.css';
 
 const About = () => {
@@ -22,8 +23,10 @@ const About = () => {
             viewport={{ once: false, margin: '-100px' }}
             transition={{ duration: 1.0 }}
           >
-            {/* Using an unsplash placeholder mimicking a creative portrait format */}
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" alt="Chamindu Fernando Portrait" className="about-portrait" />
+            {/* Empty portrait with icon */}
+            <div className="about-portrait empty-portrait">
+              <User size={80} strokeWidth={1} color="rgba(255,255,255,0.2)" />
+            </div>
           </motion.div>
           
           <motion.div 
