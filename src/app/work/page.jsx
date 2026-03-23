@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Link from 'next/link';
 import CustomCursor from '../../components/UI/CustomCursor';
-import '../../pages/Work.css'; // Reused styles
+import '../../components/Sections/Portfolio/Portfolio.css'; // Reusing the list styling
 
 const projects = [
   {
@@ -39,6 +39,52 @@ const projects = [
   }
 ];
 
+const WorkListItem = ({ project, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
+  const floatX = useSpring(mouseX, springConfig);
+  const floatY = useSpring(mouseY, springConfig);
+
+  const handleMouseMove = (e) => {
+    mouseX.set(e.clientX + 20);
+    mouseY.set(e.clientY - 150);
+  };
+
+  return (
+    <motion.div 
+      className="portfolio-row"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 + (index * 0.1), ease: [0.16, 1, 0.3, 1] }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+    >
+      <Link href={`/project/${project.id}`} className="portfolio-row-link cursor-hover">
+        <h3 className="heading-font">{project.title}</h3>
+        <span className="portfolio-row-meta">{project.category}</span>
+      </Link>
+
+      <motion.div
+        className="portfolio-floating-image"
+        style={{
+          x: floatX,
+          y: floatY,
+          opacity: isHovered ? 1 : 0,
+          scale: isHovered ? 1 : 0.8,
+          pointerEvents: 'none'
+        }}
+        transition={{ opacity: { duration: 0.2 }, scale: { duration: 0.2 } }}
+      >
+        <img src={project.imageUrl} alt={project.title} />
+      </motion.div>
+    </motion.div>
+  );
+};
+
 export default function Work() {
   return (
     <motion.main
@@ -47,41 +93,31 @@ export default function Work() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
+      style={{ minHeight: '100vh', paddingTop: '15vh', position: 'relative' }}
     >
       <CustomCursor />
       
-      <div className="work-header container">
-        <h1 className="heading-font">Selected Work</h1>
+      <div className="container" style={{ marginBottom: '10vh' }}>
+        <motion.h1 
+          className="heading-font"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', textTransform: 'uppercase', color: 'var(--text-primary)' }}
+        >
+          Selected Work
+        </motion.h1>
       </div>
 
-      <div className="vertical-gallery-container container">
+      <div className="portfolio-list" style={{ paddingBottom: '15vh' }}>
         {projects.map((project, idx) => (
-          <motion.div 
-            key={idx} 
-            className="vertical-gallery-item"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-10%" }}
-            transition={{ duration: 0.8 }}
-          >
-            <Link href={`/project/${project.id}`} className="gallery-card cursor-hover">
-              <div className="image-container">
-                <img src={project.imageUrl} alt={project.title} loading="lazy" />
-                <div className="gallery-overlay"></div>
-              </div>
-              <div className="gallery-info">
-                <span className="gallery-category">{project.category}</span>
-                <h2 className="heading-font gallery-title">{project.title}</h2>
-              </div>
-            </Link>
-          </motion.div>
+          <WorkListItem key={idx} project={project} index={idx} />
         ))}
       </div>
       
-      <div className="work-footer-spacer">
-        <h2 className="heading-font">More coming soon.</h2>
+      <div style={{ height: '30vh', display: 'flex', alignItems: 'center', justifyContent: 'center', borderTop: '1px solid var(--border-color)', position: 'relative', zIndex: 10 }}>
+        <h2 className="heading-font" style={{ fontSize: '2rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '2px' }}>More coming soon.</h2>
       </div>
-
     </motion.main>
   );
 }
