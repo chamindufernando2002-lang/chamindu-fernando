@@ -1,47 +1,94 @@
 .about-section {
-  background-color: var(--bg-color);
+  background-color: transparent;
   position: relative;
   z-index: 10;
+  padding: 15vh 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.about-header {
-  margin-bottom: var(--spacing-lg);
-}
-
-.section-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: '';
+.about-bg-text-wrapper {
   position: absolute;
-  top: -10px;
-  left: -20px;
-  width: 50px;
-  height: 50px;
-  background-color: var(--accent-glow);
-  border-radius: 50%;
-  filter: blur(10px);
-  z-index: -1;
-}
-
-.about-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
-.about-text {
+.about-bg-text {
+  font-family: var(--font-heading);
+  font-size: clamp(8rem, 20vw, 25rem);
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.03); /* Extremely muted white/gray for dark background */
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
   text-align: center;
 }
 
-.about-text p {
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
-  color: var(--text-secondary);
-  line-height: 1.8;
-  max-width: 800px;
+.about-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
   margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image-col {
+  display: flex;
+  justify-content: center;
+}
+
+.about-portrait {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: grayscale(100%) contrast(1.2);
+  transition: filter 0.5s ease;
+}
+
+.about-portrait:hover {
+  filter: grayscale(0%) contrast(1);
+}
+
+.about-text-col {
+  padding-right: 5vw;
+}
+
+.about-description {
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about-text-col {
+    padding-right: 0;
+    text-align: center;
+    padding: 0 5vw;
+  }
+  .about-bg-text {
+    font-size: clamp(4rem, 15vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: -1px;
+    word-break: break-all;
+  }
 }

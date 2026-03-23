@@ -45,7 +45,7 @@ const Contact = () => {
           <div className="badge-pill">Get in Touch</div>
           
           <h2 className="heading-font contact-title" style={{ textTransform: 'uppercase' }}>
-            LET'S <span className="text-accent">BUILD</span><br/> SOMETHING<br/> <span className="text-accent">AMAZING</span>
+            LET'S <span className="text-accent" style={{ fontWeight: 900 }}>BUILD</span><br/> SOMETHING<br/> <span className="text-accent" style={{ fontWeight: 900 }}>AMAZING</span>
           </h2>
           
           <p className="contact-desc">

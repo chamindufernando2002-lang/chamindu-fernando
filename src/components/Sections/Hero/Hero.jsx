@@ -46,9 +46,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="heading-font hero-title">
-              <span className="text-line">Chamindu</span>
-              <span className="text-line">Fernando<span className="text-accent">.</span></span>
+            <h1 className="heading-font hero-title" style={{ fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-2px' }}>
+              <span className="text-line">CHAMINDU</span>
+              <span className="text-line">FERNANDO<span className="text-accent">.</span></span>
             </h1>
             
             <motion.div 
@@ -57,7 +57,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              <p>&quot;Problem Solver & Research-Driven Designer&quot;</p>
+              <p>&quot;Your friendly neighbourhood Designer&quot;</p>
             </motion.div>
 
             <motion.div 

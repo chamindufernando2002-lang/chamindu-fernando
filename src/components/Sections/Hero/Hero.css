@@ -239,12 +239,14 @@
 
   /* Make hero text more readable on mobile constraints */
   .hero-title {
-    font-size: clamp(2.8rem, 9vw, 4rem);
-    margin-bottom: 0.5rem;
+    font-size: clamp(2.5rem, 14vw, 4.5rem);
+    letter-spacing: -1px;
+    margin-bottom: var(--spacing-sm);
   }
   
   .hero-subtitle p {
-    font-size: clamp(1rem, 3.5vw, 1.2rem);
+    font-size: 1rem;
+    max-width: 90%;
   }
 
   .cta-button {
