@@ -5,15 +5,17 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDownRight } from 'lucide-react';
 import './Hero.css';
 
-export default function Hero() {
+const Hero = () => {
   const { scrollY } = useScroll();
+  // Parallax for the background video
   const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
+  // Parallax for the text sliding down slower than the page scroll
   const yText = useTransform(scrollY, [0, 800], [0, 200]);
 
   return (
     <section className="hero-section" id="hero">
       
-      {/* 1. Bottom Layer: Video */}
+      {/* Video layer placed functionally behind content */}
       <motion.div 
         className="hero-background"
         style={{ y: yBg }}
@@ -28,47 +30,84 @@ export default function Hero() {
         ></video>
       </motion.div>
       
-      {/* 2. Middle Layer: Multiply Mask - The text is pure white, background is almost pure black */}
-      <div className="hero-mask-layer">
-        <div className="container hero-mask-container">
-          <motion.div 
-            className="hero-title-wrapper"
-            style={{ y: yText }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
-          >
-            <h1 className="heading-font hero-title-masked">
-              CHAMINDU<br />FERNANDO<span className="text-accent">.</span>
-            </h1>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Gradient overlays to smooth intersection with next section */}
+      {/* Gradient overlays */}
+      <div className="hero-overlay-left"></div>
       <div className="hero-overlay-bottom"></div>
 
-      {/* 3. Top Layer: Normal Text and Buttons */}
-      <div className="container hero-foreground">
+      {/* Content wrapper - Text placed on top of everything */}
+      <div className="container hero-content">
         <motion.div 
-          className="hero-subtitle-wrapper"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          className="hero-text-wrapper"
+          style={{ y: yText }}
         >
-          <p className="hero-subtitle-text">&quot;Your friendly neighbourhood Designer&quot;</p>
-          
-          <div className="hero-action">
-            <a href="/#work" className="cta-button cursor-hover">
-              <span>View My Work</span>
-              <div className="cta-icon">
-                <ArrowDownRight size={24} />
-              </div>
-            </a>
-          </div>
+          <motion.div 
+            className="hero-text"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+              }
+            }}
+          >
+            <h1 className="heading-font hero-title" style={{ fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-2px' }}>
+              <span className="text-mask">
+                <motion.span 
+                  className="text-line"
+                  variants={{
+                    hidden: { y: "110%", opacity: 0 },
+                    visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
+                  }}
+                >
+                  CHAMINDU
+                </motion.span>
+              </span>
+              <span className="text-mask">
+                <motion.span 
+                  className="text-line"
+                  variants={{
+                    hidden: { y: "110%", opacity: 0 },
+                    visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
+                  }}
+                >
+                  FERNANDO<span className="text-accent">.</span>
+                </motion.span>
+              </span>
+            </h1>
+            
+            <motion.div 
+              className="hero-subtitle"
+              variants={{
+                hidden: { y: "100%", opacity: 0 },
+                visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
+              }}
+            >
+              <p>&quot;Your friendly neighbourhood Designer&quot;</p>
+            </motion.div>
+
+            <motion.div 
+              className="hero-action"
+              variants={{
+                hidden: { y: "100%", opacity: 0 },
+                visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
+              }}
+            >
+              <a href="/work" className="cta-button cursor-hover">
+                <span>View My Work</span>
+                <div className="cta-icon">
+                  <ArrowDownRight size={24} />
+                </div>
+              </a>
+            </motion.div>
+          </motion.div>
+
         </motion.div>
       </div>
 
     </section>
   );
-}
+};
+
+export default Hero;
