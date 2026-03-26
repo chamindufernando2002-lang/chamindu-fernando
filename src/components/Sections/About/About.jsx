@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import ScrambleText from '../../UI/ScrambleText';
 import './About.css';
 
 const About = () => {
@@ -15,7 +16,10 @@ const About = () => {
           viewport={{ once: true, margin: '0px' }}
           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
         >
-          <h2 className="heading-font about-huge-title">ABOUT<br/><span className="text-accent">ME.</span></h2>
+          <div className="heading-font about-huge-title" style={{ display: 'flex', flexDirection: 'column' }}>
+            <ScrambleText text="ABOUT" as="span" />
+            <ScrambleText text="ME." as="span" className="text-accent" />
+          </div>
         </motion.div>
 
         <div className="about-content-grid">

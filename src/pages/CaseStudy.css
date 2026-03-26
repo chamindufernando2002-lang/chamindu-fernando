@@ -79,8 +79,8 @@
 }
 
 .cs-details-section {
-  padding-top: var(--spacing-xl);
-  padding-bottom: var(--spacing-xl);
+  padding-top: 2rem;
+  padding-bottom: var(--spacing-lg);
 }
 
 /* OVERVIEW LAYOUT */
@@ -88,7 +88,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 @media (min-width: 768px) {
@@ -138,7 +138,7 @@
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
 }
 
 @media (min-width: 768px) {
@@ -170,7 +170,7 @@
 .cs-gallery-section {
   width: 100%;
   overflow: hidden; /* hide scrollbar, allow drag only */
-  margin-top: 4rem;
+  margin-top: 2rem;
   padding-bottom: 4rem;
 }
 
