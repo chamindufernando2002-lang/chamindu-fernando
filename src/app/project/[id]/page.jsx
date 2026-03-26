@@ -58,12 +58,10 @@ const projectData = {
 };
 
 export default function CaseStudy({ params }) {
-  // Read params for dynamic slug using React.use() unwrapping implicitly handled by layout
-  // Note: in Nextjs 15+ we should awai the params, but doing it simply here.
   const resolvedParams = React.use(params);
   const id = resolvedParams.id;
+  const carouselRef = React.useRef(null);
   
-  // Default to a fallback if project data not found
   const project = projectData[id] || {
     title: `Project ${id}`,
     category: 'Concept Design',
@@ -81,7 +79,7 @@ export default function CaseStudy({ params }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
     >
       <CustomCursor />
       
@@ -92,13 +90,13 @@ export default function CaseStudy({ params }) {
             alt={project.title}
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: 1.4, ease: [0.76, 0, 0.24, 1] }}
           />
           <div className="cs-hero-overlay"></div>
         </div>
         
         <div className="container cs-hero-content">
-          <Link href="/" className="back-link cursor-hover">
+          <Link href="/#portfolio" className="back-link cursor-hover">
             <ArrowLeft size={20} />
             <span>Back to Work</span>
           </Link>
@@ -106,7 +104,7 @@ export default function CaseStudy({ params }) {
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 1, ease: [0.76, 0, 0.24, 1] }}
           >
             <span className="cs-category">{project.category}</span>
             <h1 className="heading-font cs-title">{project.title}</h1>
@@ -114,138 +112,95 @@ export default function CaseStudy({ params }) {
         </div>
       </div>
 
-      <div className="container cs-details section">
-        <div className="cs-meta">
-          <div className="meta-item">
-            <span className="meta-label">Role</span>
-            <span className="meta-value">{project.role}</span>
-          </div>
-          <div className="meta-item">
-            <span className="meta-label">Year</span>
-            <span className="meta-value">{project.year}</span>
-          </div>
-          {project.clientName && (
-            <div className="meta-item">
-              <span className="meta-label">Client</span>
-              <span className="meta-value">{project.clientName}</span>
+      <div className="cs-details-section section">
+        <div className="container">
+          {/* OVERVIEW SECTION - Matching Image 2 */}
+          <motion.div 
+            className="cs-overview-layout"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+          >
+            <div className="cs-overview-label-col">
+              <span className="cs-overview-label">OVERVIEW</span>
             </div>
-          )}
+            <div className="cs-overview-content-col">
+              <h2 className="cs-overview-text">
+                {project.projectOverview || project.concept}
+              </h2>
+              <div className="cs-overview-subtext-group">
+                {project.problemStatement && <p>{project.problemStatement}</p>}
+                {project.researchMethodology && <p>{project.researchMethodology}</p>}
+                {project.designProcess && <p>{project.designProcess}</p>}
+                {project.process && <p>{project.process}</p>}
+                {project.finalOutcome && <p>{project.finalOutcome}</p>}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* META SECTION - Matching Image 2 */}
+          <motion.div 
+            className="cs-modern-meta"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
+          >
+            {(project.clientName || project.title) && (
+              <div className="modern-meta-row">
+                <span className="modern-meta-label">CLIENT</span>
+                <span className="modern-meta-value">{project.clientName || project.title}</span>
+              </div>
+            )}
+            <div className="modern-meta-row">
+              <span className="modern-meta-label">DATE</span>
+              <span className="modern-meta-value">{project.year}</span>
+            </div>
+            <div className="modern-meta-row">
+              <span className="modern-meta-label">SERVICE</span>
+              <span className="modern-meta-value">{project.category}</span>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="cs-content-grid">
-          {project.projectOverview && (
-            <motion.div 
-              className="cs-text-block cs-full-width"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="heading-font">Project Overview</h2>
-              <p>{project.projectOverview}</p>
-            </motion.div>
-          )}
-
-          {project.problemStatement && (
-            <motion.div 
-              className="cs-text-block"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h2 className="heading-font">Problem Statement</h2>
-              <p>{project.problemStatement}</p>
-            </motion.div>
-          )}
-
-          {project.researchMethodology && (
-            <motion.div 
-              className="cs-text-block"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <h2 className="heading-font">Research & Methodology</h2>
-              <p>{project.researchMethodology}</p>
-            </motion.div>
-          )}
-
-          {project.designProcess && (
-            <motion.div 
-              className="cs-text-block"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h2 className="heading-font">Design Process</h2>
-              <p>{project.designProcess}</p>
-            </motion.div>
-          )}
-
-          {project.finalOutcome && (
-            <motion.div 
-              className="cs-text-block"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <h2 className="heading-font">Final Outcome</h2>
-              <p>{project.finalOutcome}</p>
-            </motion.div>
-          )}
-
-          {project.concept && (
-            <motion.div 
-              className="cs-text-block"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="heading-font">The Concept</h2>
-              <p>{project.concept}</p>
-            </motion.div>
-          )}
-
-          {project.process && (
-            <motion.div 
-              className="cs-text-block"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h2 className="heading-font">The Process</h2>
-              <p>{project.process}</p>
-            </motion.div>
-          )}
-        </div>
-
+        {/* DRAGGABLE GALLERY - Matching Image 1 */}
         {project.gallery.length > 0 && (
-          <div className="cs-gallery">
-            {project.gallery.map((img, index) => (
+          <motion.div 
+            className="cs-gallery-section"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1 }}
+          >
+            <div className="cs-gallery-wrapper" ref={carouselRef}>
               <motion.div 
-                key={index} 
-                className="cs-gallery-item"
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: false, margin: '-50px' }}
-                transition={{ duration: 0.8 }}
+                className="cs-draggable-track cursor-hover"
+                drag="x"
+                dragConstraints={carouselRef}
+                whileTap={{ cursor: "grabbing" }}
               >
-                <img src={img} alt={`${project.title} detailed shot ${index + 1}`} loading="lazy" />
+                {project.gallery.map((img, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="cs-draggable-item"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true, margin: '200px' }}
+                    transition={{ duration: 0.8, delay: index * 0.1, ease: [0.76, 0, 0.24, 1] }}
+                  >
+                    <img src={img} alt={`${project.title} detail ${index + 1}`} draggable="false" />
+                  </motion.div>
+                ))}
               </motion.div>
-            ))}
-          </div>
+            </div>
+          </motion.div>
         )}
       </div>
       
       <div className="next-project section">
         <div className="container" style={{ textAlign: 'center' }}>
-          <Link href="/" className="heading-font next-link cursor-hover">
+          <Link href="/#portfolio" className="heading-font next-link cursor-hover">
             Discover More Work
           </Link>
         </div>

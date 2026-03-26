@@ -60,7 +60,7 @@ const PortfolioItem = ({ item, index }) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: '-50px' }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.76, 0, 0.24, 1] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
@@ -99,7 +99,7 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: '-100px' }}
-          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
         >
           <div className="portfolio-header-content">
             <h2 className="heading-font section-title">Recent Work</h2>
@@ -117,7 +117,7 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: '-50px' }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
         >
           <Link href="/work" className="view-more-button cursor-hover">
             <span>View All Work</span>

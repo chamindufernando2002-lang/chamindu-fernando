@@ -42,29 +42,57 @@ const Hero = () => {
         >
           <motion.div 
             className="hero-text"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+              }
+            }}
           >
             <h1 className="heading-font hero-title" style={{ fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-2px' }}>
-              <span className="text-line">CHAMINDU</span>
-              <span className="text-line">FERNANDO<span className="text-accent">.</span></span>
+              <span className="text-mask">
+                <motion.span 
+                  className="text-line"
+                  variants={{
+                    hidden: { y: "110%", opacity: 0 },
+                    visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
+                  }}
+                >
+                  CHAMINDU
+                </motion.span>
+              </span>
+              <span className="text-mask">
+                <motion.span 
+                  className="text-line"
+                  variants={{
+                    hidden: { y: "110%", opacity: 0 },
+                    visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
+                  }}
+                >
+                  FERNANDO<span className="text-accent">.</span>
+                </motion.span>
+              </span>
             </h1>
             
             <motion.div 
               className="hero-subtitle"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              variants={{
+                hidden: { y: "100%", opacity: 0 },
+                visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
+              }}
             >
               <p>&quot;Your friendly neighbourhood Designer&quot;</p>
             </motion.div>
 
             <motion.div 
               className="hero-action"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
+              variants={{
+                hidden: { y: "100%", opacity: 0 },
+                visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
+              }}
             >
               <a href="/work" className="cta-button cursor-hover">
                 <span>View My Work</span>
@@ -74,6 +102,7 @@ const Hero = () => {
               </a>
             </motion.div>
           </motion.div>
+
         </motion.div>
       </div>
 
