@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ZoomIn, ZoomOut, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import CustomCursor from '../../../components/UI/CustomCursor';
 import '../../../pages/CaseStudy.css';
 
@@ -60,7 +60,45 @@ const projectData = {
 export default function CaseStudy({ params }) {
   const resolvedParams = React.use(params);
   const id = resolvedParams.id;
-  const carouselRef = React.useRef(null);
+  const carouselRef = useRef(null);
+  
+  // Lightbox State
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [zoom, setZoom] = useState(1);
+
+  const openLightbox = (index) => {
+    setLightboxIndex(index);
+    setZoom(1);
+    setLightboxOpen(true);
+  };
+  
+  const closeLightbox = () => setLightboxOpen(false);
+
+  const zoomIn = (e) => { e.stopPropagation(); setZoom(prev => Math.min(prev + 0.5, 3)); };
+  const zoomOut = (e) => { e.stopPropagation(); setZoom(prev => Math.max(prev - 0.5, 1)); };
+
+  const nextSlide = (e) => {
+    if (e) e.stopPropagation();
+    setLightboxIndex(prev => (prev + 1) % project.gallery.length);
+    setZoom(1);
+  };
+  const prevSlide = (e) => {
+    if (e) e.stopPropagation();
+    setLightboxIndex(prev => (prev === 0 ? project.gallery.length - 1 : prev - 1));
+    setZoom(1);
+  };
+
+  // Handle Drag gesture in Lightbox
+  const handleDragEnd = (e, { offset, velocity }) => {
+    e.stopPropagation();
+    const swipe = Math.abs(offset.x) * velocity.x;
+    if (swipe < -100) {
+      nextSlide();
+    } else if (swipe > 100) {
+      prevSlide();
+    }
+  };
   
   const project = projectData[id] || {
     title: `Project ${id}`,
@@ -107,7 +145,7 @@ export default function CaseStudy({ params }) {
             transition={{ delay: 0.4, duration: 1, ease: [0.76, 0, 0.24, 1] }}
           >
             <span className="cs-category">{project.category}</span>
-            <h1 className="heading-font cs-title">{project.title}</h1>
+            <h1 className="heading-font cs-title" style={{ fontWeight: 900 }}>{project.title}</h1>
           </motion.div>
         </div>
       </div>
@@ -116,10 +154,10 @@ export default function CaseStudy({ params }) {
         <div className="container">
           {/* OVERVIEW SECTION - Matching Image 2 */}
           <motion.div 
-            className="cs-overview-layout"
-            initial={{ y: 50, opacity: 0 }}
+            className="cs-overview-layout glass-effect"
+            initial={{ y: 0, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '100px' }}
             transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
           >
             <div className="cs-overview-label-col">
@@ -141,10 +179,10 @@ export default function CaseStudy({ params }) {
 
           {/* META SECTION - Matching Image 2 */}
           <motion.div 
-            className="cs-modern-meta"
-            initial={{ y: 50, opacity: 0 }}
+            className="cs-modern-meta glass-effect"
+            initial={{ y: 0, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, margin: '100px' }}
             transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
           >
             {(project.clientName || project.title) && (
@@ -170,7 +208,7 @@ export default function CaseStudy({ params }) {
             className="cs-gallery-section"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '100px' }}
             transition={{ duration: 1 }}
           >
             <div className="cs-gallery-wrapper" ref={carouselRef}>
@@ -184,10 +222,12 @@ export default function CaseStudy({ params }) {
                   <motion.div 
                     key={index} 
                     className="cs-draggable-item"
-                    initial={{ scale: 0.9, opacity: 0 }}
+                    initial={{ scale: 0.95, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true, margin: '200px' }}
                     transition={{ duration: 0.8, delay: index * 0.1, ease: [0.76, 0, 0.24, 1] }}
+                    onClick={() => openLightbox(index)}
+                    style={{ cursor: 'pointer' }}
                   >
                     <img src={img} alt={`${project.title} detail ${index + 1}`} draggable="false" />
                   </motion.div>
@@ -205,6 +245,61 @@ export default function CaseStudy({ params }) {
           </Link>
         </div>
       </div>
+
+      {/* LIGHTBOX OVERLAY */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div 
+            className="cs-lightbox-overlay"
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(15px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={{ duration: 0.4 }}
+            onClick={closeLightbox}
+          >
+            <div className="cs-lightbox-toolbar" onClick={e => e.stopPropagation()}>
+              <div className="cs-lightbox-controls">
+                <button onClick={zoomOut} className="cs-lightbox-btn"><ZoomOut size={24} /></button>
+                <span className="cs-lightbox-zoom-text">{Math.round(zoom * 100)}%</span>
+                <button onClick={zoomIn} className="cs-lightbox-btn"><ZoomIn size={24} /></button>
+              </div>
+              <button onClick={closeLightbox} className="cs-lightbox-btn cs-lightbox-close"><X size={28} /></button>
+            </div>
+
+            <button onClick={prevSlide} className="cs-lightbox-nav cs-lightbox-prev" onClickCapture={e => e.stopPropagation()}>
+              <ChevronLeft size={40} />
+            </button>
+            <button onClick={nextSlide} className="cs-lightbox-nav cs-lightbox-next" onClickCapture={e => e.stopPropagation()}>
+              <ChevronRight size={40} />
+            </button>
+
+            <motion.div 
+              className="cs-lightbox-content"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.8}
+              onDragEnd={handleDragEnd}
+              onClick={e => e.stopPropagation()}
+            >
+              <motion.img 
+                key={lightboxIndex}
+                src={project.gallery[lightboxIndex]}
+                alt={`Lightbox image ${lightboxIndex + 1}`}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: zoom, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+                style={{ cursor: zoom > 1 ? 'grab' : 'auto' }}
+                drag={zoom > 1 ? true : false}
+              />
+            </motion.div>
+            
+            <div className="cs-lightbox-counter" onClick={e => e.stopPropagation()}>
+              {lightboxIndex + 1} / {project.gallery.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.main>
   );
 }
