@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ZoomIn, ZoomOut, X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -99,6 +99,18 @@ export default function CaseStudy({ params }) {
       prevSlide();
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!lightboxOpen) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen, lightboxIndex]);
+
   
   const project = projectData[id] || {
     title: `Project ${id}`,
@@ -289,8 +301,12 @@ export default function CaseStudy({ params }) {
                 animate={{ scale: zoom, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-                style={{ cursor: zoom > 1 ? 'grab' : 'auto' }}
+                style={{ cursor: zoom > 1 ? 'grab' : 'zoom-in' }}
                 drag={zoom > 1 ? true : false}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setZoom(prev => prev === 1 ? 2 : 1);
+                }}
               />
             </motion.div>
             

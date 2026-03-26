@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import ScrambleText from '../../UI/ScrambleText';
 import './Services.css';
 
 const expertiseList = [
@@ -88,7 +89,11 @@ const Services = () => {
           viewport={{ once: true, margin: '0px' }}
           transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
         >
-          <h2 className="heading-font section-title" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', fontWeight: 900, marginBottom: '2rem' }}>SERVICES.</h2>
+          <ScrambleText 
+            text="SERVICES." 
+            className="heading-font section-title" 
+            style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', fontWeight: 900, marginBottom: '2rem' }} 
+          />
         </motion.div>
 
         <div className="expertise-list">
