@@ -1,11 +1,14 @@
 'use client';
 
 import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Linkedin, Instagram, Github, Mail } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { scrollYProgress } = useScroll();
+  const yParallax = useTransform(scrollYProgress, [0.8, 1], [150, 0]);
 
   return (
     <footer className="footer section">
@@ -49,6 +52,15 @@ const Footer = () => {
             Back to Top ↑
           </a>
         </div>
+      </div>
+
+      <div className="footer-giant-wrapper">
+        <motion.h1 
+          className="heading-font footer-giant-text"
+          style={{ y: yParallax }}
+        >
+          CHAMINDU
+        </motion.h1>
       </div>
     </footer>
   );

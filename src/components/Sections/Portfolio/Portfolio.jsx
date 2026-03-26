@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Link from 'next/link';
+import ScrambleText from '../../UI/ScrambleText';
 import './Portfolio.css';
 
 const projects = [
@@ -102,7 +103,7 @@ const Portfolio = () => {
           transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
         >
           <div className="portfolio-header-content">
-            <h2 className="heading-font section-title">Recent Work</h2>
+            <ScrambleText text="Recent Work" className="heading-font section-title" />
           </div>
         </motion.div>
 

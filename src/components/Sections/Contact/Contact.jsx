@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Github } from 'lucide-react';
+import ScrambleText from '../../UI/ScrambleText';
 import './Contact.css';
 
 const Contact = () => {
@@ -58,9 +59,14 @@ const Contact = () => {
         >
           <div className="badge-pill">Get in Touch</div>
           
-          <h2 className="heading-font contact-title" style={{ textTransform: 'uppercase' }}>
-            LET'S <span className="text-accent" style={{ fontWeight: 900 }}>BUILD</span><br/> SOMETHING<br/> <span className="text-accent" style={{ fontWeight: 900 }}>AMAZING</span>
-          </h2>
+          <div className="heading-font contact-title" style={{ textTransform: 'uppercase', display: 'flex', flexDirection: 'column' }}>
+            <div>
+              <ScrambleText text="LET'S " as="span" />
+              <ScrambleText text="BUILD" as="span" className="text-accent" style={{ fontWeight: 900 }} />
+            </div>
+            <ScrambleText text="SOMETHING" as="div" />
+            <ScrambleText text="AMAZING" as="div" className="text-accent" style={{ fontWeight: 900 }} />
+          </div>
           
           <p className="contact-desc">
             Ready to transform your digital presence? Let's discuss your project and bring your vision to life. We're just a message away.
