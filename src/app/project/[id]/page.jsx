@@ -241,10 +241,32 @@ export default function ProjectPage({ params }) {
         </section>
       )}
 
+      {/* ─── OTHER WORK LIST ────────────────────────────────────────── */}
+      <section className="cs-other-work">
+        <div className="container">
+          <div className="cs-ow-header">
+            <span className="cs-ow-label">OTHER WORK</span>
+            <Link href="/work" className="cs-ow-view-all cursor-hover">VIEW ALL</Link>
+          </div>
+          
+          <div className="cs-ow-list">
+            {Object.entries(projectData)
+              .filter(([key]) => key !== id) // exclude current project
+              .slice(0, 3) // show max 3
+              .map(([key, p], idx) => (
+                <Link key={key} href={`/project/${key}`} className="cs-ow-item cursor-hover">
+                  <h3 className="heading-font cs-ow-title">{p.title}</h3>
+                  <span className="cs-ow-arrow">↗</span>
+                </Link>
+              ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── BOTTOM CTA ─────────────────────────────────────────────── */}
       <section className="cs-bottom">
         <div className="container cs-bottom-inner">
-          <Link href="/#portfolio" className="cs-bottom-link cursor-hover">
+          <Link href="/work" className="cs-bottom-link cursor-hover">
             <span className="heading-font">Discover More Work</span>
             <span className="cs-bottom-arrow">↗</span>
           </Link>

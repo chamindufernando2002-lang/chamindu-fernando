@@ -30,8 +30,8 @@ export default function Home() {
       <Experience />  {/* 03 */}
       <About />       {/* 04 */}
       <Stats />
-      <Contact />
       <Awards />
+      <Contact />
       
     </motion.main>
   );

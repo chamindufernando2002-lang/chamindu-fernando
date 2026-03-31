@@ -1,304 +1,244 @@
-.contact-section {
-  background-color: var(--bg-color);
+/* ═══ Contact / Footer Section ══════════════════════════════
+   Two-zone footer:
+   1. Dark zone — heading + contact details (two column)
+   2. Orange bar — copyright / logo / giant name
+═══════════════════════════════════════════════════════════ */
+
+/* ─── OUTER WRAPPER ──────────────────────────────────── */
+.contact-footer {
   position: relative;
-  z-index: 10;
-  padding: 6rem 0;
+  overflow: hidden;
 }
 
-.contact-container {
+/* ─── TOP ZONE (dark) ─────────────────────────────────── */
+.contact-top {
+  background-color: #0e0e0e;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 6rem 0 5rem;
+}
+
+.contact-top-inner {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-xl);
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
   align-items: start;
 }
 
-@media (min-width: 1024px) {
-  .contact-container {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-  }
-}
-
-/* ════════ LEFT COLUMN INFO ════════ */
-
-.contact-info {
+/* LEFT */
+.contact-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 1.5rem;
 }
 
 .badge-pill {
+  display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #fff;
   border: 1px solid #333;
   border-radius: 30px;
-  padding: 0.5rem 1.2rem;
-  margin-bottom: 2rem;
-  background-color: rgba(20, 20, 20, 0.5);
+  padding: 0.4rem 1.1rem;
+  background-color: rgba(255,255,255,0.04);
+  width: fit-content;
 }
 
 .contact-title {
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  color: #fff;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .contact-desc {
-  font-size: 1.1rem;
-  color: #888;
-  line-height: 1.6;
-  max-width: 85%;
-  margin-bottom: 3.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 380px;
+  margin: 0;
 }
 
-/* Icons & Details */
+/* RIGHT */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-top: 1rem;
+}
+
 .contact-details {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 3.5rem;
-}
-
-.contact-detail-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.detail-icon-box {
-  background-color: #241400; /* Dark brownish orange */
-  border-radius: 12px;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.detail-text-col {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.detail-label {
-  font-size: 0.95rem;
-  color: #888;
-  font-family: var(--font-body);
-}
-
-.detail-value {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: #fff;
-  transition: color var(--transition-fast);
-  text-decoration: none;
-}
-
-.font-bold {
-  font-weight: 600;
-}
-
-a.detail-value:hover {
-  color: var(--accent-color);
-}
-
-/* Social Links */
-.contact-socials {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background-color: #1a1a1a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: all 0.3s ease;
-}
-
-.social-box:hover {
-  background-color: var(--accent-color);
-  color: var(--bg-color);
-  transform: translateY(-3px);
-}
-
-/* ════════ RIGHT COLUMN FORM & NEON LOGIC ════════ */
-
-.contact-form-wrapper {
-  perspective: 1000px;
-}
-
-/* 
-  NEON LOGIC 
-  Uses a wrapper that manages internal padding. The background creates
-  the "border" effect, and a radial gradient tracks the mouse variables.
-*/
-.neon-form-container {
-  position: relative;
-  border-radius: 20px;
-  background-color: #0c0c0c;
-  padding: 40px; /* Internal spacing */
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* The glowing border background */
-.neon-form-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  /* Thin static border around, plus the radial gradient following the mouse */
-  background: radial-gradient(
-      400px circle at var(--mouse-x) var(--mouse-y),
-      var(--accent-glow), /* Brighter neon center */
-      transparent 40%
-    ),
-    rgba(255, 255, 255, 0.05); /* Subtle static border color */
-  z-index: -2;
-  transition: opacity 0.3s;
-  opacity: 0;
-}
-
-/* The inner solid surface that "hides" the center of the gradient so it looks like a border */
-.neon-form-container::after {
-  content: '';
-  position: absolute;
-  top: 1px; /* The border width */
-  left: 1px;
-  right: 1px;
-  bottom: 1px;
-  border-radius: 19px;
-  background: #0a0a0a; /* True form background */
-  z-index: -1;
-}
-
-/* Fade in the glow ONLY on hover */
-.neon-form-container:hover::before {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .neon-form-container {
-    padding: 24px;
-  }
-}
-
-/* Form Styles */
-.contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
 }
 
-.form-group {
+.contact-detail-item {
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  align-items: center;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.25s ease;
 }
 
-.form-label-top {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #fff;
+a.contact-detail-item:hover {
+  opacity: 0.75;
 }
 
-.form-input {
-  width: 100%;
-  background: #121212;
-  border: 1px solid #222;
-  border-radius: 12px;
-  padding: 1.2rem 1.5rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: #fff;
-  transition: all var(--transition-fast);
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 2px rgba(255, 94, 0, 0.1);
-}
-
-.form-input::placeholder {
-  color: #555;
-  font-weight: 400;
-}
-
-.form-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 1.5rem center;
-  background-size: 1em;
-  color: #fff;
-}
-.form-select:invalid, 
-.form-select option[value=""] {
-  color: #555;
-}
-.form-select option {
-  color: #fff;
-  background: #1a1a1a;
-}
-
-.form-textarea {
-  resize: none;
-  min-height: 140px;
-}
-
-/* Submit Button - Pill Style */
-.submit-btn {
+.detail-icon-box {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 1.2rem;
-  background-color: var(--accent-color);
-  color: #fff;
+  flex-shrink: 0;
+  border: 1px solid #2a2a2a;
+}
+
+.detail-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.detail-label {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1.1rem;
-  border-radius: 50px;
-  margin-top: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(255, 94, 0, 0.4);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
 }
 
-.submit-btn:hover:not(.submitting):not(.submitted) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 94, 0, 0.6);
-  background-color: #ff7300;
+.detail-value {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
-.send-icon {
-  margin-left: 4px;
+/* Social row */
+.contact-socials {
+  display: flex;
+  gap: 0.75rem;
 }
 
-.submit-btn.submitting {
-  background-color: #333;
-  color: var(--text-secondary);
+.social-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  border: 1px solid #252525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.social-box:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* ─── ORANGE FOOTER BAR ───────────────────────────────── */
+.contact-footer-bar {
+  background-color: var(--accent-color);
+  overflow: hidden;
+}
+
+.footer-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--bg-color);
+  letter-spacing: -1px;
+}
+
+.footer-back-top {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bg-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.footer-back-top:hover {
+  opacity: 0.6;
+}
+
+/* Giant name */
+.footer-giant-wrap {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-top: -1vw;
+}
+
+.footer-giant-name {
+  font-size: clamp(14vw, 20vw, 26vw);
+  font-weight: 900;
+  line-height: 0.78;
+  margin: 0;
+  color: var(--bg-color);
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  opacity: 0.85;
   pointer-events: none;
-  box-shadow: none;
+  user-select: none;
 }
 
-.submit-btn.submitted {
-  background-color: #2e7d32;
-  color: white;
-  pointer-events: none;
-  box-shadow: none;
+/* ─── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .contact-top-inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .contact-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-top {
+    padding: 4rem 0 4rem;
+  }
+
+  .footer-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
 }

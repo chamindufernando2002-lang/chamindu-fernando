@@ -156,6 +156,77 @@
   pointer-events: none;
 }
 
+/* ─── OTHER WORK SECTION ──────────────────────────────── */
+.cs-other-work {
+  background-color: var(--accent-color);
+  padding: 6vh 0 2vh;
+  color: #000;
+}
+
+.cs-ow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.cs-ow-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cs-ow-view-all {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.cs-ow-view-all:hover {
+  opacity: 0.6;
+}
+
+.cs-ow-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-ow-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  color: #000;
+  text-decoration: none;
+  transition: transform 0.4s ease;
+}
+
+.cs-ow-item:hover {
+  padding-left: 1rem;
+}
+
+.cs-ow-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.cs-ow-arrow {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+}
+
 /* ─── BOTTOM CTA ────────────────────────────────────── */
 .cs-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.07);
