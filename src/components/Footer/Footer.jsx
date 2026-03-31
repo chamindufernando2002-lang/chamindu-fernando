@@ -1,23 +1,23 @@
 'use client';
 
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Linkedin, Instagram, Github, Mail } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { scrollYProgress } = useScroll();
-  const yParallax = useTransform(scrollYProgress, [0.8, 1], [150, 0]);
 
   return (
-    <footer className="footer section">
-      <div className="container">
+    <footer className="footer" id="footer">
+      <div className="container footer-inner">
+        
+        {/* Top bar: Logo left, Social icons right */}
         <div className="footer-top">
-          <h2 className="heading-font">CF.</h2>
+          <h2 className="heading-font footer-logo">CF.</h2>
           <div className="social-links">
             <a href="https://www.behance.net/chaminduashara" target="_blank" rel="noopener noreferrer" aria-label="Behance" className="cursor-hover social-icon-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M6 4h4c1.1 0 2 .9 2 2s-.9 2-2 2H6z" />
                 <path d="M6 10h4.5c1.4 0 2.5 1.1 2.5 2.5S11.9 15 10.5 15H6z" />
                 <path d="M6 4v11" />
@@ -27,37 +27,43 @@ const Footer = () => {
               </svg>
             </a>
             <a href="https://www.instagram.com/ludolabsco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="cursor-hover social-icon-link">
-              <Instagram size={24} />
+              <Instagram size={22} />
             </a>
             <a href="https://www.linkedin.com/in/chamindu-fernandez/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="cursor-hover social-icon-link">
-              <Linkedin size={24} />
+              <Linkedin size={22} />
             </a>
             <a href="https://github.com/ChaminduFernando" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="cursor-hover social-icon-link">
-              <Github size={24} />
+              <Github size={22} />
             </a>
             <a href="mailto:ashrachamindufernando@gmail.com" aria-label="Email" className="cursor-hover social-icon-link">
-              <Mail size={24} />
+              <Mail size={22} />
             </a>
           </div>
         </div>
-        
-        <div className="footer-bottom">
+
+        {/* Middle bar: Copyright left, Back to top right */}
+        <div className="footer-mid">
           <p className="copyright">
             &copy; {currentYear} Chamindu Fernando. All rights reserved.
           </p>
-          <a href="#" className="back-to-top" onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}>
-            Back to Top ↑
-          </a>
+          <button
+            className="back-to-top cursor-hover"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            BACK TO TOP ↑
+          </button>
         </div>
+
       </div>
 
+      {/* Giant background name - spans full width at bottom */}
       <div className="footer-giant-wrapper">
-        <motion.h1 
+        <motion.h1
           className="heading-font footer-giant-text"
-          style={{ y: yParallax }}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
         >
           CHAMINDU
         </motion.h1>

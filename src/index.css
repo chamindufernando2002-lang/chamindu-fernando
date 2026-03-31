@@ -9,11 +9,11 @@
 
 :root {
   /* Colors */
-  --bg-color: #000000;
+  --bg-color: #0a0a0a;
   --text-primary: #ffffff;
-  --text-secondary: #aaaaaa;
-  --accent-color: #ff4c00; /* Vibrant Orange */
-  --accent-glow: rgba(255, 76, 0, 0.4);
+  --text-secondary: #bbbbbb;
+  --accent-color: #ff4500; /* Vibrant Orange/Red from reference */
+  --accent-glow: rgba(255, 69, 0, 0.4);
   --border-color: #222222;
   
   /* Typography */

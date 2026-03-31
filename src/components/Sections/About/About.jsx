@@ -8,23 +8,42 @@ import './About.css';
 const About = () => {
   return (
     <section className="about-section section" id="about">
-      <div className="container about-container">
+      <div className="container about-container" style={{ display: 'flex', gap: '4vw', alignItems: 'flex-start' }}>
+        
+        {/* Left: numeral */}
         <motion.div 
-          className="about-huge-title-wrapper"
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '0px' }}
-          transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
+          style={{ 
+            fontSize: 'clamp(7rem, 16vw, 13rem)', 
+            fontWeight: 900, 
+            lineHeight: 0.85, 
+            color: 'var(--text-secondary)',
+            fontFamily: 'var(--font-heading)',
+            flexShrink: 0,
+            paddingTop: '0.1em'
+          }}
         >
-          <div className="heading-font about-huge-title" style={{ display: 'flex', flexDirection: 'column' }}>
-            <ScrambleText text="ABOUT" as="span" />
-            <ScrambleText text="ME." as="span" className="text-accent" />
-          </div>
+          04
         </motion.div>
 
-        <div className="about-content-grid">
-          <motion.div className="about-spacer" />
-          
+        {/* Right: content */}
+        <div style={{ flexGrow: 1, minWidth: 0 }}>
+          <motion.div 
+            className="about-huge-title-wrapper"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '0px' }}
+            transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+          >
+            <div className="heading-font about-huge-title" style={{ display: 'flex', flexDirection: 'column' }}>
+              <ScrambleText text="ABOUT" as="span" />
+              <ScrambleText text="ME." as="span" className="text-accent" />
+            </div>
+          </motion.div>
+
           <motion.div 
             className="about-text-col"
             initial={{ opacity: 0, y: 50 }}
@@ -42,6 +61,7 @@ const About = () => {
             </p>
           </motion.div>
         </div>
+
       </div>
     </section>
   );
