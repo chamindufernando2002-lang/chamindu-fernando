@@ -78,17 +78,7 @@ const Hero = () => {
             </h1>
             
             <motion.div 
-              className="hero-subtitle"
-              variants={{
-                hidden: { y: "100%", opacity: 0 },
-                visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
-              }}
-            >
-              <p>&quot;Your friendly neighbourhood Designer&quot;</p>
-            </motion.div>
-
-            <motion.div 
-              className="hero-action"
+              className="hero-action-group"
               variants={{
                 hidden: { y: "100%", opacity: 0 },
                 visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
@@ -100,6 +90,9 @@ const Hero = () => {
                   <ArrowDownRight size={24} />
                 </div>
               </a>
+              <div className="hero-subtitle">
+                <p>&quot;Your friendly neighbourhood Designer&quot;</p>
+              </div>
             </motion.div>
           </motion.div>
 

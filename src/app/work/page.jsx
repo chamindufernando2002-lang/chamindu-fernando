@@ -13,7 +13,7 @@ const projects = [
     category: 'Photography',
     tags: ['Event', 'Portrait'],
     year: '2024',
-    imageUrl: '/projects/13th Installation/Amasha .jpg',
+    imageUrl: '/projects/13th Installation/1.jpg',
   },
   {
     id: 'apex',
@@ -21,7 +21,7 @@ const projects = [
     category: 'Branding',
     tags: ['Identity', 'Social Media'],
     year: '2024',
-    imageUrl: '/projects/Apex/Apex.jpg',
+    imageUrl: '/projects/Apex/1.jpg',
   },
   {
     id: 'beauty-leaf',
@@ -29,7 +29,7 @@ const projects = [
     category: 'Print Design',
     tags: ['Brochure', 'Medical'],
     year: '2023',
-    imageUrl: '/projects/Beauty Leaf/Teal and White Medical Trifold Brochure.jpg',
+    imageUrl: '/projects/Beauty Leaf/1.jpg',
   },
   {
     id: 'edfoci',
@@ -53,7 +53,7 @@ const projects = [
     category: 'Social Media',
     tags: ['F&B', 'Marketing'],
     year: '2024',
-    imageUrl: '/projects/Food/friday special.jpg',
+    imageUrl: '/projects/Food/1.jpg',
   },
   {
     id: 'mansion',
@@ -61,7 +61,7 @@ const projects = [
     category: 'Photography',
     tags: ['Event', 'Retouching'],
     year: '2024',
-    imageUrl: '/projects/Mansion/34.jpg',
+    imageUrl: '/projects/Mansion/1.jpg',
   },
   {
     id: 'mg-sl',
@@ -69,7 +69,15 @@ const projects = [
     category: 'Digital Campaign',
     tags: ['Automotive', 'Social Media'],
     year: '2024',
-    imageUrl: '/projects/MG SL/Hello Sri lanka.jpg',
+    imageUrl: '/projects/MG SL/1.jpg',
+  },
+  {
+    id: 'rotaract',
+    title: 'Rotaract Projects',
+    category: 'Community & Event',
+    tags: ['Community', 'Events', 'Social Media'],
+    year: '2024-2025',
+    imageUrl: '/projects/Rotaract Projects/Special Days/1 (4).jpg',
   },
   {
     id: 'tech-ts',
@@ -93,7 +101,7 @@ const projects = [
     category: 'Digital Content',
     tags: ['Thumbnail Design', 'Finance'],
     year: '2024',
-    imageUrl: '/projects/Youtube Thumbnails/How to Trade Forex@2x.png',
+    imageUrl: '/projects/Youtube Thumbnails/1.png',
   }
 ];
 
@@ -152,6 +160,12 @@ const WorkCard = ({ project, index }) => {
 };
 
 export default function Work() {
+  const [visibleProjects, setVisibleProjects] = useState(6);
+
+  const loadMore = () => {
+    setVisibleProjects(prev => prev + 6);
+  };
+
   return (
     <motion.main
       className="work-page"
@@ -186,14 +200,20 @@ export default function Work() {
 
       {/* Grid */}
       <div className="work-grid container">
-        {projects.map((project, index) => (
+        {projects.slice(0, visibleProjects).map((project, index) => (
           <WorkCard key={project.id} project={project} index={index} />
         ))}
       </div>
 
       {/* Bottom strip */}
-      <div className="work-bottom container">
-        <p className="work-bottom-text">More projects coming soon.</p>
+      <div className="work-bottom container" style={{ flexDirection: 'column', gap: '2rem' }}>
+        {visibleProjects < projects.length ? (
+          <button onClick={loadMore} className="load-more-btn cursor-hover">
+            Load More Projects
+          </button>
+        ) : (
+          <p className="work-bottom-text">More projects coming soon.</p>
+        )}
       </div>
     </motion.main>
   );
