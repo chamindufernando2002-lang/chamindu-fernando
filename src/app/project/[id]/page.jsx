@@ -296,9 +296,29 @@ const projectData = {
             "/projects/Rotaract Projects/Other/Exchange.jpg",
             "/projects/Rotaract Projects/Other/Siripa Sathkara register Now 2.jpg"
       ],
-      "Rota Times": [
-            "/projects/Rotaract Projects/Rota Times/2024",
-            "/projects/Rotaract Projects/Rota Times/2025"
+      "Rota Times — 2024": [
+            "/projects/Rotaract Projects/Rota Times/2024/1 (2).jpg",
+            "/projects/Rotaract Projects/Rota Times/2024/2 (5).jpg",
+            "/projects/Rotaract Projects/Rota Times/2024/3 (2).jpg",
+            "/projects/Rotaract Projects/Rota Times/2024/4 (2).jpg",
+            "/projects/Rotaract Projects/Rota Times/2024/5.jpg",
+            "/projects/Rotaract Projects/Rota Times/2024/6.jpg",
+            "/projects/Rotaract Projects/Rota Times/2024/7 (2).jpg",
+            "/projects/Rotaract Projects/Rota Times/2024/8 (2).jpg",
+            "/projects/Rotaract Projects/Rota Times/2024/9.jpg"
+      ],
+      "Rota Times — 2025": [
+            "/projects/Rotaract Projects/Rota Times/2025/January copy-8dsVqzBr.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/February copy-C3CGI1aV.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/March copy-Dy3Xy1t0.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/April copy-Du1clO4e.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/july-BSaOelRz.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/August copy-C68sA8Jv.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/September copy-BgzJ4npz.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/October copy-BlJmdUga.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/November copy-BL1Cnt5x.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/December copy-CZOLP8YD.jpg",
+            "/projects/Rotaract Projects/Rota Times/2025/The Rotaractor-B8yZbZXy.jpg"
       ],
       "Special Days": [
             "/projects/Rotaract Projects/Special Days/1 (4).jpg",
