@@ -78,8 +78,9 @@
 .hero-text {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* Pulled elements much closer together */
-  max-width: 800px;
+  flex: 1; /* Stretch to fill wrapper */
+  gap: 0.5rem;
+  width: 100%;
   align-items: flex-start;
 }
 
@@ -116,13 +117,12 @@
 }
 
 .hero-action-group {
-  position: absolute;
-  bottom: 8vh;
-  left: 0;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center; /* PERFECTLY PARALLEL CENTER ALIGN */
+  width: 100%;
+  margin-top: auto; /* Pushes to the bottom of the hero text wrapper flexbox securely */
+  padding-bottom: 12vh; /* Secure padding from the absolute bottom so it's always in frame */
 }
 
 /* CTA Button styling */

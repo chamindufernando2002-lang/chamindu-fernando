@@ -30,7 +30,8 @@ const Hero = () => {
         ></video>
       </motion.div>
       
-      {/* Gradient overlays removed as requested to keep video fully visible without shadows */}
+      {/* Bottom fade restored for smooth transition, left fade removed for face visibility */}
+      <div className="hero-overlay-bottom"></div>
 
       {/* Content wrapper - Text placed on top of everything */}
       <div className="container hero-content">
