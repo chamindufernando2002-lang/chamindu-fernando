@@ -10,26 +10,26 @@ const projects = [
   {
     id: 'travelco',
     title: 'Travelco Holdings',
-    description: 'Branding & Digital Solution',
+    description: 'Branding & Digital',
     imageUrl: '/projects/Travelco/1.jpg'
   },
   {
-    id: 'lumina',
-    title: 'Lumina',
-    description: 'Strategic Brand Identity',
-    imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'
+    id: '13th-installation',
+    title: '13th Installation',
+    description: 'Photography',
+    imageUrl: '/projects/13th Installation/1.jpg'
   },
   {
-    id: 'nexus',
-    title: 'Nexus',
-    description: 'Motion Graphics Sequence',
-    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop'
+    id: 'rotaract',
+    title: 'Rotaract Projects',
+    description: 'Community & Event',
+    imageUrl: '/projects/Rotaract Projects/Special Days/1 (4).jpg'
   },
   {
-    id: 'aurora',
-    title: 'Aurora',
-    description: '3D Interactive Environment',
-    imageUrl: 'https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=1000&auto=format&fit=crop'
+    id: 'food',
+    title: 'Food Campaigns',
+    description: 'Social Media',
+    imageUrl: '/projects/Food/1.jpg'
   },
 ];
 

@@ -160,10 +160,10 @@ const WorkCard = ({ project, index }) => {
 };
 
 export default function Work() {
-  const [visibleProjects, setVisibleProjects] = useState(6);
+  const [visibleProjects, setVisibleProjects] = useState(9);
 
   const loadMore = () => {
-    setVisibleProjects(prev => prev + 6);
+    setVisibleProjects(prev => prev + 9);
   };
 
   return (
@@ -208,7 +208,17 @@ export default function Work() {
       {/* Bottom strip */}
       <div className="work-bottom container" style={{ flexDirection: 'column', gap: '2rem' }}>
         {visibleProjects < projects.length ? (
-          <button onClick={loadMore} className="load-more-btn cursor-hover">
+          <button onClick={loadMore} className="load-more-btn cursor-hover" style={{
+            background: 'transparent',
+            border: '1px solid var(--text-primary)',
+            color: 'var(--text-primary)',
+            padding: '12px 30px',
+            borderRadius: '30px',
+            fontSize: '1rem',
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+            cursor: 'pointer'
+          }}>
             Load More Projects
           </button>
         ) : (
