@@ -8,29 +8,23 @@ import './Portfolio.css';
 
 const projects = [
   {
-    id: 'travelco',
-    title: 'Travelco Holdings',
-    description: 'Branding & Digital',
-    imageUrl: '/projects/Travelco/1.jpg'
+    id: 'apex',
+    title: 'Apex',
+    description: 'Branding & Social Media',
+    imageUrl: '/projects/Apex/1.jpg'
   },
   {
-    id: '13th-installation',
-    title: '13th Installation',
-    description: 'Photography',
-    imageUrl: '/projects/13th Installation/1.jpg'
+    id: 'beauty-bay',
+    title: 'Beauty Bay',
+    description: 'Digital Design',
+    imageUrl: '/projects/Beauty Bay/1.jpg'
   },
   {
-    id: 'rotaract',
-    title: 'Rotaract Projects',
-    description: 'Community & Event',
-    imageUrl: '/projects/Rotaract Projects/Special Days/1 (4).jpg'
-  },
-  {
-    id: 'food',
-    title: 'Food Campaigns',
-    description: 'Social Media',
-    imageUrl: '/projects/Food/1.jpg'
-  },
+    id: 'beauty-leaf',
+    title: 'Beauty Leaf',
+    description: 'Print Design',
+    imageUrl: '/projects/Beauty Leaf/2.jpg'
+  }
 ];
 
 const PortfolioRow = ({ item, index }) => {

@@ -8,14 +8,6 @@ import './work.css';
 
 const projects = [
   {
-    id: '13th-installation',
-    title: '13th Installation',
-    category: 'Photography',
-    tags: ['Event', 'Portrait'],
-    year: '2024',
-    imageUrl: '/projects/13th Installation/1.jpg',
-  },
-  {
     id: 'apex',
     title: 'Apex',
     category: 'Branding',
@@ -38,78 +30,6 @@ const projects = [
     tags: ['Brochure', 'Medical'],
     year: '2023',
     imageUrl: '/projects/Beauty Leaf/2.jpg',
-  },
-  {
-    id: 'edfoci',
-    title: 'Edfoci',
-    category: 'Digital Design',
-    tags: ['Social Media', 'Campaign'],
-    year: '2024',
-    imageUrl: '/projects/Edfoci/1.jpg',
-  },
-  {
-    id: 'ezy-sim',
-    title: 'Ezy Sim',
-    category: 'Marketing Design',
-    tags: ['Social Media', 'Ads'],
-    year: '2024',
-    imageUrl: '/projects/Ezy Sim/1.jpg',
-  },
-  {
-    id: 'food',
-    title: 'Food Campaigns',
-    category: 'Social Media',
-    tags: ['F&B', 'Marketing'],
-    year: '2024',
-    imageUrl: '/projects/Food/1.jpg',
-  },
-  {
-    id: 'mansion',
-    title: 'Mansion',
-    category: 'Photography',
-    tags: ['Event', 'Retouching'],
-    year: '2024',
-    imageUrl: '/projects/Mansion/1.jpg',
-  },
-  {
-    id: 'mg-sl',
-    title: 'MG Sri Lanka',
-    category: 'Digital Campaign',
-    tags: ['Automotive', 'Social Media'],
-    year: '2024',
-    imageUrl: '/projects/MG SL/1.jpg',
-  },
-  {
-    id: 'rotaract',
-    title: 'Rotaract Projects',
-    category: 'Community & Event',
-    tags: ['Community', 'Events', 'Social Media'],
-    year: '2024-2025',
-    imageUrl: '/projects/Rotaract Projects/Special Days/1 (4).jpg',
-  },
-  {
-    id: 'tech-ts',
-    title: 'Tech TS',
-    category: 'UI/UX & Web',
-    tags: ['Interface', 'Web Design'],
-    year: '2024',
-    imageUrl: '/projects/Tech TS/1.jpg',
-  },
-  {
-    id: 'travelco',
-    title: 'Travelco',
-    category: 'Branding & Digital',
-    tags: ['Research', 'Brand Strategy', 'UI/UX'],
-    year: '2026',
-    imageUrl: '/projects/Travelco/1.jpg',
-  },
-  {
-    id: 'youtube',
-    title: 'YouTube Thumbnails',
-    category: 'Digital Content',
-    tags: ['Thumbnail Design', 'Finance'],
-    year: '2024',
-    imageUrl: '/projects/Youtube Thumbnails/1.png',
   }
 ];
 
