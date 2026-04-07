@@ -24,12 +24,20 @@ const projects = [
     imageUrl: '/projects/Apex/1.jpg',
   },
   {
+    id: 'beauty-bay',
+    title: 'Beauty Bay',
+    category: 'Social Media',
+    tags: ['Skin Care', 'Digital Design'],
+    year: '2025',
+    imageUrl: '/projects/Beauty Bay/1.jpg',
+  },
+  {
     id: 'beauty-leaf',
     title: 'Beauty Leaf',
     category: 'Print Design',
     tags: ['Brochure', 'Medical'],
     year: '2023',
-    imageUrl: '/projects/Beauty Leaf/1.jpg',
+    imageUrl: '/projects/Beauty Leaf/2.jpg',
   },
   {
     id: 'edfoci',

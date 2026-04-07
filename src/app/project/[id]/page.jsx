@@ -51,10 +51,30 @@ const projectData = {
     gallery: [
       "/projects/Apex/070 555 1155.jpg",
       "/projects/Apex/1.jpg",
-      "/projects/Apex/2.jpg",
-      "/projects/Apex/3.jpg",
       "/projects/Apex/4.jpg",
-      "/projects/Apex/5.jpg"
+      "/projects/Apex/Apex.jpg"
+]
+  },
+  'beauty-bay': {
+    title: 'Beauty Bay',
+    category: 'Social Media',
+    year: '2025',
+    role: 'Social Media Designer',
+    client: 'Beauty Bay',
+    description: 'A vibrant social media and digital campaign designed to highlight skincare and cosmetic products with an elegant, modern aesthetic.',
+    gallery: [
+      "/projects/Beauty Bay/1.jpg",
+      "/projects/Beauty Bay/15.jpg",
+      "/projects/Beauty Bay/16.jpg",
+      "/projects/Beauty Bay/2.jpg",
+      "/projects/Beauty Bay/21.jpg",
+      "/projects/Beauty Bay/26.jpg",
+      "/projects/Beauty Bay/3.jpg",
+      "/projects/Beauty Bay/40.jpg",
+      "/projects/Beauty Bay/41.jpg",
+      "/projects/Beauty Bay/52.jpg",
+      "/projects/Beauty Bay/53.jpg",
+      "/projects/Beauty Bay/6.jpg"
 ]
   },
   'beauty-leaf': {
@@ -65,20 +85,12 @@ const projectData = {
     client: 'Beauty Leaf',
     description: 'Medical and healthcare brochure designs that prioritize clear communication, professional typography, and a calming visual aesthetic.',
     gallery: [
-      "/projects/Beauty Leaf/1.jpg",
       "/projects/Beauty Leaf/10.jpg",
       "/projects/Beauty Leaf/11.jpg",
-      "/projects/Beauty Leaf/12.jpg",
-      "/projects/Beauty Leaf/13.jpg",
-      "/projects/Beauty Leaf/14.jpg",
-      "/projects/Beauty Leaf/15.jpg",
       "/projects/Beauty Leaf/2.jpg",
-      "/projects/Beauty Leaf/4.jpg",
       "/projects/Beauty Leaf/5.jpg",
-      "/projects/Beauty Leaf/6.jpg",
       "/projects/Beauty Leaf/7.jpg",
       "/projects/Beauty Leaf/8.jpg",
-      "/projects/Beauty Leaf/9.jpg",
       "/projects/Beauty Leaf/Teal and White Medical Trifold Brochure.jpg"
 ]
   },
