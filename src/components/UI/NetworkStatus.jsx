@@ -2,13 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { WifiOff, Loader2 } from 'lucide-react';
+import { WifiOff } from 'lucide-react';
 import './NetworkStatus.css';
 
 const NetworkStatus = () => {
-  const [isOffline, setIsOffline] = useState(!navigator.onLine);
+  const [isOffline, setIsOffline] = useState(false);
 
   useEffect(() => {
+    // Check initial state
+    if (typeof window !== 'undefined') {
+      setIsOffline(!navigator.onLine);
+    }
+
     const handleOffline = () => setIsOffline(true);
     const handleOnline = () => setIsOffline(false);
 
@@ -25,16 +30,23 @@ const NetworkStatus = () => {
     <AnimatePresence>
       {isOffline && (
         <motion.div 
-          className="network-status-container"
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.9 }}
-          transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+          className="network-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
         >
-          <div className="network-button">
-            <WifiOff size={18} className="network-icon pulse-red" />
-            <span className="network-text">Signal Dropped</span>
-            <Loader2 size={16} className="network-spinner" />
+          <div className="network-content">
+            <div className="creative-loader">
+              <motion.div 
+                className="loader-ring"
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+              />
+              <WifiOff size={40} className="network-icon pulse-red" />
+            </div>
+            <h2 className="heading-font network-title">Connection Lost</h2>
+            <p className="network-text">We are trying to reconnect to the signal. Please hold on.</p>
           </div>
         </motion.div>
       )}
@@ -43,3 +55,4 @@ const NetworkStatus = () => {
 };
 
 export default NetworkStatus;
+

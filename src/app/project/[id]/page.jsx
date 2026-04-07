@@ -86,6 +86,8 @@ const GalleryItem = ({ src, alt, index, onClick }) => {
           animate={{ scale: hovered ? 1.04 : 1 }}
           transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           draggable={false}
+          loading="lazy"
+          decoding="async"
         />
         <motion.div
           className="cs-gallery-overlay"
@@ -375,6 +377,8 @@ export default function ProjectPage({ params }) {
                   exit={{ opacity: 0, scale: 0.92 }}
                   transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }}
                   draggable={false}
+                  loading="lazy"
+                  decoding="async"
                 />
               </AnimatePresence>
             </motion.div>

@@ -55,6 +55,8 @@ const WorkCard = ({ project, index }) => {
             animate={{ scale: hovered ? 1.07 : 1 }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
             draggable={false}
+            loading="lazy"
+            decoding="async"
           />
 
           {/* Hover Overlay with description */}

@@ -31,7 +31,6 @@
   border-radius: 50%;
   pointer-events: none;
   z-index      : 10002;
-  mix-blend-mode: difference;
   will-change  : transform, opacity;
 
   transition:
@@ -78,7 +77,6 @@
   border-radius : 50%;
   pointer-events: none;
   z-index       : 10001;
-  mix-blend-mode: difference;
   will-change   : transform, width, height, background-color, border-color;
   
   display      : flex;
@@ -105,8 +103,10 @@
   margin-top : calc(var(--cc-orb-hover) / -2);
   margin-left: calc(var(--cc-orb-hover) / -2);
   
-  background-color: var(--cc-accent);
+  background-color: var(--accent-glow, rgba(255, 69, 0, 0.4));
   border-color: transparent;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* ── Click: orb contracts slightly ── */
@@ -129,7 +129,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #000; /* Black text on white blended background */
+  color: #fff; /* White text on colorized background */
   text-transform: uppercase;
   opacity: 0;
   transform: scale(0.5);

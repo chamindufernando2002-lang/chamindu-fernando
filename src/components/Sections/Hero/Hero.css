@@ -240,6 +240,16 @@
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    height: 100dvh;
+  }
+
+  .hero-video {
+    object-fit: contain;
+    background: var(--bg-color);
+  }
+
   .hero-overlay-left {
     width: 100%;
     background: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.7) 100%);
