@@ -38,7 +38,16 @@ const Navigation = () => {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="container nav-container">
-          <Link href="/" className="logo heading-font">
+          <Link 
+            href="/" 
+            className="logo heading-font cursor-hover"
+            onClick={(e) => {
+              if (pathname === '/') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+          >
             CF.
           </Link>
           

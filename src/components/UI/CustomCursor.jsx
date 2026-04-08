@@ -35,7 +35,7 @@ const CustomCursor = () => {
       }
 
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       }
     };
 
@@ -87,15 +87,15 @@ const CustomCursor = () => {
     document.documentElement.addEventListener('mouseleave', onLeave);
     document.documentElement.addEventListener('mouseenter', onEnter);
 
-    // Snappier lerp makes it easier to handle (0.15 vs 0.1)
+    // Smoother lerp (0.08)
     const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
     
     const tick = () => {
-      orbPos.current.x = lerp(orbPos.current.x, mouse.current.x, 0.15);
-      orbPos.current.y = lerp(orbPos.current.y, mouse.current.y, 0.15);
+      orbPos.current.x = lerp(orbPos.current.x, mouse.current.x, 0.08);
+      orbPos.current.y = lerp(orbPos.current.y, mouse.current.y, 0.08);
 
       if (orbRef.current) {
-        orbRef.current.style.transform = `translate(${orbPos.current.x}px, ${orbPos.current.y}px)`;
+        orbRef.current.style.transform = `translate3d(${orbPos.current.x}px, ${orbPos.current.y}px, 0)`;
       }
       reqRef.current = requestAnimationFrame(tick);
     };
