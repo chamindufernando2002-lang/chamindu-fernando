@@ -61,6 +61,128 @@ const projectData = {
       "/projects/Beauty Leaf/8.jpg",
       "/projects/Beauty Leaf/Teal and White Medical Trifold Brochure.jpg"
     ]
+  },
+  'food': {
+    title: 'Food Menu',
+    category: 'Digital Design',
+    year: '2024',
+    role: 'Designer',
+    client: 'Food Menu',
+    description: 'A vibrant set of food menu designs outlining weekly specials for a local restaurant, utilizing warm tones to induce appetite and clear hierarchy for readability.',
+    gallery: [
+      "/projects/Food/friday special.jpg",
+      "/projects/Food/monday special.jpg",
+      "/projects/Food/saturday special.jpg",
+      "/projects/Food/wednesday special.jpg"
+    ]
+  },
+  'mg-sl': {
+    title: 'MG SL',
+    category: 'Automotive',
+    year: '2025',
+    role: 'Designer',
+    client: 'MG SL',
+    description: 'Digital and social media design for MG Sri Lanka focusing on the latest models, prioritizing a sleek, premium, and bold visual language.',
+    gallery: [
+      "/projects/MG SL/2.jpg",
+      "/projects/MG SL/3.jpg",
+      "/projects/MG SL/4.jpg",
+      "/projects/MG SL/5.jpg",
+      "/projects/MG SL/Hello Sri lanka.jpg"
+    ]
+  },
+  'rota-times': {
+    title: 'Rota Times',
+    category: 'Editorial',
+    year: '2024',
+    role: 'Editorial Designer',
+    client: 'Rotaract',
+    description: 'Monthly editorial magazine designs featuring creative typographic covers and vibrant layouts that engage the youthful audience.',
+    gallery: [
+      "/projects/Rota Times/The Rotaractor-B8yZbZXy.jpg",
+      "/projects/Rota Times/January copy-8dsVqzBr.jpg",
+      "/projects/Rota Times/February copy-C3CGI1aV.jpg",
+      "/projects/Rota Times/March copy-Dy3Xy1t0.jpg",
+      "/projects/Rota Times/April copy-Du1clO4e.jpg",
+      "/projects/Rota Times/july-BSaOelRz.jpg",
+      "/projects/Rota Times/August copy-C68sA8Jv.jpg",
+      "/projects/Rota Times/September copy-BgzJ4npz.jpg",
+      "/projects/Rota Times/October copy-BlJmdUga.jpg",
+      "/projects/Rota Times/November copy-BL1Cnt5x.jpg",
+      "/projects/Rota Times/December copy-CZOLP8YD.jpg"
+    ]
+  },
+  'tech-ts': {
+    title: 'Tech TS',
+    category: 'Branding',
+    year: '2023',
+    role: 'Brand Designer',
+    client: 'Tech TS',
+    description: 'A modern identity and marketing graphics design for a tech company, balancing professional trust with innovative visuals.',
+    gallery: [
+      "/projects/Tech TS/1.jpg",
+      "/projects/Tech TS/5.jpg",
+      "/projects/Tech TS/8.jpg"
+    ]
+  },
+  'university-projects': {
+    title: 'University Projects',
+    category: 'Miscellaneous',
+    year: '2024',
+    role: 'Designer',
+    client: 'University',
+    description: 'A collection of varied creative works developed for university events, highlighting versatility across print, social media, and event branding.',
+    gallery: [
+      "/projects/University Projects/Exchange.jpg",
+      "/projects/University Projects/1.jpg",
+      "/projects/University Projects/1 (4).jpg",
+      "/projects/University Projects/2 (2).jpg",
+      "/projects/University Projects/2 (4).jpg",
+      "/projects/University Projects/5 (2).jpg",
+      "/projects/University Projects/6 (2).jpg",
+      "/projects/University Projects/6 (3).jpg",
+      "/projects/University Projects/6 (5).jpg",
+      "/projects/University Projects/8.jpg"
+    ]
+  },
+  'yeh-jawaani-concert': {
+    title: 'Yeh Jawaani Concert',
+    category: 'Event Design',
+    year: '2025',
+    role: 'Event Designer',
+    client: 'Yeh Jawaani',
+    description: 'Dynamic event design and promotional materials including ticketing and dynamic social media artwork for a high-energy concert.',
+    gallery: [
+      "/projects/Yeh Jawaani Concert/Yeh Jawaani (Ticket).jpg",
+      "/projects/Yeh Jawaani Concert/7.jpg",
+      "/projects/Yeh Jawaani Concert/8.jpg",
+      "/projects/Yeh Jawaani Concert/10.jpg",
+      "/projects/Yeh Jawaani Concert/11.jpg",
+      "/projects/Yeh Jawaani Concert/13.jpg",
+      "/projects/Yeh Jawaani Concert/2 (3).jpg",
+      "/projects/Yeh Jawaani Concert/4.jpg"
+    ]
+  },
+  'youtube-thumbnails': {
+    title: 'Youtube Thumbnails',
+    category: 'Digital Art',
+    year: '2025',
+    role: 'Thumbnail Designer',
+    client: 'Various Creators',
+    description: 'High-conversion YouTube thumbnails for trading and finance channels, optimized for click-through rate (CTR) with high contrast visuals and legible typography.',
+    gallery: [
+      "/projects/Youtube Thumbnails/Binance Trading Bot@2x.jpg",
+      "/projects/Youtube Thumbnails/Do this before trading@2x.jpg",
+      "/projects/Youtube Thumbnails/Five Forex Brokers for beginners@2x.jpg",
+      "/projects/Youtube Thumbnails/Five Secrets to Trade better@2x.jpg",
+      "/projects/Youtube Thumbnails/Five incredible Trading Bot@2x.jpg",
+      "/projects/Youtube Thumbnails/Forex Trading Courses for beginners@2x.jpg",
+      "/projects/Youtube Thumbnails/Forex Trading Risk Management@2x.jpg",
+      "/projects/Youtube Thumbnails/Forex Trading Tips for Intermediate Traders@2x.jpg",
+      "/projects/Youtube Thumbnails/Forex Trading new method@2x.jpg",
+      "/projects/Youtube Thumbnails/How to Copy Trade@2x.jpg",
+      "/projects/Youtube Thumbnails/How to buy Crypto@2x.jpg"
+    ]
   }
 };
 
