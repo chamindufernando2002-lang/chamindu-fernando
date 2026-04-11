@@ -27,12 +27,11 @@
   margin-top : calc(var(--cc-dot-size) / -2);
   margin-left: calc(var(--cc-dot-size) / -2);
 
-  background   : var(--cc-accent);
+  background   : var(--accent-color, #ff4500);
   border-radius: 50%;
   pointer-events: none;
   z-index      : 10002;
   will-change  : transform, opacity;
-  mix-blend-mode: difference;
 
   transition:
     width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
@@ -84,9 +83,10 @@
   align-items  : center;
   justify-content: center;
 
-  border: 1px solid var(--cc-accent);
-  background-color: transparent;
-  mix-blend-mode: difference;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   
   transition:
     width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -105,10 +105,10 @@
   margin-top : calc(var(--cc-orb-hover) / -2);
   margin-left: calc(var(--cc-orb-hover) / -2);
   
-  background-color: var(--accent-glow, rgba(255, 69, 0, 0.4));
-  border-color: transparent;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* ── Click: orb contracts slightly ── */

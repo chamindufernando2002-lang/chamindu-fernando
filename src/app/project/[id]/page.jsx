@@ -276,11 +276,12 @@ const GalleryItem = ({ src, alt, index, onClick }) => {
         />
         <motion.div
           className="cs-gallery-overlay"
-          animate={{ opacity: hovered ? 1 : 0 }}
+          animate={{ opacity: outboundLink ? 1 : (hovered ? 1 : 0) }}
           transition={{ duration: 0.3 }}
+          style={outboundLink ? { background: 'transparent' } : {}}
         >
           {outboundLink ? (
-             <div style={{ background: '#36153E', color: '#fff', padding: '12px 24px', borderRadius: '30px', fontWeight: 'bold', fontSize: '1.1rem', letterSpacing: '0.5px' }}>Read Now &gt;</div>
+             <div style={{ background: 'var(--accent-color)', color: '#fff', padding: '12px 28px', borderRadius: '30px', fontWeight: 'bold', fontSize: '1.2rem', letterSpacing: '0.5px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>Read Now &gt;</div>
           ) : (
              <ZoomIn size={32} color="#fff" strokeWidth={1.5} />
           )}
@@ -320,6 +321,11 @@ export default function ProjectPage({ params }) {
   };
 
   const closeLightbox = () => setLightboxOpen(false);
+
+  useEffect(() => {
+    // Force scroll to top on page mount
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
 
   const goNext = (e) => {
     if (e) e.stopPropagation();

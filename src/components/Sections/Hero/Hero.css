@@ -246,7 +246,7 @@
   }
 
   .hero-video {
-    object-fit: contain;
+    object-fit: cover;
     background: var(--bg-color);
   }
 

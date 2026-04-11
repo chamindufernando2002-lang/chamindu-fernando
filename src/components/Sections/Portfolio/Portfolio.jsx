@@ -1,78 +1,88 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ScrambleText from '../../UI/ScrambleText';
 import './Portfolio.css';
+import '../../../app/work/work.css'; // ensure styles are identical
 
-const projects = [
+// Hardcoding the first 3 specific projects logic to match Work exactly
+const recentProjects = [
   {
-    id: 'apex',
-    title: 'Apex',
-    description: 'Branding & Social Media',
-    imageUrl: '/projects/Apex/1.jpg'
+    id: 'spa-ceylon',
+    title: 'Spa Ceylon',
+    category: 'Social Media',
+    tags: ['Wellness', 'Digital Design'],
+    year: '2025',
+    imageUrl: '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.48 (1).jpeg',
   },
   {
-    id: 'beauty-bay',
-    title: 'Beauty Bay',
-    description: 'Digital Design',
-    imageUrl: '/projects/Beauty Bay/1.jpg'
+    id: 'tech-ts',
+    title: 'Tech TS',
+    category: 'Branding',
+    tags: ['Identity', 'Digital Design'],
+    year: '2023',
+    imageUrl: '/projects/2.Tech TS/1.jpg',
   },
   {
-    id: 'beauty-leaf',
-    title: 'Beauty Leaf',
-    description: 'Print Design',
-    imageUrl: '/projects/Beauty Leaf/2.jpg'
+    id: 'food',
+    title: 'Food Menu',
+    category: 'Digital Design',
+    tags: ['Restaurant', 'Social Media'],
+    year: '2024',
+    imageUrl: '/projects/3.Food/friday special.jpg',
   }
 ];
 
-const PortfolioRow = ({ item, index }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const floatX = useSpring(mouseX, { damping: 25, stiffness: 200 });
-  const floatY = useSpring(mouseY, { damping: 25, stiffness: 200 });
-
-  const handleMouseMove = (e) => {
-    mouseX.set(e.clientX + 20);
-    mouseY.set(e.clientY - 150);
-  };
-
-  const numStr = String(index + 1).padStart(2, '0');
+const WorkCard = ({ project, index }) => {
+  const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
-      className="pf-row"
-      initial={{ opacity: 0, y: 30 }}
+      className="work-card"
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, margin: '-50px' }}
-      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.76, 0, 0.24, 1] }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.7, delay: index * 0.12, ease: [0.76, 0, 0.24, 1] }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <Link href={`/project/${item.id}`} className="pf-row-link cursor-hover">
-        <span className="pf-num">{numStr}</span>
-        <span className="pf-title">{item.title}</span>
-        <span className="pf-meta">{item.description}</span>
-        <span className="pf-arrow">↗</span>
+      <Link href={`/project/${project.id}`} className="work-card-link cursor-hover">
+        <div className="work-card-img-wrap" style={{ overflow: 'hidden' }}>
+          <motion.img
+            src={project.imageUrl}
+            alt={project.title}
+            animate={{ scale: hovered ? 1.05 : 1 }}
+            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+            draggable={false}
+            loading="lazy"
+            decoding="async"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          <motion.div
+            className="work-card-overlay"
+            animate={{ opacity: hovered ? 1 : 0 }}
+            transition={{ duration: 0.35 }}
+          >
+            <div className="work-card-overlay-inner">
+              <div className="work-card-tags">
+                {project.tags.map((tag, i) => (
+                  <span key={i} className="work-tag">{tag}</span>
+                ))}
+              </div>
+              <p className="work-card-cta">View Project ↗</p>
+            </div>
+          </motion.div>
+        </div>
+        <div className="work-card-footer">
+          <div className="work-card-info">
+            <h3 className="heading-font work-card-title">{project.title}</h3>
+            <span className="work-card-category">{project.category}</span>
+          </div>
+          <span className="work-card-year">{project.year}</span>
+        </div>
       </Link>
-
-      {/* Floating image on hover */}
-      <motion.div
-        className="pf-floating-img"
-        style={{
-          x: floatX,
-          y: floatY,
-          opacity: isHovered ? 1 : 0,
-          scale: isHovered ? 1 : 0.85,
-          pointerEvents: 'none',
-        }}
-        transition={{ opacity: { duration: 0.2 }, scale: { duration: 0.3 } }}
-      >
-        <img src={item.imageUrl} alt={item.title} />
-      </motion.div>
     </motion.div>
   );
 };
@@ -97,47 +107,40 @@ const Portfolio = () => {
             flexShrink: 0,
             paddingTop: '0.1em'
           }}
+          className="pf-num-main"
         >
           01
         </motion.div>
 
         {/* Right: header + list */}
-        <div style={{ flexGrow: 1, minWidth: 0 }}>
+        <div style={{ flexGrow: 1, minWidth: 0, width: '100%' }}>
           <motion.div
             className="portfolio-header"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: '-100px' }}
+            viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
           >
-            <div className="portfolio-header-content">
+            <div className="portfolio-header-content" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem' }}>
               <ScrambleText
                 text="RECENT WORK."
                 className="heading-font section-title"
                 style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)', fontWeight: 900 }}
               />
+              <Link href="/work" className="view-more-button cursor-hover" style={{ display: 'inline-flex', marginBottom: '10px' }}>
+                <span>View All Work ↗</span>
+              </Link>
             </div>
           </motion.div>
 
-          <div className="pf-list">
-            {projects.map((item, index) => (
-              <PortfolioRow key={item.id} item={item} index={index} />
+          {/* 3-column Grid precisely matching /work cards */}
+          <div className="work-grid recent-work-grid">
+            {recentProjects.map((item, index) => (
+              <WorkCard key={item.id} project={item} index={index} />
             ))}
           </div>
 
-          <motion.div
-            className="portfolio-footer"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: '-50px' }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
-          >
-            <Link href="/work" className="view-more-button cursor-hover">
-              <span>View All Work</span>
-            </Link>
-          </motion.div>
         </div>
-
       </div>
     </section>
   );

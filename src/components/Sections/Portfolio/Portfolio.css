@@ -11,16 +11,32 @@
 }
 
 /* ─── EDITORIAL LIST ──────────────────── */
-.pf-list {
-  display: flex;
-  flex-direction: column;
+/* ─── GRID FOR RECENT WORKS ──────────────────── */
+.recent-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   width: 100%;
 }
 
-.pf-row {
-  position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background-color 0.4s ease;
+@media (max-width: 1024px) {
+  .recent-work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-section .container {
+    flex-direction: column;
+    gap: 2rem !important;
+  }
+  .portfolio-header-content {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  .recent-work-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .pf-row:first-child {

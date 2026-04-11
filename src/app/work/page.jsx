@@ -116,11 +116,8 @@ const WorkCard = ({ project, index }) => {
           <motion.img
             src={project.imageUrl}
             alt={project.title}
-            animate={{ 
-              scale: hovered ? 1 : 1.4,
-              filter: hovered ? 'grayscale(0%) brightness(1)' : 'grayscale(100%) brightness(0.65) contrast(1.1)'
-            }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            animate={{ scale: hovered ? 1.05 : 1 }}
+            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
             draggable={false}
             loading="lazy"
             decoding="async"
