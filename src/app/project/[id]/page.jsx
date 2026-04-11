@@ -57,6 +57,19 @@ const projectData = {
       '/projects/2.Tech TS/8.jpg'
     ]
   },
+  'wassane': {
+    title: 'Wassane',
+    category: 'Event Design',
+    year: '2025',
+    role: 'Designer',
+    client: 'Wassane',
+    description: 'Digital promotional design and branding collateral for the Wassane event, prioritizing engaging social media assets.',
+    gallery: [
+      '/projects/3.Wassane/WhatsApp Image 2026-04-11 at 23.47.42 (1).jpeg',
+      '/projects/3.Wassane/WhatsApp Image 2026-04-11 at 23.47.42 (2).jpeg',
+      '/projects/3.Wassane/1.jpeg'
+    ]
+  },
   'food': {
     title: 'Food Menu',
     category: 'Digital Design',

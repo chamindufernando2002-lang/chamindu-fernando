@@ -24,6 +24,14 @@ const projects = [
     imageUrl: '/projects/2.Tech TS/1.jpg',
   },
   {
+    id: 'wassane',
+    title: 'Wassane',
+    category: 'Event Design',
+    tags: ['Social Media', 'Events'],
+    year: '2025',
+    imageUrl: '/projects/3.Wassane/1.jpeg',
+  },
+  {
     id: 'food',
     title: 'Food Menu',
     category: 'Digital Design',

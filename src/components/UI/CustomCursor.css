@@ -83,10 +83,10 @@
   align-items  : center;
   justify-content: center;
 
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   
   transition:
     width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -105,10 +105,10 @@
   margin-top : calc(var(--cc-orb-hover) / -2);
   margin-left: calc(var(--cc-orb-hover) / -2);
   
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* ── Click: orb contracts slightly ── */

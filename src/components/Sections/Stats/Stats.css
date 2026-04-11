@@ -67,22 +67,24 @@
 @media (max-width: 768px) {
   .stat-row {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 2.5rem 0;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 0;
   }
   .stat-number {
-    font-size: clamp(4.5rem, 20vw, 8rem);
-    justify-content: flex-start;
+    font-size: clamp(5rem, 22vw, 8rem);
+    justify-content: center;
     padding-right: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -1px;
+    width: 100%;
   }
   .stat-plus {
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
   .stat-label {
-    font-size: clamp(1.2rem, 5vw, 2rem);
-    align-items: flex-start;
-    text-align: left;
+    font-size: clamp(1.4rem, 6vw, 2.5rem);
+    align-items: center;
+    text-align: center;
   }
 }

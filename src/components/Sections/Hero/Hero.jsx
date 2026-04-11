@@ -58,7 +58,7 @@ const Hero = () => {
           >
 
             <a href="#about" className="cursor-hover" aria-label="Go to About Section" style={{ display: 'block', height: '100%', position: 'relative' }}>
-              <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(1px, 1px, 1px, 1px)' }}>
+              <h1 className="hero-main-title">
                 Chamindu Fernando
               </h1>
             </a>

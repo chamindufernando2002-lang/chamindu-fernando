@@ -236,6 +236,15 @@
   display: none;
 }
 
+/* Hide on desktop, visible on mobile */
+.hero-main-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 /* Responsive constraints */
 @media (max-width: 1024px) {
   .hero-title {
@@ -265,16 +274,28 @@
 
   .hero-content {
     justify-content: flex-start; /* Push text to the top */
-    padding-top: 15vh;
+    padding-top: 5vh;
+  }
+
+  .hero-main-title {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 11vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-primary);
+    line-height: 0.9;
+    margin-bottom: 2rem;
   }
 
   /* Make hero text more readable on mobile constraints */
   .hero-title {
-    font-size: clamp(3rem, 14vw, 4.5rem);
-    letter-spacing: -1px;
-    margin-bottom: var(--spacing-sm);
-    text-align: center;
-    width: 100%;
+    display: none; /* Hide any secondary hidden titles if they exist */
   }
   
   .hero-text {
