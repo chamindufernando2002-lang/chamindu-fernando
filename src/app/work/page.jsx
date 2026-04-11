@@ -29,7 +29,7 @@ const projects = [
     category: 'Event Design',
     tags: ['Social Media', 'Events'],
     year: '2025',
-    imageUrl: '/projects/3.Wassane/1.jpeg',
+    imageUrl: '/projects/3.Wassane/1.jpg',
   },
   {
     id: 'food',

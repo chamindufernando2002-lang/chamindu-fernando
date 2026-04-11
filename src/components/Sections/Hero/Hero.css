@@ -274,7 +274,7 @@
 
   .hero-content {
     justify-content: flex-start; /* Push text to the top */
-    padding-top: 5vh;
+    padding-top: 18vh; /* Lower the text block safely past the navbar and into the orange zone */
   }
 
   .hero-main-title {
