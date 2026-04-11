@@ -5,9 +5,11 @@ import { motion } from 'framer-motion';
 import './Awards.css';
 
 const awardsList = [
-  { year: '2026', title: 'Top Selected Portfolio', category: 'Design Awards' },
-  { year: '2025', title: 'Creative Excellence', category: 'Global UX' },
-  { year: '2024', title: 'Red Dot Design Award', category: 'Brand Identity' }
+  { year: '2025', title: 'Best Social Media Branding Flyer (1st Runners Up)', category: 'Brandin Competition' },
+  { year: '2026', title: 'Best Branding Toolkit (1st Runners Up)', category: 'Master Designer Competition' },
+  { year: '2025', title: 'Editorial Excellence Award', category: 'Pranama Award Ceremony' },
+  { year: '2025', title: 'Best Newsletter of the Year (1st Runners Up)', category: 'Rotaract District Assembly' },
+  { year: '2025', title: 'Best Annual Report (1st Runners Up)', category: 'Rotaract District Assembly' }
 ];
 
 const Awards = () => {

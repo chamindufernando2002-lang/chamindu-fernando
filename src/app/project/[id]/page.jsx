@@ -9,40 +9,66 @@ import '../../../pages/CaseStudy.css';
 
 // ─── Project Database ─────────────────────────────────────────────────────────
 const projectData = {
-  'apex': {
-    title: 'Apex',
-    category: 'Branding',
-    year: '2024',
-    role: 'Lead Designer',
-    client: 'Apex',
-    description: 'Complete brand identity and social media design strategy for Apex, focusing on a clean, professional, and impactful digital presence.',
-    gallery: [
-      "/projects/Apex/070 555 1155.jpg",
-      "/projects/Apex/1.jpg",
-      "/projects/Apex/4.jpg",
-      "/projects/Apex/Apex.jpg"
-    ]
-  },
-  'beauty-bay': {
-    title: 'Beauty Bay',
+  'spa-ceylon': {
+    title: 'Spa Ceylon',
     category: 'Social Media',
     year: '2025',
-    role: 'Social Media Designer',
-    client: 'Beauty Bay',
-    description: 'A vibrant social media and digital campaign designed to highlight skincare and cosmetic products with an elegant, modern aesthetic.',
+    role: 'Designer',
+    client: 'Spa Ceylon',
+    description: 'Wellness and social media interactive digital design focusing on natural beauty.',
     gallery: [
-      "/projects/Beauty Bay/1.jpg",
-      "/projects/Beauty Bay/15.jpg",
-      "/projects/Beauty Bay/16.jpg",
-      "/projects/Beauty Bay/2.jpg",
-      "/projects/Beauty Bay/21.jpg",
-      "/projects/Beauty Bay/26.jpg",
-      "/projects/Beauty Bay/3.jpg",
-      "/projects/Beauty Bay/40.jpg",
-      "/projects/Beauty Bay/41.jpg",
-      "/projects/Beauty Bay/52.jpg",
-      "/projects/Beauty Bay/53.jpg",
-      "/projects/Beauty Bay/6.jpg"
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.48 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.48.jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.49 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.49 (2).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.49 (3).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.49.jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.50 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.50.jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.51 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.51 (2).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.51 (3).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.51.jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.52 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.52 (2).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.52.jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.53 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.53.jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.54 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.54.jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.55 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.55 (2).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.55.jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.56 (1).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.56 (2).jpeg',
+      '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.56.jpeg'
+    ]
+  },
+  'tech-ts': {
+    title: 'Tech TS',
+    category: 'Branding',
+    year: '2023',
+    role: 'Brand Designer',
+    client: 'Tech TS',
+    description: 'Modern identity and marketing graphics design for a tech company, balancing professional trust with innovative visuals.',
+    gallery: [
+      '/projects/2.Tech TS/1.jpg',
+      '/projects/2.Tech TS/5.jpg',
+      '/projects/2.Tech TS/8.jpg'
+    ]
+  },
+  'food': {
+    title: 'Food Menu',
+    category: 'Digital Design',
+    year: '2024',
+    role: 'Designer',
+    client: 'Food Menu',
+    description: 'Vibrant set of food menu designs outlining weekly specials for a local restaurant, utilizing warm tones to induce appetite.',
+    gallery: [
+      '/projects/3.Food/friday special.jpg',
+      '/projects/3.Food/monday special.jpg',
+      '/projects/3.Food/saturday special.jpg',
+      '/projects/3.Food/wednesday special.jpg'
     ]
   },
   'beauty-leaf': {
@@ -53,42 +79,48 @@ const projectData = {
     client: 'Beauty Leaf',
     description: 'Medical and healthcare brochure designs that prioritize clear communication, professional typography, and a calming visual aesthetic.',
     gallery: [
-      "/projects/Beauty Leaf/10.jpg",
-      "/projects/Beauty Leaf/11.jpg",
-      "/projects/Beauty Leaf/2.jpg",
-      "/projects/Beauty Leaf/5.jpg",
-      "/projects/Beauty Leaf/7.jpg",
-      "/projects/Beauty Leaf/8.jpg",
-      "/projects/Beauty Leaf/Teal and White Medical Trifold Brochure.jpg"
+      '/projects/4.Beauty Leaf/10.jpg',
+      '/projects/4.Beauty Leaf/11.jpg',
+      '/projects/4.Beauty Leaf/2.jpg',
+      '/projects/4.Beauty Leaf/5.jpg',
+      '/projects/4.Beauty Leaf/7.jpg',
+      '/projects/4.Beauty Leaf/8.jpg',
+      '/projects/4.Beauty Leaf/Teal and White Medical Trifold Brochure.jpg'
     ]
   },
-  'food': {
-    title: 'Food Menu',
-    category: 'Digital Design',
-    year: '2024',
-    role: 'Designer',
-    client: 'Food Menu',
-    description: 'A vibrant set of food menu designs outlining weekly specials for a local restaurant, utilizing warm tones to induce appetite and clear hierarchy for readability.',
-    gallery: [
-      "/projects/Food/friday special.jpg",
-      "/projects/Food/monday special.jpg",
-      "/projects/Food/saturday special.jpg",
-      "/projects/Food/wednesday special.jpg"
-    ]
-  },
-  'mg-sl': {
-    title: 'MG SL',
-    category: 'Automotive',
+  'youtube-thumbnails': {
+    title: 'Youtube Thumbnails',
+    category: 'Digital Art',
     year: '2025',
-    role: 'Designer',
-    client: 'MG SL',
-    description: 'Digital and social media design for MG Sri Lanka focusing on the latest models, prioritizing a sleek, premium, and bold visual language.',
+    role: 'Thumbnail Designer',
+    client: 'Various Creators',
+    description: 'High-conversion YouTube thumbnails for trading and finance channels, optimized for click-through rate (CTR) with high contrast visuals.',
     gallery: [
-      "/projects/MG SL/2.jpg",
-      "/projects/MG SL/3.jpg",
-      "/projects/MG SL/4.jpg",
-      "/projects/MG SL/5.jpg",
-      "/projects/MG SL/Hello Sri lanka.jpg"
+      '/projects/5.Youtube Thumbnails/Binance Trading Bot@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Do this before trading@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Five Forex Brokers for beginners@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Five incredible Trading Bot@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Five Secrets to Trade better@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Forex Trading Courses for beginners@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Forex Trading new method@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Forex Trading Risk Management@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Forex Trading Tips for Intermediate Traders@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Forex tutorial for beginners@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Good Forex Brokers for Intermediate traders@2x.jpg',
+      '/projects/5.Youtube Thumbnails/How to buy Crypto@2x.jpg',
+      '/projects/5.Youtube Thumbnails/How to choose a good broker@2x.jpg',
+      '/projects/5.Youtube Thumbnails/How to Copy Trade@2x.jpg',
+      '/projects/5.Youtube Thumbnails/How to get free Signals@2x.jpg',
+      '/projects/5.Youtube Thumbnails/How to Trade Forex@2x.jpg',
+      '/projects/5.Youtube Thumbnails/How to use signals@2x.jpg',
+      '/projects/5.Youtube Thumbnails/How to use Trading Bot@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Intermediate traders tutorial@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Meta force Tutorial@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Mistake beginner traders do@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Royal Q Bot@2x.jpg',
+      '/projects/5.Youtube Thumbnails/The right Trading Broker@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Why you are not making profit@2x.jpg',
+      '/projects/5.Youtube Thumbnails/Worst Forex Brokers@2x.jpg'
     ]
   },
   'rota-times': {
@@ -99,50 +131,17 @@ const projectData = {
     client: 'Rotaract',
     description: 'Monthly editorial magazine designs featuring creative typographic covers and vibrant layouts that engage the youthful audience.',
     gallery: [
-      "/projects/Rota Times/The Rotaractor-B8yZbZXy.jpg",
-      "/projects/Rota Times/January copy-8dsVqzBr.jpg",
-      "/projects/Rota Times/February copy-C3CGI1aV.jpg",
-      "/projects/Rota Times/March copy-Dy3Xy1t0.jpg",
-      "/projects/Rota Times/April copy-Du1clO4e.jpg",
-      "/projects/Rota Times/july-BSaOelRz.jpg",
-      "/projects/Rota Times/August copy-C68sA8Jv.jpg",
-      "/projects/Rota Times/September copy-BgzJ4npz.jpg",
-      "/projects/Rota Times/October copy-BlJmdUga.jpg",
-      "/projects/Rota Times/November copy-BL1Cnt5x.jpg",
-      "/projects/Rota Times/December copy-CZOLP8YD.jpg"
-    ]
-  },
-  'tech-ts': {
-    title: 'Tech TS',
-    category: 'Branding',
-    year: '2023',
-    role: 'Brand Designer',
-    client: 'Tech TS',
-    description: 'A modern identity and marketing graphics design for a tech company, balancing professional trust with innovative visuals.',
-    gallery: [
-      "/projects/Tech TS/1.jpg",
-      "/projects/Tech TS/5.jpg",
-      "/projects/Tech TS/8.jpg"
-    ]
-  },
-  'university-projects': {
-    title: 'University Projects',
-    category: 'Miscellaneous',
-    year: '2024',
-    role: 'Designer',
-    client: 'University',
-    description: 'A collection of varied creative works developed for university events, highlighting versatility across print, social media, and event branding.',
-    gallery: [
-      "/projects/University Projects/Exchange.jpg",
-      "/projects/University Projects/1.jpg",
-      "/projects/University Projects/1 (4).jpg",
-      "/projects/University Projects/2 (2).jpg",
-      "/projects/University Projects/2 (4).jpg",
-      "/projects/University Projects/5 (2).jpg",
-      "/projects/University Projects/6 (2).jpg",
-      "/projects/University Projects/6 (3).jpg",
-      "/projects/University Projects/6 (5).jpg",
-      "/projects/University Projects/8.jpg"
+      { url: '/projects/6.Rota Times Newsletters/1.july.jpg', link: 'https://online.fliphtml5.com/zhboa/fdhg/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/10.Final Magazine.jpg', link: 'https://jeethent.my.canva.site/the-rotaractor-4th-edition' },
+      { url: '/projects/6.Rota Times Newsletters/2.August.jpg', link: 'https://online.fliphtml5.com/zhboa/qnyt/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/3.September.jpg', link: 'https://online.fliphtml5.com/zhboa/uzrk/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/4.October.jpg', link: 'https://online.fliphtml5.com/zhboa/plvx/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/5.November.jpg', link: 'https://online.fliphtml5.com/zhboa/vefa/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/6.December.jpg', link: 'https://online.fliphtml5.com/zhboa/wifm/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/7.January.jpg', link: 'https://online.fliphtml5.com/zhboa/frgl/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/8.February.jpg', link: 'https://online.fliphtml5.com/zhboa/vxem/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/8.March.jpg', link: 'https://online.fliphtml5.com/zhboa/wvve/#p=1' },
+      { url: '/projects/6.Rota Times Newsletters/9.April.jpg', link: 'https://online.fliphtml5.com/zhboa/wmps/#p=1' }
     ]
   },
   'yeh-jawaani-concert': {
@@ -153,42 +152,106 @@ const projectData = {
     client: 'Yeh Jawaani',
     description: 'Dynamic event design and promotional materials including ticketing and dynamic social media artwork for a high-energy concert.',
     gallery: [
-      "/projects/Yeh Jawaani Concert/Yeh Jawaani (Ticket).jpg",
-      "/projects/Yeh Jawaani Concert/7.jpg",
-      "/projects/Yeh Jawaani Concert/8.jpg",
-      "/projects/Yeh Jawaani Concert/10.jpg",
-      "/projects/Yeh Jawaani Concert/11.jpg",
-      "/projects/Yeh Jawaani Concert/13.jpg",
-      "/projects/Yeh Jawaani Concert/2 (3).jpg",
-      "/projects/Yeh Jawaani Concert/4.jpg"
+      '/projects/7.Yeh Jawaani Concert/10.jpg',
+      '/projects/7.Yeh Jawaani Concert/11.jpg',
+      '/projects/7.Yeh Jawaani Concert/13.jpg',
+      '/projects/7.Yeh Jawaani Concert/2 (3).jpg',
+      '/projects/7.Yeh Jawaani Concert/4.jpg',
+      '/projects/7.Yeh Jawaani Concert/7.jpg',
+      '/projects/7.Yeh Jawaani Concert/Yeh Jawaani (Ticket).jpg'
     ]
   },
-  'youtube-thumbnails': {
-    title: 'Youtube Thumbnails',
-    category: 'Digital Art',
-    year: '2025',
-    role: 'Thumbnail Designer',
-    client: 'Various Creators',
-    description: 'High-conversion YouTube thumbnails for trading and finance channels, optimized for click-through rate (CTR) with high contrast visuals and legible typography.',
+  'university-projects': {
+    title: 'University Projects',
+    category: 'Miscellaneous',
+    year: '2024',
+    role: 'Designer',
+    client: 'University',
+    description: 'A collection of varied creative works developed for university events, highlighting versatility across print, social media, and event branding.',
     gallery: [
-      "/projects/Youtube Thumbnails/Binance Trading Bot@2x.jpg",
-      "/projects/Youtube Thumbnails/Do this before trading@2x.jpg",
-      "/projects/Youtube Thumbnails/Five Forex Brokers for beginners@2x.jpg",
-      "/projects/Youtube Thumbnails/Five Secrets to Trade better@2x.jpg",
-      "/projects/Youtube Thumbnails/Five incredible Trading Bot@2x.jpg",
-      "/projects/Youtube Thumbnails/Forex Trading Courses for beginners@2x.jpg",
-      "/projects/Youtube Thumbnails/Forex Trading Risk Management@2x.jpg",
-      "/projects/Youtube Thumbnails/Forex Trading Tips for Intermediate Traders@2x.jpg",
-      "/projects/Youtube Thumbnails/Forex Trading new method@2x.jpg",
-      "/projects/Youtube Thumbnails/How to Copy Trade@2x.jpg",
-      "/projects/Youtube Thumbnails/How to buy Crypto@2x.jpg"
+      '/projects/8.University Projects/1 (4).jpg',
+      '/projects/8.University Projects/1.jpg',
+      '/projects/8.University Projects/2 (2).jpg',
+      '/projects/8.University Projects/2 (4).jpg',
+      '/projects/8.University Projects/8.jpg',
+      '/projects/8.University Projects/Coming Soon.jpg',
+      '/projects/8.University Projects/Copy of Charity Day.jpg',
+      '/projects/8.University Projects/Exchange.jpg',
+      '/projects/8.University Projects/Green Illustrative Eid-Al-Adha Mubarak Instagram Post.jpg',
+      '/projects/8.University Projects/Happy Halloween.jpg',
+      '/projects/8.University Projects/Subtitle.jpg',
+      '/projects/8.University Projects/Waisak Instagram Post.jpg'
     ]
-  }
+  },
+  'mg-sl': {
+    title: 'MG SL',
+    category: 'Automotive',
+    year: '2025',
+    role: 'Designer',
+    client: 'MG SL',
+    description: 'Digital and social media design for MG Sri Lanka focusing on the latest models, prioritizing a sleek, premium, and bold visual language.',
+    gallery: [
+      '/projects/9.MG SL/2.jpg',
+      '/projects/9.MG SL/3.jpg',
+      '/projects/9.MG SL/4.jpg',
+      '/projects/9.MG SL/5.jpg',
+      '/projects/9.MG SL/Hello Sri lanka.jpg'
+    ]
+  },
+  'beauty-bay': {
+    title: 'Beauty Bay',
+    category: 'Social Media',
+    year: '2025',
+    role: 'Social Media Designer',
+    client: 'Beauty Bay',
+    description: 'A vibrant social media and digital campaign designed to highlight skincare and cosmetic products with an elegant, modern aesthetic.',
+    gallery: [
+      '/projects/10.Beauty Bay/1.jpg',
+      '/projects/10.Beauty Bay/15.jpg',
+      '/projects/10.Beauty Bay/16.jpg',
+      '/projects/10.Beauty Bay/2.jpg',
+      '/projects/10.Beauty Bay/21.jpg',
+      '/projects/10.Beauty Bay/26.jpg',
+      '/projects/10.Beauty Bay/3.jpg',
+      '/projects/10.Beauty Bay/40.jpg',
+      '/projects/10.Beauty Bay/41.jpg',
+      '/projects/10.Beauty Bay/52.jpg',
+      '/projects/10.Beauty Bay/53.jpg',
+      '/projects/10.Beauty Bay/6.jpg'
+    ]
+  },
+  'apex': {
+    title: 'Apex',
+    category: 'Branding',
+    year: '2024',
+    role: 'Lead Designer',
+    client: 'Apex',
+    description: 'Complete brand identity and social media design strategy for Apex, focusing on a clean, professional, and impactful digital presence.',
+    gallery: [
+      '/projects/11.Apex/070 555 1155.jpg',
+      '/projects/11.Apex/1.jpg',
+      '/projects/11.Apex/4.jpg',
+      '/projects/11.Apex/Apex.jpg'
+    ]
+  },
 };
+
 
 // ─── Gallery Item ─────────────────────────────────────────────────────────────
 const GalleryItem = ({ src, alt, index, onClick }) => {
   const [hovered, setHovered] = useState(false);
+
+  const isObj = typeof src === 'object' && src !== null;
+  const imageSrc = isObj ? src.url : src;
+  const outboundLink = isObj ? src.link : null;
+
+  const handleClick = (e) => {
+    if (outboundLink) {
+      window.open(outboundLink, '_blank', 'noopener,noreferrer');
+    } else {
+      onClick(index);
+    }
+  };
 
   return (
     <motion.div
@@ -199,11 +262,11 @@ const GalleryItem = ({ src, alt, index, onClick }) => {
       transition={{ duration: 0.8, delay: (index % 3) * 0.1, ease: [0.76, 0, 0.24, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => onClick(index)}
+      onClick={handleClick}
     >
       <div className="cs-gallery-img-wrap">
         <motion.img
-          src={src}
+          src={imageSrc}
           alt={alt}
           animate={{ scale: hovered ? 1.04 : 1 }}
           transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
@@ -216,7 +279,11 @@ const GalleryItem = ({ src, alt, index, onClick }) => {
           animate={{ opacity: hovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ZoomIn size={32} color="#fff" strokeWidth={1.5} />
+          {outboundLink ? (
+             <div style={{ background: '#36153E', color: '#fff', padding: '12px 24px', borderRadius: '30px', fontWeight: 'bold', fontSize: '1.1rem', letterSpacing: '0.5px' }}>Read Now &gt;</div>
+          ) : (
+             <ZoomIn size={32} color="#fff" strokeWidth={1.5} />
+          )}
         </motion.div>
       </div>
     </motion.div>
@@ -299,7 +366,7 @@ export default function ProjectPage({ params }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Link href="/#portfolio" className="cs-back cursor-hover">
+            <Link href="/work" className="cs-back cursor-hover">
               <ArrowLeft size={18} />
               <span>Back to Work</span>
             </Link>
@@ -491,7 +558,7 @@ export default function ProjectPage({ params }) {
               <AnimatePresence mode="wait">
                 <motion.img
                   key={lightboxIndex}
-                  src={flatGallery[lightboxIndex]}
+                  src={typeof flatGallery[lightboxIndex] === 'object' ? flatGallery[lightboxIndex].url : flatGallery[lightboxIndex]}
                   alt={`${project.title} preview ${lightboxIndex + 1}`}
                   className="cs-lb-img"
                   initial={{ opacity: 0, scale: 0.92 }}

@@ -8,52 +8,12 @@ import './work.css';
 
 const projects = [
   {
-    id: 'apex',
-    title: 'Apex',
-    category: 'Branding',
-    tags: ['Identity', 'Social Media'],
-    year: '2024',
-    imageUrl: '/projects/Apex/1.jpg',
-  },
-  {
-    id: 'beauty-bay',
-    title: 'Beauty Bay',
+    id: 'spa-ceylon',
+    title: 'Spa Ceylon',
     category: 'Social Media',
-    tags: ['Skin Care', 'Digital Design'],
+    tags: ['Wellness', 'Digital Design'],
     year: '2025',
-    imageUrl: '/projects/Beauty Bay/1.jpg',
-  },
-  {
-    id: 'beauty-leaf',
-    title: 'Beauty Leaf',
-    category: 'Print Design',
-    tags: ['Brochure', 'Medical'],
-    year: '2023',
-    imageUrl: '/projects/Beauty Leaf/2.jpg',
-  },
-  {
-    id: 'food',
-    title: 'Food',
-    category: 'Social Media',
-    tags: ['Restaurant', 'Digital Design'],
-    year: '2024',
-    imageUrl: '/projects/Food/friday special.jpg',
-  },
-  {
-    id: 'mg-sl',
-    title: 'MG SL',
-    category: 'Social Media',
-    tags: ['Automotive', 'Digital Design'],
-    year: '2025',
-    imageUrl: '/projects/MG SL/5.jpg',
-  },
-  {
-    id: 'rota-times',
-    title: 'Rota Times',
-    category: 'Editorial',
-    tags: ['Magazine', 'Print'],
-    year: '2024',
-    imageUrl: '/projects/Rota Times/The Rotaractor-B8yZbZXy.jpg',
+    imageUrl: '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.48 (1).jpeg',
   },
   {
     id: 'tech-ts',
@@ -61,23 +21,23 @@ const projects = [
     category: 'Branding',
     tags: ['Identity', 'Digital Design'],
     year: '2023',
-    imageUrl: '/projects/Tech TS/8.jpg',
+    imageUrl: '/projects/2.Tech TS/1.jpg',
   },
   {
-    id: 'university-projects',
-    title: 'University Projects',
-    category: 'Miscellaneous',
-    tags: ['Digital Design', 'Events'],
+    id: 'food',
+    title: 'Food Menu',
+    category: 'Digital Design',
+    tags: ['Restaurant', 'Social Media'],
     year: '2024',
-    imageUrl: '/projects/University Projects/Exchange.jpg',
+    imageUrl: '/projects/3.Food/friday special.jpg',
   },
   {
-    id: 'yeh-jawaani-concert',
-    title: 'Yeh Jawaani Concert',
-    category: 'Event Design',
-    tags: ['Concert', 'Ticketing'],
-    year: '2025',
-    imageUrl: '/projects/Yeh Jawaani Concert/Yeh Jawaani (Ticket).jpg',
+    id: 'beauty-leaf',
+    title: 'Beauty Leaf',
+    category: 'Print Design',
+    tags: ['Brochure', 'Medical'],
+    year: '2023',
+    imageUrl: '/projects/4.Beauty Leaf/10.jpg',
   },
   {
     id: 'youtube-thumbnails',
@@ -85,7 +45,55 @@ const projects = [
     category: 'Digital Art',
     tags: ['Social Media', 'Youtube'],
     year: '2025',
-    imageUrl: '/projects/Youtube Thumbnails/Forex Trading new method@2x.jpg',
+    imageUrl: '/projects/5.Youtube Thumbnails/Binance Trading Bot@2x.jpg',
+  },
+  {
+    id: 'rota-times',
+    title: 'Rota Times',
+    category: 'Editorial',
+    tags: ['Magazine', 'Print'],
+    year: '2024',
+    imageUrl: '/projects/6.Rota Times Newsletters/1.july.jpg',
+  },
+  {
+    id: 'yeh-jawaani-concert',
+    title: 'Yeh Jawaani Concert',
+    category: 'Event Design',
+    tags: ['Concert', 'Ticketing'],
+    year: '2025',
+    imageUrl: '/projects/7.Yeh Jawaani Concert/10.jpg',
+  },
+  {
+    id: 'university-projects',
+    title: 'University Projects',
+    category: 'Miscellaneous',
+    tags: ['Digital Design', 'Events'],
+    year: '2024',
+    imageUrl: '/projects/8.University Projects/1 (4).jpg',
+  },
+  {
+    id: 'mg-sl',
+    title: 'MG SL',
+    category: 'Automotive',
+    tags: ['Automotive', 'Digital Design'],
+    year: '2025',
+    imageUrl: '/projects/9.MG SL/2.jpg',
+  },
+  {
+    id: 'beauty-bay',
+    title: 'Beauty Bay',
+    category: 'Social Media',
+    tags: ['Skin Care', 'Digital Design'],
+    year: '2025',
+    imageUrl: '/projects/10.Beauty Bay/1.jpg',
+  },
+  {
+    id: 'apex',
+    title: 'Apex',
+    category: 'Branding',
+    tags: ['Identity', 'Social Media'],
+    year: '2024',
+    imageUrl: '/projects/11.Apex/070 555 1155.jpg',
   }
 ];
 
@@ -104,15 +112,19 @@ const WorkCard = ({ project, index }) => {
       <Link href={`/project/${project.id}`} className="work-card-link cursor-hover">
         
         {/* Image */}
-        <div className="work-card-img-wrap">
+        <div className="work-card-img-wrap" style={{ overflow: 'hidden' }}>
           <motion.img
             src={project.imageUrl}
             alt={project.title}
-            animate={{ scale: hovered ? 1.07 : 1 }}
-            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+            animate={{ 
+              scale: hovered ? 1 : 1.4,
+              filter: hovered ? 'grayscale(0%) brightness(1)' : 'grayscale(100%) brightness(0.65) contrast(1.1)'
+            }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             draggable={false}
             loading="lazy"
             decoding="async"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
 
           {/* Hover Overlay with description */}

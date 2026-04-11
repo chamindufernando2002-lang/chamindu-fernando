@@ -52,32 +52,9 @@ const Hero = () => {
             }}
           >
 
-            <a href="#about" style={{ textDecoration: 'none', color: 'inherit' }} className="cursor-hover" aria-label="Go to About Section">
-              <h1 className="heading-font hero-title" style={{ fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-2px', margin: 0 }}>
-                <span className="text-mask">
-                  <motion.span 
-                    className="text-line"
-                    style={{ display: 'inline-block' }}
-                    variants={{
-                      hidden: { y: "110%", opacity: 0 },
-                      visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
-                    }}
-                  >
-                    CHAMINDU
-                  </motion.span>
-                </span>
-                <span className="text-mask">
-                  <motion.span 
-                    className="text-line"
-                    style={{ display: 'inline-block' }}
-                    variants={{
-                      hidden: { y: "110%", opacity: 0 },
-                      visible: { y: "0%", opacity: 1, transition: { duration: 1.4, ease: [0.76, 0, 0.24, 1] } }
-                    }}
-                  >
-                    FERNANDO<span className="text-accent">.</span>
-                  </motion.span>
-                </span>
+            <a href="#about" className="cursor-hover" aria-label="Go to About Section" style={{ display: 'block', height: '100%', position: 'relative' }}>
+              <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(1px, 1px, 1px, 1px)' }}>
+                Chamindu Fernando
               </h1>
             </a>
             

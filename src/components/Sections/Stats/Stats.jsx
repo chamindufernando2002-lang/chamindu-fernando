@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import './Stats.css';
 
 const statsData = [
-  { number: '85', label: 'Brands Directed' },
-  { number: '18', label: 'Different Sectors\nServed.' },
-  { number: '500', label: 'Creative\nCampaigns' }
+  { number: '20', label: 'Brands Directed' },
+  { number: '10', label: 'Different Sectors\nServed.' },
+  { number: '100', label: 'Creative\nCampaigns' }
 ];
 
 const Stats = () => {

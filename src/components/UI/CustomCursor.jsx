@@ -87,12 +87,12 @@ const CustomCursor = () => {
     document.documentElement.addEventListener('mouseleave', onLeave);
     document.documentElement.addEventListener('mouseenter', onEnter);
 
-    // Smoother lerp (0.08)
+    // Smoother and much faster lerp (0.25) to prevent stuck feeling
     const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
     
     const tick = () => {
-      orbPos.current.x = lerp(orbPos.current.x, mouse.current.x, 0.08);
-      orbPos.current.y = lerp(orbPos.current.y, mouse.current.y, 0.08);
+      orbPos.current.x = lerp(orbPos.current.x, mouse.current.x, 0.25);
+      orbPos.current.y = lerp(orbPos.current.y, mouse.current.y, 0.25);
 
       if (orbRef.current) {
         orbRef.current.style.transform = `translate3d(${orbPos.current.x}px, ${orbPos.current.y}px, 0)`;
