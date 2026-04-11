@@ -13,7 +13,7 @@ const projects = [
     category: 'Social Media',
     tags: ['Wellness', 'Digital Design'],
     year: '2025',
-    imageUrl: '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.48 (1).jpeg',
+    imageUrl: '/projects/1.Spa Ceylon/1.jpeg',
   },
   {
     id: 'tech-ts',
@@ -29,7 +29,7 @@ const projects = [
     category: 'Digital Design',
     tags: ['Restaurant', 'Social Media'],
     year: '2024',
-    imageUrl: '/projects/3.Food/friday special.jpg',
+    imageUrl: '/projects/3.Food/1.jpg',
   },
   {
     id: 'beauty-leaf',
@@ -37,7 +37,7 @@ const projects = [
     category: 'Print Design',
     tags: ['Brochure', 'Medical'],
     year: '2023',
-    imageUrl: '/projects/4.Beauty Leaf/10.jpg',
+    imageUrl: '/projects/4.Beauty Leaf/1.jpg',
   },
   {
     id: 'youtube-thumbnails',
@@ -45,7 +45,7 @@ const projects = [
     category: 'Digital Art',
     tags: ['Social Media', 'Youtube'],
     year: '2025',
-    imageUrl: '/projects/5.Youtube Thumbnails/Binance Trading Bot@2x.jpg',
+    imageUrl: '/projects/5.Youtube Thumbnails/1.jpg',
   },
   {
     id: 'rota-times',
@@ -53,7 +53,7 @@ const projects = [
     category: 'Editorial',
     tags: ['Magazine', 'Print'],
     year: '2024',
-    imageUrl: '/projects/6.Rota Times Newsletters/1.july.jpg',
+    imageUrl: '/projects/6.Rota Times Newsletters/1.jpg',
   },
   {
     id: 'yeh-jawaani-concert',
@@ -61,7 +61,7 @@ const projects = [
     category: 'Event Design',
     tags: ['Concert', 'Ticketing'],
     year: '2025',
-    imageUrl: '/projects/7.Yeh Jawaani Concert/10.jpg',
+    imageUrl: '/projects/7.Yeh Jawaani Concert/1.jpg',
   },
   {
     id: 'university-projects',
@@ -69,7 +69,7 @@ const projects = [
     category: 'Miscellaneous',
     tags: ['Digital Design', 'Events'],
     year: '2024',
-    imageUrl: '/projects/8.University Projects/1 (4).jpg',
+    imageUrl: '/projects/8.University Projects/1.jpg',
   },
   {
     id: 'mg-sl',
@@ -77,7 +77,7 @@ const projects = [
     category: 'Automotive',
     tags: ['Automotive', 'Digital Design'],
     year: '2025',
-    imageUrl: '/projects/9.MG SL/2.jpg',
+    imageUrl: '/projects/9.MG SL/1.jpg',
   },
   {
     id: 'beauty-bay',
@@ -93,7 +93,7 @@ const projects = [
     category: 'Branding',
     tags: ['Identity', 'Social Media'],
     year: '2024',
-    imageUrl: '/projects/11.Apex/070 555 1155.jpg',
+    imageUrl: '/projects/11.Apex/1.jpg',
   }
 ];
 
@@ -121,7 +121,7 @@ const WorkCard = ({ project, index }) => {
             draggable={false}
             loading="lazy"
             decoding="async"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
           />
 
           {/* Hover Overlay with description */}

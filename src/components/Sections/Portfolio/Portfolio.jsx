@@ -15,7 +15,7 @@ const recentProjects = [
     category: 'Social Media',
     tags: ['Wellness', 'Digital Design'],
     year: '2025',
-    imageUrl: '/projects/1.Spa Ceylon/WhatsApp Image 2026-04-11 at 20.23.48 (1).jpeg',
+    imageUrl: '/projects/1.Spa Ceylon/1.jpeg',
   },
   {
     id: 'tech-ts',
@@ -31,7 +31,7 @@ const recentProjects = [
     category: 'Digital Design',
     tags: ['Restaurant', 'Social Media'],
     year: '2024',
-    imageUrl: '/projects/3.Food/friday special.jpg',
+    imageUrl: '/projects/3.Food/1.jpg',
   }
 ];
 
@@ -58,7 +58,7 @@ const WorkCard = ({ project, index }) => {
             draggable={false}
             loading="lazy"
             decoding="async"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
           />
           <motion.div
             className="work-card-overlay"

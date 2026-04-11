@@ -26,8 +26,13 @@ const Hero = () => {
           loop 
           muted 
           playsInline 
-          className="hero-video"
+          className="hero-video desktop-video"
         ></video>
+        <img 
+          src="/Web%20banner%20-%20Mobile.jpg"
+          alt="Chamindu Fernando"
+          className="hero-video mobile-banner"
+        />
       </motion.div>
       
       {/* Bottom fade restored for smooth transition, left fade removed for face visibility */}

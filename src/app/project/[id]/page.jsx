@@ -278,7 +278,11 @@ const GalleryItem = ({ src, alt, index, onClick }) => {
           className="cs-gallery-overlay"
           animate={{ opacity: outboundLink ? 1 : (hovered ? 1 : 0) }}
           transition={{ duration: 0.3 }}
-          style={outboundLink ? { background: 'transparent' } : {}}
+          style={outboundLink ? {
+            background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0) 60%)',
+            alignItems: 'flex-end',
+            paddingBottom: '2.5rem'
+          } : {}}
         >
           {outboundLink ? (
              <div style={{ background: 'var(--accent-color)', color: '#fff', padding: '12px 28px', borderRadius: '30px', fontWeight: 'bold', fontSize: '1.2rem', letterSpacing: '0.5px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>Read Now &gt;</div>

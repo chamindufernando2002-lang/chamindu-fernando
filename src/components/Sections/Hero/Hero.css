@@ -232,6 +232,10 @@
   text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
+.mobile-banner {
+  display: none;
+}
+
 /* Responsive constraints */
 @media (max-width: 1024px) {
   .hero-title {
@@ -250,30 +254,49 @@
     background: var(--bg-color);
   }
 
-  .hero-overlay-left {
-    width: 100%;
-    background: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.7) 100%);
+  .desktop-video {
+    display: none;
+  }
+  
+  .mobile-banner {
+    display: block;
+    object-position: center 20%;
   }
 
   .hero-content {
-    padding-top: 5vh;
+    justify-content: flex-start; /* Push text to the top */
+    padding-top: 15vh;
   }
 
   /* Make hero text more readable on mobile constraints */
   .hero-title {
-    font-size: clamp(2.5rem, 14vw, 4.5rem);
+    font-size: clamp(3rem, 14vw, 4.5rem);
     letter-spacing: -1px;
     margin-bottom: var(--spacing-sm);
+    text-align: center;
+    width: 100%;
   }
   
+  .hero-text {
+    align-items: center; /* Center the title over his head */
+  }
+
   .hero-subtitle p {
     font-size: 1rem;
     max-width: 90%;
+    text-align: center;
+  }
+  
+  .hero-action-group {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 8vh;
+    align-items: center;
   }
 
   .cta-button {
-    font-size: 1rem;
-    margin-top: 1rem;
+    font-size: 1.1rem;
+    margin-top: 0;
   }
 
   .hero-bottom {
