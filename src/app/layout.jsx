@@ -7,10 +7,32 @@ import ScrollProgress from '../components/UI/ScrollProgress';
 import SmoothScrollProvider from '../components/Providers/SmoothScrollProvider';
 
 import ScrollToTop from '../components/UI/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
-  title: 'Chamindu Fernando - Problem Solver & Research-Driven Designer',
-  description: 'Problem Solver & Research-Driven Designer.',
+  title: 'Chamindu Fernando | Problem Solver & Research-Driven Designer',
+  description: 'Portfolio of Chamindu Fernando, a problem solver and research-driven designer specializing in creative digital experiences, strategy, and UX/UI design.',
+  keywords: ['Chamindu Fernando', 'Chamindu', 'Fernando', 'Portfolio', 'UX Designer', 'UI Designer', 'Product Designer', 'Research-Driven Designer', 'Problem Solver', 'Designer in Sri Lanka'],
+  authors: [{ name: 'Chamindu Fernando' }],
+  creator: 'Chamindu Fernando',
+  openGraph: {
+    title: 'Chamindu Fernando | Portfolio',
+    description: 'Portfolio of Chamindu Fernando, a research-driven designer and problem solver.',
+    siteName: 'Chamindu Fernando Portfolio',
+    locale: 'en_US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -24,6 +46,7 @@ export default function RootLayout({ children }) {
           <Navigation />
           <ScrollToTop />
           {children}
+          <Analytics />
         </SmoothScrollProvider>
       </body>
     </html>
