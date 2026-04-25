@@ -8,7 +8,7 @@ import './Experience.css';
 const experiences = [
   {
     id: 1,
-    role: 'Research-Driven Designer',
+    role: 'Graphic Designer',
     company: 'Spa Ceylon Ayurveda Wellness',
     type: 'On-site',
     location: 'Sri Lanka',
@@ -16,7 +16,7 @@ const experiences = [
   },
   {
     id: 2,
-    role: 'Research-Driven Designer',
+    role: 'Graphic Designer',
     company: 'iTek Solutions',
     type: 'Part-time',
     location: 'Remote · Australia',
@@ -24,7 +24,7 @@ const experiences = [
   },
   {
     id: 3,
-    role: 'Junior Research-Driven Designer',
+    role: 'Junior Graphic Designer',
     company: 'Ultimate Digital Solutions',
     type: 'Part-time',
     location: 'Remote',

@@ -52,7 +52,7 @@ const About = () => {
             transition={{ duration: 1.0, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
           >
             <h3 className="heading-font about-lead-text">
-              I am a Problem Solver & Research-Driven Designer focused on crafting compelling digital experiences.
+              I am a Problem Solver & Graphic Designer focused on crafting compelling digital experiences.
             </h3>
             <p className="about-description">
               With a deep foundation in strategy, user research, and comprehensive problem-solving, 
