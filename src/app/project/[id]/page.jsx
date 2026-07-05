@@ -484,6 +484,7 @@ export default function ProjectPage({ params }) {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
 
   const loadMore = () => setVisibleImages(prev => prev + 9);
   const openLightbox = (index) => { setLightboxIndex(index); setLightboxOpen(true); };
@@ -527,12 +528,29 @@ export default function ProjectPage({ params }) {
       {/* ─── CINEMATIC HERO ─────────────────────────────────── */}
       <section ref={heroRef} className="cs-cinematic-hero">
         {/* Parallax background */}
-        <motion.div className="cs-hero-bg" style={{ y: heroY, opacity: heroOpacity }}>
+        <motion.div className="cs-hero-bg" style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}>
           {heroSrc && (
             heroIsVideo ? (
-              <video src={heroSrc} autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <motion.video 
+                src={heroSrc} 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                initial={{ scale: 1.15 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+              />
             ) : (
-              <img src={heroSrc} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <motion.img 
+                src={heroSrc} 
+                alt={project.title} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                initial={{ scale: 1.15 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+              />
             )
           )}
           <div className="cs-hero-bg-overlay" style={{ background: `linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.98) 100%)` }} />
