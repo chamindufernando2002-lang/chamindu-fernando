@@ -302,7 +302,7 @@ const VideoItem = ({ src, index, onClick }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="cs-gallery-img-wrap" style={{ aspectRatio: '16/9', cursor: 'pointer' }} onClick={() => onClick(index)}>
+      <div className="cs-gallery-img-wrap" style={{ aspectRatio: '9/16', cursor: 'pointer' }} onClick={() => onClick(index)}>
         <video
           ref={videoRef}
           src={src}
