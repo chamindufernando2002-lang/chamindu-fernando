@@ -512,7 +512,7 @@ export default function ProjectPage({ params }) {
   }, [lightboxOpen]);
 
   const heroIsVideo = false;
-  const heroSrc = "/Web banner - Mobile.jpg";
+  const heroSrc = "/projects-banner.png";
 
   return (
     <motion.main
