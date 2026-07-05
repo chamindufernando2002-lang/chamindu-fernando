@@ -23,7 +23,7 @@ const projects = [
     category: 'Social Media',
     tags: ['Wellness', 'Digital Design'],
     year: '2025',
-    imageUrl: '/projects/1.Spa Ceylon/1.jpeg',
+    imageUrl: '/projects/1.Spa Ceylon/1.png',
     index: 2,
   },
   {
