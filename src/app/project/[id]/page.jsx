@@ -511,9 +511,8 @@ export default function ProjectPage({ params }) {
     return () => { document.body.style.overflow = ''; };
   }, [lightboxOpen]);
 
-  const heroMedia = flatGallery[0];
-  const heroIsVideo = heroMedia && typeof heroMedia === 'object' && heroMedia.type === 'video';
-  const heroSrc = heroIsVideo ? heroMedia.url : (typeof heroMedia === 'object' ? heroMedia?.url : heroMedia);
+  const heroIsVideo = false;
+  const heroSrc = "/Web banner - Mobile.jpg";
 
   return (
     <motion.main
