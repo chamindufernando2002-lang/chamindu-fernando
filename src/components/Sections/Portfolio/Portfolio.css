@@ -10,8 +10,110 @@
   margin-bottom: 3rem;
 }
 
-/* ─── EDITORIAL LIST ──────────────────── */
-/* ─── GRID FOR RECENT WORKS ──────────────────── */
+/* ─── WORK CARD (shared styles) ───────────────────── */
+.work-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.work-card-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #111;
+}
+
+.work-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.work-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.92) 0%,
+    rgba(0,0,0,0.5) 45%,
+    rgba(0,0,0,0.1) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 1.8rem;
+  pointer-events: none;
+}
+
+.work-card-overlay-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.work-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.work-tag {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 20px;
+  padding: 0.22rem 0.72rem;
+  backdrop-filter: blur(4px);
+}
+
+.work-card-cta {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin: 0;
+}
+
+.work-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 0.3rem 0;
+  gap: 1rem;
+}
+
+.work-card-info { display: flex; flex-direction: column; gap: 0.2rem; }
+
+.work-card-title {
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  font-weight: 800;
+  margin: 0;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+.work-card:hover .work-card-title { color: var(--accent-color); }
+
+.work-card-category {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.work-card-year {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: #444;
+  flex-shrink: 0;
+}
+
+/* ─── GRID FOR RECENT WORKS ──────────────────────── */
 .recent-work-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

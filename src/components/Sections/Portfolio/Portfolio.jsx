@@ -5,10 +5,17 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ScrambleText from '../../UI/ScrambleText';
 import './Portfolio.css';
-import '../../../app/work/work.css'; // ensure styles are identical
 
-// Hardcoding the first 3 specific projects logic to match Work exactly
 const recentProjects = [
+  {
+    id: 'motions-videos',
+    title: 'Motions & Videos',
+    category: 'Motion Design',
+    tags: ['Motion', 'Video'],
+    year: '2025',
+    imageUrl: null,
+    videoUrl: '/projects/12.Motions & Videos/1.mp4',
+  },
   {
     id: 'spa-ceylon',
     title: 'Spa Ceylon',
@@ -18,25 +25,23 @@ const recentProjects = [
     imageUrl: '/projects/1.Spa Ceylon/1.jpeg',
   },
   {
-    id: 'tech-ts',
-    title: 'Tech TS',
-    category: 'Branding',
-    tags: ['Identity', 'Digital Design'],
-    year: '2023',
-    imageUrl: '/projects/2.Tech TS/1.jpg',
+    id: 'wassane',
+    title: 'Wassane',
+    category: 'Event Design',
+    tags: ['Social Media', 'Events'],
+    year: '2025',
+    imageUrl: '/projects/3.Wassane/1.jpg',
   },
-  {
-    id: 'food',
-    title: 'Food Menu',
-    category: 'Digital Design',
-    tags: ['Restaurant', 'Social Media'],
-    year: '2024',
-    imageUrl: '/projects/3.Food/1.jpg',
-  }
 ];
 
 const WorkCard = ({ project, index }) => {
   const [hovered, setHovered] = useState(false);
+  const videoRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (hovered && videoRef.current) videoRef.current.play().catch(() => {});
+    else if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; }
+  }, [hovered]);
 
   return (
     <motion.div
@@ -50,16 +55,28 @@ const WorkCard = ({ project, index }) => {
     >
       <Link href={`/project/${project.id}`} className="work-card-link cursor-hover">
         <div className="work-card-img-wrap" style={{ overflow: 'hidden' }}>
-          <motion.img
-            src={project.imageUrl}
-            alt={project.title}
-            animate={{ scale: hovered ? 1.05 : 1 }}
-            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-            draggable={false}
-            loading="lazy"
-            decoding="async"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
-          />
+          {project.videoUrl ? (
+            <video
+              ref={videoRef}
+              src={project.videoUrl}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+          ) : (
+            <motion.img
+              src={project.imageUrl}
+              alt={project.title}
+              animate={{ scale: hovered ? 1.05 : 1 }}
+              transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+              draggable={false}
+              loading="lazy"
+              decoding="async"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
+            />
+          )}
           <motion.div
             className="work-card-overlay"
             animate={{ opacity: hovered ? 1 : 0 }}
@@ -112,7 +129,7 @@ const Portfolio = () => {
           01
         </motion.div>
 
-        {/* Right: header + list */}
+        {/* Right: header + grid */}
         <div style={{ flexGrow: 1, minWidth: 0, width: '100%' }}>
           <motion.div
             className="portfolio-header"
@@ -133,13 +150,12 @@ const Portfolio = () => {
             </div>
           </motion.div>
 
-          {/* 3-column Grid precisely matching /work cards */}
-          <div className="work-grid recent-work-grid">
+          {/* 3-column Grid */}
+          <div className="recent-work-grid">
             {recentProjects.map((item, index) => (
               <WorkCard key={item.id} project={item} index={index} />
             ))}
           </div>
-
         </div>
       </div>
     </section>

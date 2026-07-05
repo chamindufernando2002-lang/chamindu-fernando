@@ -26,3 +26,6 @@ out/
 *.njsproj
 *.sln
 *.sw?
+
+# Large video assets — served via Vercel CLI deploy, not git
+public/projects/12.Motions & Videos/
