@@ -58,7 +58,6 @@ const projectData = {
     description: 'Digital promotional design and branding collateral for the Wassane event, prioritizing engaging social media assets.',
     gallery: [
       '/projects/3.Wassane/WhatsApp Image 2026-04-11 at 23.47.42 (1).jpeg',
-      '/projects/3.Wassane/WhatsApp Image 2026-04-11 at 23.47.42 (2).jpeg',
     ],
   },
   'food': {
